@@ -8,7 +8,7 @@ and save two per-layer activation sets per variant:
   - mean_assistant_token: mean hidden state over the assistant content tokens
 
 Output layout (no top-level metadata.json):
-  activations/<activations_folder>/<variant>/
+  data/activations/<activations_folder>/<variant>/
       last_prompt_token.safetensors
       mean_assistant_token.safetensors
       metadata.json
@@ -146,7 +146,7 @@ def collect_activations(filename, template_variant_dict=None,
                         store_dtype="float32", limit=None,
                         responses_dir="data/responses",
                         templates_dir="data/templates",
-                        activations_dir="activations"):
+                        activations_dir="data/activations"):
     """Collect per-layer activations for selected variants of a responses file."""
     if template_variant_dict is None:
         template_variant_dict = TEMPLATE_VARIANT_DICT
@@ -241,7 +241,7 @@ def main(argv=None):
                         help="Process only the first N rows (pilot).")
     parser.add_argument("--responses-dir", default="data/responses")
     parser.add_argument("--templates-dir", default="data/templates")
-    parser.add_argument("--activations-dir", default="activations")
+    parser.add_argument("--activations-dir", default="data/activations")
     args = parser.parse_args(argv)
 
     collect_activations(

@@ -8,4 +8,4 @@ __pycache__/
 *.py[cod]
 
 # Activation outputs (binary, regenerable)
-activations/
+data/activations/

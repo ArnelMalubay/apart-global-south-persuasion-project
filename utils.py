@@ -80,6 +80,18 @@ def load_model_and_tokenizer(model_id, device, compute_dtype, auth=True):
     if auth:
         ensure_hf_auth()
     resolved = resolve_device(device)
+    if resolved == "cpu":
+        # Default device is "auto", which uses the GPU whenever one is visible.
+        # Falling back to CPU here means torch can't see a CUDA device -- almost
+        # always a CPU-only torch build (torch.__version__ ends in "+cpu").
+        if device == "auto" and not torch.cuda.is_available():
+            print("[warn] No CUDA GPU available to torch -- running on CPU "
+                  "(much slower). If you have an NVIDIA GPU, install a CUDA "
+                  "build of torch. torch version: " + torch.__version__)
+        else:
+            print("[info] Running on CPU.")
+    else:
+        print(f"[info] Running on {resolved}.")
     dtype = DTYPE_MAP[compute_dtype]
     tokenizer = AutoTokenizer.from_pretrained(model_id)
     model = AutoModelForCausalLM.from_pretrained(
