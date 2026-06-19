@@ -16,23 +16,6 @@ DTYPE_MAP = {
 }
 
 
-def load_templates(jsonl_path):
-    """Load a persuasion-template file, keyed by ``ss_technique``.
-
-    Accepts true JSONL (one object per line) or a single JSON object/array,
-    mirroring the loader used during data generation.
-    """
-    with open(jsonl_path, "r", encoding="utf-8") as f:
-        text = f.read().strip()
-    try:
-        records = json.loads(text)
-        if isinstance(records, dict):
-            records = [records]
-    except json.JSONDecodeError:
-        records = [json.loads(line) for line in text.splitlines() if line.strip()]
-    return {obj["ss_technique"]: obj for obj in records}
-
-
 def resolve_device(device):
     """Resolve "auto" to "cuda" when available, else "cpu"."""
     if device == "auto":
@@ -100,18 +83,6 @@ def load_model_and_tokenizer(model_id, device, compute_dtype, auth=True):
     model = model.to(resolved)
     model.eval()
     return model, tokenizer
-
-
-def format_user_prompt(template, *, technique_name, definition, example,
-                       base_prompt, original_query):
-    """Fill a prompt template's named placeholders."""
-    return template.format(
-        technique_name=technique_name,
-        definition=definition,
-        example=example,
-        base_prompt=base_prompt,
-        original_query=original_query,
-    )
 
 
 def find_token_boundaries(tokenizer, user_content, assistant_content):

@@ -1,71 +1,66 @@
-import json as _json
-import os
+import json
 
 from safetensors import safe_open
 
 import collect_activations as ca
-from collect_activations import build_messages, template_none, TEMPLATE_VARIANT_DICT, template_en
+from collect_activations import build_messages, USER_VARIANT_DICT
 from tests.conftest import FakeModel, FakeTokenizer
 
 
-def test_build_messages_none_mapping_uses_base():
-    row = {"id": "x_000", "base": "Do the thing.", "neutral": "Plain statement."}
-    out = build_messages(row, "base", ("None", "None", "None"), {}, "data/templates")
-    user, assistant = out
-    assert user == template_none
-    assert assistant == "Do the thing."
+def test_build_messages_pairs_user_and_variant():
+    row = {"id": "x_000", "user": "How do I stay healthy?",
+           "base": "Exercise daily.", "evidence_based_persuasion": "Studies show..."}
+    user, assistant = build_messages(row, "user", "evidence_based_persuasion")
+    assert user == "How do I stay healthy?"
+    assert assistant == "Studies show..."
+
+
+def test_build_messages_uses_user_tl_field():
+    row = {"id": "x_000", "user_tl": "Paano ako magiging malusog?",
+           "evidence_based_persuasion_tl": "Ipinapakita ng pag-aaral..."}
+    user, assistant = build_messages(
+        row, "user_tl", "evidence_based_persuasion_tl")
+    assert user == "Paano ako magiging malusog?"
+    assert assistant == "Ipinapakita ng pag-aaral..."
 
 
 def test_build_messages_skips_empty_assistant():
-    row = {"id": "x_000", "base": "b", "evidence_based_persuasion": "   "}
-    out = build_messages(
-        row, "evidence_based_persuasion",
-        ("persuasion_top_5", "Evidence-based Persuasion", template_en),
-        {}, "data/templates")
-    assert out is None
+    row = {"id": "x_000", "user": "q", "evidence_based_persuasion": "   "}
+    assert build_messages(row, "user", "evidence_based_persuasion") is None
 
 
-def test_build_messages_technique_branch(tmp_path):
-    # local template file
-    tdir = tmp_path / "templates"
-    tdir.mkdir()
-    (tdir / "tfile.jsonl").write_text(
-        '{"ss_technique": "Tech X", "ss_definition": "def x", "ss_example": "ex x"}',
-        encoding="utf-8")
-    row = {"id": "x_000", "base": "improve this", "v": "the persuasive reply"}
-    cache = {}
-    user, assistant = build_messages(
-        row, "v", ("tfile", "Tech X", template_en), cache, str(tdir))
-    assert assistant == "the persuasive reply"
-    assert "Tech X" in user and "def x" in user and "improve this" in user
-    assert "Quit smoking" in user           # ORIGINAL_QUERY injected
-    assert "tfile" in cache                  # template file cached
+def test_build_messages_skips_missing_user():
+    row = {"id": "x_000", "base": "Exercise daily."}  # no "user" field
+    assert build_messages(row, "user", "base") is None
 
 
 def test_registry_has_expected_variants():
-    assert TEMPLATE_VARIANT_DICT["base"] == ("None", "None", "None")
-    assert TEMPLATE_VARIANT_DICT["evidence_based_persuasion"][0] == "persuasion_top_5"
-    assert TEMPLATE_VARIANT_DICT["evidence_based_persuasion_tl"][1] == "Filipino Evidence-based Persuasion"
+    assert set(USER_VARIANT_DICT) == {"user", "user_tl"}
+    assert "base" in USER_VARIANT_DICT["user"]
+    assert "neutral" in USER_VARIANT_DICT["user"]
+    assert "evidence_based_persuasion" in USER_VARIANT_DICT["user"]
+    assert "evidence_based_persuasion_tl" in USER_VARIANT_DICT["user_tl"]
+    assert "neutral_tl" in USER_VARIANT_DICT["user_tl"]
+    # base is English-only; never paired with the Tagalog user message.
+    assert "base" not in USER_VARIANT_DICT["user_tl"]
 
 
 def test_collect_activations_end_to_end(tmp_path, monkeypatch):
-    # responses file with 2 rows
     responses_dir = tmp_path / "responses"
     responses_dir.mkdir()
     rows = [
-        {"id": "h_000", "base": "Exercise daily.",
-         "evidence_based_persuasion": "Studies show exercise helps a lot."},
-        {"id": "h_001", "base": "Sleep well.",
-         "evidence_based_persuasion": "Research proves sleep is vital here."},
+        {"id": "h_000",
+         "user": "How do I stay healthy?", "user_tl": "Paano maging malusog?",
+         "base": "Exercise daily.",
+         "evidence_based_persuasion": "Studies show exercise helps a lot.",
+         "evidence_based_persuasion_tl": "Ipinapakita ng pag-aaral ito."},
+        {"id": "h_001",
+         "user": "Any sleep tips?", "user_tl": "May tips sa tulog?",
+         "base": "Sleep well.",
+         "evidence_based_persuasion": "Research proves sleep is vital here.",
+         "evidence_based_persuasion_tl": "Pinatutunayan ng pananaliksik ito."},
     ]
-    (responses_dir / "resp.json").write_text(_json.dumps(rows), encoding="utf-8")
-
-    # template file for the persuasion variant
-    templates_dir = tmp_path / "templates"
-    templates_dir.mkdir()
-    (templates_dir / "persuasion_top_5.jsonl").write_text(
-        '{"ss_technique": "Evidence-based Persuasion", "ss_definition": "use data", "ss_example": "ex"}',
-        encoding="utf-8")
+    (responses_dir / "resp.json").write_text(json.dumps(rows), encoding="utf-8")
 
     monkeypatch.setattr(
         ca, "load_model_and_tokenizer",
@@ -75,39 +70,41 @@ def test_collect_activations_end_to_end(tmp_path, monkeypatch):
     ca.collect_activations(
         "resp.json",
         activations_folder="run1",
-        variants=["base", "evidence_based_persuasion"],
+        variants=["base", "evidence_based_persuasion",
+                  "evidence_based_persuasion_tl"],
         device="cpu",
         responses_dir=str(responses_dir),
-        templates_dir=str(templates_dir),
         activations_dir=str(out_root),
     )
 
-    for variant in ["base", "evidence_based_persuasion"]:
+    expected_user_key = {
+        "base": "user",
+        "evidence_based_persuasion": "user",
+        "evidence_based_persuasion_tl": "user_tl",
+    }
+    for variant, user_key in expected_user_key.items():
         vdir = out_root / "run1" / variant
         assert (vdir / "metadata.json").exists()
-        meta = _json.loads((vdir / "metadata.json").read_text(encoding="utf-8"))
+        meta = json.loads((vdir / "metadata.json").read_text(encoding="utf-8"))
         assert meta["num_examples"] == 2
         assert meta["ids"] == ["h_000", "h_001"]
         assert meta["variant"] == variant
+        assert meta["user_key"] == user_key
         assert meta["source_filename"] == "resp.json"
+        assert "template_file" not in meta and "technique_name" not in meta
         with safe_open(str(vdir / "last_prompt_token.safetensors"), framework="pt") as f:
             t = f.get_tensor("activations")
             assert t.shape[0] == 2                 # examples
             assert t.shape[1] == meta["num_layers"] + 1
-            assert _json.loads(f.metadata()["ids"]) == ["h_000", "h_001"]
+            assert json.loads(f.metadata()["ids"]) == ["h_000", "h_001"]
         with safe_open(str(vdir / "mean_assistant_token.safetensors"), framework="pt") as f:
             assert f.get_tensor("activations").shape[0] == 2
-
-    # base used template_none as the prompt template name
-    base_meta = _json.loads((out_root / "run1" / "base" / "metadata.json").read_text(encoding="utf-8"))
-    assert base_meta["user_prompt_template"] == "template_none"
-    assert base_meta["technique_name"] == "None"
 
 
 def test_main_parses_args_and_calls(monkeypatch):
     captured = {}
 
-    def fake_collect(filename, template_variant_dict=None, activations_folder="run", **kw):
+    def fake_collect(filename, user_variant_dict=None, activations_folder="run", **kw):
         captured["filename"] = filename
         captured["activations_folder"] = activations_folder
         captured.update(kw)

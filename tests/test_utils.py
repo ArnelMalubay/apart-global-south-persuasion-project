@@ -1,34 +1,9 @@
 import json
-import json as _json
-import os
 import types
 
 import utils
 from safetensors import safe_open
-from utils import load_templates, resolve_device, save_variant
-
-
-def _write(path, lines):
-    with open(path, "w", encoding="utf-8") as f:
-        f.write("\n".join(lines))
-
-
-def test_load_templates_jsonl(tmp_path):
-    p = tmp_path / "t.jsonl"
-    _write(p, [
-        json.dumps({"ss_technique": "A", "ss_definition": "da", "ss_example": "ea"}),
-        json.dumps({"ss_technique": "B", "ss_definition": "db", "ss_example": "eb"}),
-    ])
-    out = load_templates(str(p))
-    assert set(out) == {"A", "B"}
-    assert out["A"]["ss_definition"] == "da"
-
-
-def test_load_templates_single_object(tmp_path):
-    p = tmp_path / "t.jsonl"
-    _write(p, [json.dumps({"ss_technique": "Solo", "ss_definition": "d", "ss_example": "e"})])
-    out = load_templates(str(p))
-    assert list(out) == ["Solo"]
+from utils import resolve_device, save_variant
 
 
 def test_resolve_device_explicit():
@@ -147,23 +122,6 @@ def test_ensure_hf_auth_prompts_and_logs_in(monkeypatch):
     assert captured["token"] == "pasted-token"          # logged in with the token
 
 
-def test_format_user_prompt_fills_placeholders():
-    from utils import format_user_prompt
-
-    tpl = ('T={technique_name} D={definition} E={example} '
-           'B={base_prompt} O={original_query}')
-    out = format_user_prompt(
-        tpl,
-        technique_name="Logical Appeal",
-        definition="use logic",
-        example="ex text",
-        base_prompt="do the thing",
-        original_query="Quit smoking.",
-    )
-    assert out == ("T=Logical Appeal D=use logic E=ex text "
-                   "B=do the thing O=Quit smoking.")
-
-
 def test_find_token_boundaries(fake_tokenizer):
     from utils import find_token_boundaries
 
@@ -247,13 +205,13 @@ def test_save_variant_writes_files_and_metadata(tmp_path):
     save_variant(str(out_dir), last, mean, ids, metadata)
 
     # metadata.json round-trips
-    meta = _json.loads((out_dir / "metadata.json").read_text(encoding="utf-8"))
+    meta = json.loads((out_dir / "metadata.json").read_text(encoding="utf-8"))
     assert meta["variant"] == "base"
 
     # safetensors embeds ids + source filename and the right tensor
     with safe_open(str(out_dir / "last_prompt_token.safetensors"), framework="pt") as f:
         md = f.metadata()
-        assert _json.loads(md["ids"]) == ids
+        assert json.loads(md["ids"]) == ids
         assert md["source_filename"] == "persuasion_dataset_complete.json"
         assert md["activation_type"] == "last_prompt_token"
         assert f.get_tensor("activations").shape == (3, 4, 8)
