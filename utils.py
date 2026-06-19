@@ -112,10 +112,16 @@ def find_token_boundaries(tokenizer, user_content, assistant_content):
     user_msg = {"role": "user", "content": user_content}
     assistant_msg = {"role": "assistant", "content": assistant_content}
 
+    # return_dict=False is required: transformers v5 apply_chat_template with
+    # tokenize=True returns a BatchEncoding dict by default, and list(dict)
+    # would collapse to its keys ('input_ids', 'attention_mask') instead of the
+    # token ids -- yielding an empty assistant span for every example.
     prompt_ids = list(tokenizer.apply_chat_template(
-        [user_msg], add_generation_prompt=True, tokenize=True))
+        [user_msg], add_generation_prompt=True, tokenize=True,
+        return_dict=False))
     full_ids = list(tokenizer.apply_chat_template(
-        [user_msg, assistant_msg], add_generation_prompt=False, tokenize=True))
+        [user_msg, assistant_msg], add_generation_prompt=False, tokenize=True,
+        return_dict=False))
 
     if full_ids[:len(prompt_ids)] != prompt_ids:
         raise ValueError("Prompt is not a prefix of the full tokenized sequence")

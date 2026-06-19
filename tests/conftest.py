@@ -28,7 +28,8 @@ class FakeTokenizer:
         return out
 
     def apply_chat_template(self, messages, add_generation_prompt=False,
-                            tokenize=True, return_tensors=None):
+                            tokenize=True, return_tensors=None,
+                            return_dict=True):
         ids = [self.BOS]
         for m in messages:
             role = self.USER if m["role"] == "user" else self.MODEL
@@ -37,6 +38,11 @@ class FakeTokenizer:
             ids += [self.EOT, self.NL]
         if add_generation_prompt:
             ids += [self.MODEL, self.NL]
+        # Mirror transformers v5: with tokenize=True the default is a dict
+        # (BatchEncoding with input_ids/attention_mask), NOT a bare id list.
+        # Callers must pass return_dict=False to get the flat list of ids.
+        if return_dict:
+            return {"input_ids": ids, "attention_mask": [1] * len(ids)}
         return ids
 
     def convert_tokens_to_ids(self, token):

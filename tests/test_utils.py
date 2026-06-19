@@ -135,7 +135,8 @@ def test_find_token_boundaries(fake_tokenizer):
 
     # prompt-only (with generation prompt) must be a prefix of full_ids
     prompt_ids = fake_tokenizer.apply_chat_template(
-        [{"role": "user", "content": user}], add_generation_prompt=True)
+        [{"role": "user", "content": user}], add_generation_prompt=True,
+        return_dict=False)
     assert full_ids[:len(prompt_ids)] == prompt_ids
     assert last_idx == len(prompt_ids) - 1
     # last prompt token is the structural newline after <start_of_turn>model
@@ -147,6 +148,19 @@ def test_find_token_boundaries(fake_tokenizer):
     span = full_ids[a_start:a_end]
     assert fake_tokenizer.EOT not in span
     assert fake_tokenizer.NL not in span
+
+
+def test_find_token_boundaries_handles_dict_returning_tokenizer(fake_tokenizer):
+    # Regression: transformers v5 apply_chat_template(tokenize=True) returns a
+    # BatchEncoding dict by default. find_token_boundaries must request a flat
+    # id list (return_dict=False) rather than collapsing the dict to its keys,
+    # which previously produced an empty assistant span for every row.
+    from utils import find_token_boundaries
+
+    full_ids, last_idx, a_start, a_end = find_token_boundaries(
+        fake_tokenizer, "a b c", "d e f g")
+    assert all(isinstance(t, int) for t in full_ids)
+    assert a_end - a_start == 4  # four assistant content words, non-empty span
 
 
 def test_extract_activations_values(fake_model):
