@@ -46,3 +46,15 @@ def load_model_and_tokenizer(model_id, device, compute_dtype):
     model = model.to(resolved)
     model.eval()
     return model, tokenizer
+
+
+def format_user_prompt(template, *, technique_name, definition, example,
+                       base_prompt, original_query):
+    """Fill a prompt template's named placeholders."""
+    return template.format(
+        technique_name=technique_name,
+        definition=definition,
+        example=example,
+        base_prompt=base_prompt,
+        original_query=original_query,
+    )

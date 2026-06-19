@@ -73,3 +73,20 @@ def test_load_model_and_tokenizer_wiring(monkeypatch):
     assert calls["to"] == "cpu"
     assert calls["eval"] is True
     assert tok.name == "tok"
+
+
+def test_format_user_prompt_fills_placeholders():
+    from utils import format_user_prompt
+
+    tpl = ('T={technique_name} D={definition} E={example} '
+           'B={base_prompt} O={original_query}')
+    out = format_user_prompt(
+        tpl,
+        technique_name="Logical Appeal",
+        definition="use logic",
+        example="ex text",
+        base_prompt="do the thing",
+        original_query="Quit smoking.",
+    )
+    assert out == ("T=Logical Appeal D=use logic E=ex text "
+                   "B=do the thing O=Quit smoking.")
