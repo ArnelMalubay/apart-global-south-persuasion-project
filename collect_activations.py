@@ -1,4 +1,4 @@
-"""Collect residual-stream activations from Gemma-SEA-LION-v4.5-E2B-IT.
+r"""Collect residual-stream activations from Gemma-SEA-LION-v4.5-E2B-IT.
 
 For each response variant we reconstruct the conversation that produced it
 (faithful user prompt + the stored assistant text), run a single forward pass,
@@ -13,26 +13,21 @@ Output layout (no top-level metadata.json):
       mean_assistant_token.safetensors
       metadata.json
 
-Sample terminal runs (from the repo root):
+Sample terminal runs (from the repo root). Each command is a single line so it
+works in any shell. On Windows PowerShell, line continuation is a backtick (`)
+not a backslash (\); on bash/zsh it is a backslash. To avoid surprises, prefer
+these one-line forms:
 
   # Full run, all variants in the registry:
-  python collect_activations.py \
-      --filename persuasion_dataset_complete.json \
-      --activations-folder run1
+  python collect_activations.py --filename persuasion_dataset_complete.json --activations-folder run1
 
-  # Selected variants only, 10-row pilot, force CPU:
-  python collect_activations.py \
-      --filename persuasion_dataset_complete.json \
-      --activations-folder pilot \
-      --variants base evidence_based_persuasion evidence_based_persuasion_tl \
-      --limit 10 \
-      --device cpu
+  # Selected variants only, 3-row pilot, force CPU:
+  python collect_activations.py --filename persuasion_dataset_complete.json --activations-folder pilot --variants base evidence_based_persuasion evidence_based_persuasion_tl --limit 3 --device cpu
 
   # Override model / dtypes:
-  python collect_activations.py \
-      --filename persuasion_dataset_complete.json \
-      --activations-folder run_fp16 \
-      --compute-dtype bfloat16 --store-dtype float16
+  python collect_activations.py --filename persuasion_dataset_complete.json --activations-folder run_fp16 --compute-dtype bfloat16 --store-dtype float16
+
+  # Multi-line is fine too -- use ` (backtick) on PowerShell, \ (backslash) on bash.
 """
 import argparse
 import json
