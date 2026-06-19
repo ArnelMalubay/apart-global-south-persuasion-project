@@ -1,1 +1,8 @@
 .env
+
+# Documentation / specs
+docs/
+
+# Python
+__pycache__/
+*.py[cod]
