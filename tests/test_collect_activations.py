@@ -1,6 +1,11 @@
+import json as _json
 import os
 
+from safetensors import safe_open
+
+import collect_activations as ca
 from collect_activations import build_messages, template_none, TEMPLATE_VARIANT_DICT, template_en
+from tests.conftest import FakeModel, FakeTokenizer
 
 
 def test_build_messages_none_mapping_uses_base():
@@ -41,3 +46,59 @@ def test_registry_has_expected_variants():
     assert TEMPLATE_VARIANT_DICT["base"] == ("None", "None", "None")
     assert TEMPLATE_VARIANT_DICT["evidence_based_persuasion"][0] == "persuasion_top_5"
     assert TEMPLATE_VARIANT_DICT["evidence_based_persuasion_tl"][1] == "Filipino Evidence-based Persuasion"
+
+
+def test_collect_activations_end_to_end(tmp_path, monkeypatch):
+    # responses file with 2 rows
+    responses_dir = tmp_path / "responses"
+    responses_dir.mkdir()
+    rows = [
+        {"id": "h_000", "base": "Exercise daily.",
+         "evidence_based_persuasion": "Studies show exercise helps a lot."},
+        {"id": "h_001", "base": "Sleep well.",
+         "evidence_based_persuasion": "Research proves sleep is vital here."},
+    ]
+    (responses_dir / "resp.json").write_text(_json.dumps(rows), encoding="utf-8")
+
+    # template file for the persuasion variant
+    templates_dir = tmp_path / "templates"
+    templates_dir.mkdir()
+    (templates_dir / "persuasion_top_5.jsonl").write_text(
+        '{"ss_technique": "Evidence-based Persuasion", "ss_definition": "use data", "ss_example": "ex"}',
+        encoding="utf-8")
+
+    monkeypatch.setattr(
+        ca, "load_model_and_tokenizer",
+        lambda *a, **k: (FakeModel(), FakeTokenizer()))
+
+    out_root = tmp_path / "activations"
+    ca.collect_activations(
+        "resp.json",
+        activations_folder="run1",
+        variants=["base", "evidence_based_persuasion"],
+        device="cpu",
+        responses_dir=str(responses_dir),
+        templates_dir=str(templates_dir),
+        activations_dir=str(out_root),
+    )
+
+    for variant in ["base", "evidence_based_persuasion"]:
+        vdir = out_root / "run1" / variant
+        assert (vdir / "metadata.json").exists()
+        meta = _json.loads((vdir / "metadata.json").read_text(encoding="utf-8"))
+        assert meta["num_examples"] == 2
+        assert meta["ids"] == ["h_000", "h_001"]
+        assert meta["variant"] == variant
+        assert meta["source_filename"] == "resp.json"
+        with safe_open(str(vdir / "last_prompt_token.safetensors"), framework="pt") as f:
+            t = f.get_tensor("activations")
+            assert t.shape[0] == 2                 # examples
+            assert t.shape[1] == meta["num_layers"] + 1
+            assert _json.loads(f.metadata()["ids"]) == ["h_000", "h_001"]
+        with safe_open(str(vdir / "mean_assistant_token.safetensors"), framework="pt") as f:
+            assert f.get_tensor("activations").shape[0] == 2
+
+    # base used template_none as the prompt template name
+    base_meta = _json.loads((out_root / "run1" / "base" / "metadata.json").read_text(encoding="utf-8"))
+    assert base_meta["user_prompt_template"] == "template_none"
+    assert base_meta["technique_name"] == "None"

@@ -137,3 +137,89 @@ def build_messages(row, variant, mapping, templates_cache, templates_dir):
         original_query=ORIGINAL_QUERY,
     )
     return user_content, assistant_content
+
+
+def _template_name(user_prompt_template):
+    """Readable name for a template object, for metadata."""
+    return _TEMPLATE_NAMES.get(id(user_prompt_template), "custom")
+
+
+def collect_activations(filename, template_variant_dict=None,
+                        activations_folder="run", *, variants=None,
+                        model_id="aisingapore/Gemma-SEA-LION-v4.5-E2B-IT",
+                        device="auto", compute_dtype="bfloat16",
+                        store_dtype="float32", limit=None,
+                        responses_dir="data/responses",
+                        templates_dir="data/templates",
+                        activations_dir="activations"):
+    """Collect per-layer activations for selected variants of a responses file."""
+    if template_variant_dict is None:
+        template_variant_dict = TEMPLATE_VARIANT_DICT
+
+    with open(os.path.join(responses_dir, filename), "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if limit is not None:
+        data = data[:limit]
+
+    selected = variants if variants is not None else list(template_variant_dict)
+    store_dt = DTYPE_MAP[store_dtype]
+
+    print(f"Loading model {model_id} ...")
+    model, tokenizer = load_model_and_tokenizer(model_id, device, compute_dtype)
+
+    templates_cache = {}
+    for variant in selected:
+        mapping = template_variant_dict[variant]
+        last_list, mean_list, ids = [], [], []
+
+        for row in tqdm(data, desc=f"{variant}"):
+            built = build_messages(row, variant, mapping, templates_cache, templates_dir)
+            if built is None:
+                continue
+            user_content, assistant_content = built
+            full_ids, last_idx, a_start, a_end = find_token_boundaries(
+                tokenizer, user_content, assistant_content)
+            try:
+                last_vec, mean_vec = extract_activations(
+                    model, full_ids, last_idx, a_start, a_end)
+            except ValueError as exc:
+                print(f"[warn] skipping {row.get('id')} ({variant}): {exc}")
+                continue
+            last_list.append(last_vec.to(store_dt))
+            mean_list.append(mean_vec.to(store_dt))
+            ids.append(row["id"])
+
+        if not ids:
+            print(f"[warn] no examples collected for variant '{variant}', skipping")
+            continue
+
+        import torch  # local import to keep top-level deps explicit
+        last_tensor = torch.stack(last_list, dim=0)
+        mean_tensor = torch.stack(mean_list, dim=0)
+        num_hidden_states = last_tensor.shape[1]
+        template_file, technique_name, user_prompt_template = mapping
+        is_none = (template_file, technique_name, user_prompt_template) == ("None", "None", "None")
+
+        metadata = {
+            "variant": variant,
+            "template_file": "None" if is_none else template_file,
+            "technique_name": "None" if is_none else technique_name,
+            "user_prompt_template": "template_none" if is_none else _template_name(user_prompt_template),
+            "source_filename": filename,
+            "model_id": model_id,
+            "num_examples": len(ids),
+            "ids": ids,
+            "num_layers": num_hidden_states - 1,
+            "hidden_dim": last_tensor.shape[2],
+            "compute_dtype": compute_dtype,
+            "store_dtype": store_dtype,
+            "activations": {
+                "last_prompt_token": "hidden state at the final prompt token "
+                                     "(generation-prompt boundary)",
+                "mean_assistant_token": "mean hidden state over assistant content tokens",
+            },
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+        }
+        out_dir = os.path.join(activations_dir, activations_folder, variant)
+        save_variant(out_dir, last_tensor, mean_tensor, ids, metadata)
+        print(f"[done] {variant}: {len(ids)} examples -> {out_dir}")
