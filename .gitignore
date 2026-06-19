@@ -13,3 +13,8 @@ persuasion_env/
 .venv/
 venv/
 env/
+
+# Activation outputs (large binaries — shared out-of-band, not via git).
+# The folder itself stays tracked via .gitkeep so runs have somewhere to write.
+data/activations/*
+!data/activations/.gitkeep
