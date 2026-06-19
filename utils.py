@@ -1,8 +1,11 @@
 """Reusable helpers for the activation-collection pipeline."""
+import getpass
 import json
 import os
+import sys
 
 import torch
+from huggingface_hub import get_token, login as hf_login
 from safetensors.torch import save_file
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -37,8 +40,45 @@ def resolve_device(device):
     return device
 
 
-def load_model_and_tokenizer(model_id, device, compute_dtype):
-    """Load tokenizer + causal LM, cast to dtype, move to device, eval mode."""
+def ensure_hf_auth(interactive=True):
+    """Ensure a Hugging Face token is available for authenticated Hub requests.
+
+    Authenticated requests get higher rate limits and faster downloads, and are
+    required for gated models. Resolution order:
+      1. An existing token (``HF_TOKEN`` env var or a cached ``huggingface-cli
+         login``) — used as-is, no prompt.
+      2. Otherwise, when running in an interactive terminal, prompt once for an
+         access token (input hidden, like a password) and log in with it. The
+         token is cached by ``huggingface_hub`` for subsequent runs.
+
+    Note: the Hub authenticates with an *access token*
+    (https://huggingface.co/settings/tokens), not an account password.
+
+    Returns the token in use, or ``None`` if unauthenticated (e.g. no token and
+    not an interactive terminal).
+    """
+    token = get_token()
+    if token:
+        return token
+    if interactive and sys.stdin.isatty():
+        entered = getpass.getpass(
+            "Enter your Hugging Face access token "
+            "(https://huggingface.co/settings/tokens; input hidden): "
+        ).strip()
+        if entered:
+            hf_login(token=entered)
+            return entered
+    return None
+
+
+def load_model_and_tokenizer(model_id, device, compute_dtype, auth=True):
+    """Load tokenizer + causal LM, cast to dtype, move to device, eval mode.
+
+    When ``auth`` is true, ensures a Hugging Face token is available first
+    (prompting in an interactive terminal if none is cached).
+    """
+    if auth:
+        ensure_hf_auth()
     resolved = resolve_device(device)
     dtype = DTYPE_MAP[compute_dtype]
     tokenizer = AutoTokenizer.from_pretrained(model_id)

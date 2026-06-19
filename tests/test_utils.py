@@ -68,6 +68,8 @@ def test_load_model_and_tokenizer_wiring(monkeypatch):
                         staticmethod(fake_model_from_pretrained))
     monkeypatch.setattr(utils.AutoTokenizer, "from_pretrained",
                         staticmethod(fake_tok_from_pretrained))
+    # Neutralize auth so the wiring test never touches the real HF Hub / prompts.
+    monkeypatch.setattr(utils, "ensure_hf_auth", lambda *a, **k: "tok")
 
     model, tok = utils.load_model_and_tokenizer("some/model", "cpu", "bfloat16")
     assert calls["model_id"] == "some/model"
@@ -75,6 +77,35 @@ def test_load_model_and_tokenizer_wiring(monkeypatch):
     assert calls["to"] == "cpu"
     assert calls["eval"] is True
     assert tok.name == "tok"
+
+
+def test_ensure_hf_auth_uses_existing_token(monkeypatch):
+    calls = {"login": 0}
+    monkeypatch.setattr(utils, "get_token", lambda: "cached-token")
+    monkeypatch.setattr(utils, "hf_login",
+                        lambda **k: calls.__setitem__("login", calls["login"] + 1))
+    assert utils.ensure_hf_auth() == "cached-token"
+    assert calls["login"] == 0  # no prompt, no login when a token already exists
+
+
+def test_ensure_hf_auth_non_interactive_returns_none(monkeypatch):
+    calls = {"login": 0}
+    monkeypatch.setattr(utils, "get_token", lambda: None)
+    monkeypatch.setattr(utils, "hf_login",
+                        lambda **k: calls.__setitem__("login", calls["login"] + 1))
+    assert utils.ensure_hf_auth(interactive=False) is None
+    assert calls["login"] == 0
+
+
+def test_ensure_hf_auth_prompts_and_logs_in(monkeypatch):
+    captured = {}
+    monkeypatch.setattr(utils, "get_token", lambda: None)
+    monkeypatch.setattr(utils.sys.stdin, "isatty", lambda: True)
+    monkeypatch.setattr(utils.getpass, "getpass", lambda prompt="": "  pasted-token  ")
+    monkeypatch.setattr(utils, "hf_login",
+                        lambda **k: captured.__setitem__("token", k.get("token")))
+    assert utils.ensure_hf_auth() == "pasted-token"   # stripped
+    assert captured["token"] == "pasted-token"          # logged in with the token
 
 
 def test_format_user_prompt_fills_placeholders():
