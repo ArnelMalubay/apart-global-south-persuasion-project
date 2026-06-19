@@ -79,6 +79,45 @@ def test_load_model_and_tokenizer_wiring(monkeypatch):
     assert tok.name == "tok"
 
 
+def _stub_model_loading(monkeypatch, calls):
+    """Stub from_pretrained + auth so load_model_and_tokenizer runs offline."""
+    class FakeModelObj:
+        def to(self, dev):
+            calls["to"] = dev
+            return self
+
+        def eval(self):
+            return self
+
+    monkeypatch.setattr(utils.AutoModelForCausalLM, "from_pretrained",
+                        staticmethod(lambda model_id, **kw: FakeModelObj()))
+    monkeypatch.setattr(utils.AutoTokenizer, "from_pretrained",
+                        staticmethod(lambda model_id, **kw: types.SimpleNamespace(name="tok")))
+    monkeypatch.setattr(utils, "ensure_hf_auth", lambda *a, **k: "tok")
+
+
+def test_load_model_and_tokenizer_uses_gpu_when_available(monkeypatch, capsys):
+    # device="auto" must put the model on the GPU when CUDA is available.
+    calls = {}
+    _stub_model_loading(monkeypatch, calls)
+    monkeypatch.setattr(utils.torch.cuda, "is_available", lambda: True)
+
+    utils.load_model_and_tokenizer("some/model", "auto", "bfloat16")
+    assert calls["to"] == "cuda"
+    assert "Running on cuda" in capsys.readouterr().out
+
+
+def test_load_model_and_tokenizer_warns_on_cpu_fallback(monkeypatch, capsys):
+    # device="auto" with no CUDA must fall back to CPU and warn loudly.
+    calls = {}
+    _stub_model_loading(monkeypatch, calls)
+    monkeypatch.setattr(utils.torch.cuda, "is_available", lambda: False)
+
+    utils.load_model_and_tokenizer("some/model", "auto", "bfloat16")
+    assert calls["to"] == "cpu"
+    assert "No CUDA GPU available" in capsys.readouterr().out
+
+
 def test_ensure_hf_auth_uses_existing_token(monkeypatch):
     calls = {"login": 0}
     monkeypatch.setattr(utils, "get_token", lambda: "cached-token")
