@@ -1,6 +1,15 @@
 # Activation-collection pipeline dependencies.
 # Tested on Python 3.13 (Windows, RTX 4060 8GB VRAM).
-torch>=2.4
+#
+# torch is pinned to the CUDA 12.6 build so a fresh `pip install -r requirements.txt`
+# uses the GPU. The --extra-index-url below is where the +cu126 wheel is hosted;
+# everything else still comes from PyPI.
+#   - If your NVIDIA driver is older, swap cu126 for a CUDA version it supports
+#     (see https://pytorch.org/get-started/locally/), e.g. cu124.
+#   - For a CPU-only machine, replace the two torch lines with a plain `torch>=2.4`
+#     (the +cu126 wheel also runs fine on CPU, just larger to download).
+--extra-index-url https://download.pytorch.org/whl/cu126
+torch==2.12.0+cu126
 transformers>=4.53        # Gemma 3n / E2B support; tested on 5.8.1
 huggingface_hub>=0.23     # Hub auth (get_token/login) + model downloads
 safetensors>=0.4

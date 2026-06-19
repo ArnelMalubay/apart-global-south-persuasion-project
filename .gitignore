@@ -7,5 +7,12 @@ docs/
 __pycache__/
 *.py[cod]
 
+# Virtual environments
+apart_env/
+persuasion_env/
+.venv/
+venv/
+env/
+
 # Activation outputs (binary, regenerable)
 data/activations/
