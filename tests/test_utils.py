@@ -114,3 +114,32 @@ def test_find_token_boundaries(fake_tokenizer):
     span = full_ids[a_start:a_end]
     assert fake_tokenizer.EOT not in span
     assert fake_tokenizer.NL not in span
+
+
+def test_extract_activations_values(fake_model):
+    import pytest
+    from utils import extract_activations
+
+    # FakeModel: hidden_states[l][0, pos, :] == pos + l
+    ids = [10, 11, 12, 13, 14]  # seq length 5
+    last_idx = 4
+    a_start, a_end = 1, 4  # positions 1,2,3 -> mean position 2.0
+    last_vec, mean_vec = extract_activations(
+        fake_model, ids, last_idx, a_start, a_end)
+
+    # 3 layers + 1 embedding = 4 rows; hidden dim 8
+    assert last_vec.shape == (4, 8)
+    assert mean_vec.shape == (4, 8)
+    assert last_vec.dtype == utils.torch.float32
+    # layer l: last token value == last_idx + l
+    for l in range(4):
+        assert utils.torch.allclose(last_vec[l], utils.torch.full((8,), float(last_idx + l)))
+        assert utils.torch.allclose(mean_vec[l], utils.torch.full((8,), float(2.0 + l)))
+
+
+def test_extract_activations_empty_span_raises(fake_model):
+    import pytest
+    from utils import extract_activations
+
+    with pytest.raises(ValueError):
+        extract_activations(fake_model, [10, 11, 12], 2, 2, 2)

@@ -91,3 +91,24 @@ def find_token_boundaries(tokenizer, user_content, assistant_content):
             break
 
     return full_ids, last_prompt_idx, assistant_start, assistant_end
+
+
+def extract_activations(model, input_ids, last_prompt_idx,
+                        assistant_start, assistant_end):
+    """Run one forward pass and reduce hidden states to two per-layer vectors.
+
+    Returns ``(last_prompt_vec, mean_assistant_vec)``, each ``[num_layers+1,
+    hidden_dim]`` float32 on CPU.
+    """
+    if assistant_end <= assistant_start:
+        raise ValueError("Empty assistant token span")
+
+    ids = torch.tensor([list(input_ids)], device=model.device)
+    with torch.no_grad():
+        out = model(ids, output_hidden_states=True, use_cache=False)
+
+    # stack -> [num_layers+1, seq, hidden]
+    stacked = torch.stack(out.hidden_states, dim=0).squeeze(1)
+    last_vec = stacked[:, last_prompt_idx, :].float().cpu()
+    mean_vec = stacked[:, assistant_start:assistant_end, :].mean(dim=1).float().cpu()
+    return last_vec, mean_vec
