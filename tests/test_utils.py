@@ -1,9 +1,11 @@
 import json
+import json as _json
 import os
 import types
 
 import utils
-from utils import load_templates, resolve_device
+from safetensors import safe_open
+from utils import load_templates, resolve_device, save_variant
 
 
 def _write(path, lines):
@@ -143,3 +145,34 @@ def test_extract_activations_empty_span_raises(fake_model):
 
     with pytest.raises(ValueError):
         extract_activations(fake_model, [10, 11, 12], 2, 2, 2)
+
+
+def test_save_variant_writes_files_and_metadata(tmp_path):
+    last = utils.torch.zeros(3, 4, 8)   # [examples, layers+1, hidden]
+    mean = utils.torch.ones(3, 4, 8)
+    ids = ["a_000", "a_001", "a_002"]
+    metadata = {
+        "variant": "base",
+        "source_filename": "persuasion_dataset_complete.json",
+        "num_layers": 3,
+        "hidden_dim": 8,
+        "store_dtype": "float32",
+        "model_id": "x/y",
+    }
+    out_dir = tmp_path / "run1" / "base"
+    save_variant(str(out_dir), last, mean, ids, metadata)
+
+    # metadata.json round-trips
+    meta = _json.loads((out_dir / "metadata.json").read_text(encoding="utf-8"))
+    assert meta["variant"] == "base"
+
+    # safetensors embeds ids + source filename and the right tensor
+    with safe_open(str(out_dir / "last_prompt_token.safetensors"), framework="pt") as f:
+        md = f.metadata()
+        assert _json.loads(md["ids"]) == ids
+        assert md["source_filename"] == "persuasion_dataset_complete.json"
+        assert md["activation_type"] == "last_prompt_token"
+        assert f.get_tensor("activations").shape == (3, 4, 8)
+
+    with safe_open(str(out_dir / "mean_assistant_token.safetensors"), framework="pt") as f:
+        assert f.metadata()["activation_type"] == "mean_assistant_token"

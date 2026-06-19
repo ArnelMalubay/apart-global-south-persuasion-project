@@ -1,7 +1,9 @@
 """Reusable helpers for the activation-collection pipeline."""
 import json
+import os
 
 import torch
+from safetensors.torch import save_file
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 DTYPE_MAP = {
@@ -112,3 +114,32 @@ def extract_activations(model, input_ids, last_prompt_idx,
     last_vec = stacked[:, last_prompt_idx, :].float().cpu()
     mean_vec = stacked[:, assistant_start:assistant_end, :].mean(dim=1).float().cpu()
     return last_vec, mean_vec
+
+
+def save_variant(out_dir, last_token_tensor, mean_tensor, ids, metadata):
+    """Write the two activation safetensors plus metadata.json for one variant."""
+    os.makedirs(out_dir, exist_ok=True)
+
+    def _st_meta(activation_type):
+        return {
+            "ids": json.dumps(ids),
+            "source_filename": str(metadata["source_filename"]),
+            "variant": str(metadata["variant"]),
+            "activation_type": activation_type,
+            "num_layers": str(metadata["num_layers"]),
+            "hidden_dim": str(metadata["hidden_dim"]),
+            "store_dtype": str(metadata["store_dtype"]),
+        }
+
+    save_file(
+        {"activations": last_token_tensor.contiguous()},
+        os.path.join(out_dir, "last_prompt_token.safetensors"),
+        metadata=_st_meta("last_prompt_token"),
+    )
+    save_file(
+        {"activations": mean_tensor.contiguous()},
+        os.path.join(out_dir, "mean_assistant_token.safetensors"),
+        metadata=_st_meta("mean_assistant_token"),
+    )
+    with open(os.path.join(out_dir, "metadata.json"), "w", encoding="utf-8") as f:
+        json.dump(metadata, f, ensure_ascii=False, indent=2)
