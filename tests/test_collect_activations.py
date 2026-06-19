@@ -102,3 +102,38 @@ def test_collect_activations_end_to_end(tmp_path, monkeypatch):
     base_meta = _json.loads((out_root / "run1" / "base" / "metadata.json").read_text(encoding="utf-8"))
     assert base_meta["user_prompt_template"] == "template_none"
     assert base_meta["technique_name"] == "None"
+
+
+def test_main_parses_args_and_calls(monkeypatch):
+    captured = {}
+
+    def fake_collect(filename, template_variant_dict=None, activations_folder="run", **kw):
+        captured["filename"] = filename
+        captured["activations_folder"] = activations_folder
+        captured.update(kw)
+
+    monkeypatch.setattr(ca, "collect_activations", fake_collect)
+    ca.main([
+        "--filename", "resp.json",
+        "--activations-folder", "run9",
+        "--variants", "base", "logical_appeal_persuasion",
+        "--limit", "5",
+        "--device", "cpu",
+        "--compute-dtype", "bfloat16",
+        "--store-dtype", "float16",
+    ])
+    assert captured["filename"] == "resp.json"
+    assert captured["activations_folder"] == "run9"
+    assert captured["variants"] == ["base", "logical_appeal_persuasion"]
+    assert captured["limit"] == 5
+    assert captured["device"] == "cpu"
+    assert captured["store_dtype"] == "float16"
+
+
+def test_main_variants_default_none(monkeypatch):
+    captured = {}
+    monkeypatch.setattr(
+        ca, "collect_activations",
+        lambda filename, activations_folder="run", **kw: captured.update(kw))
+    ca.main(["--filename", "resp.json", "--activations-folder", "run1"])
+    assert captured["variants"] is None

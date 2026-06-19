@@ -223,3 +223,47 @@ def collect_activations(filename, template_variant_dict=None,
         out_dir = os.path.join(activations_dir, activations_folder, variant)
         save_variant(out_dir, last_tensor, mean_tensor, ids, metadata)
         print(f"[done] {variant}: {len(ids)} examples -> {out_dir}")
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(
+        description="Collect residual-stream activations for persuasion responses.")
+    parser.add_argument("--filename", required=True,
+                        help="Responses JSON filename under --responses-dir.")
+    parser.add_argument("--activations-folder", required=True,
+                        help="Output subfolder under --activations-dir.")
+    parser.add_argument("--variants", nargs="+", default=None,
+                        help="Subset of registry variant keys (default: all).")
+    parser.add_argument("--model-id",
+                        default="aisingapore/Gemma-SEA-LION-v4.5-E2B-IT")
+    parser.add_argument("--device", default="auto",
+                        choices=["auto", "cuda", "cpu"])
+    parser.add_argument("--compute-dtype", default="bfloat16",
+                        choices=["float32", "float16", "bfloat16"])
+    parser.add_argument("--store-dtype", default="float32",
+                        choices=["float32", "float16", "bfloat16"])
+    parser.add_argument("--limit", type=int, default=None,
+                        help="Process only the first N rows (pilot).")
+    parser.add_argument("--responses-dir", default="data/responses")
+    parser.add_argument("--templates-dir", default="data/templates")
+    parser.add_argument("--activations-dir", default="activations")
+    args = parser.parse_args(argv)
+
+    collect_activations(
+        filename=args.filename,
+        template_variant_dict=TEMPLATE_VARIANT_DICT,
+        activations_folder=args.activations_folder,
+        variants=args.variants,
+        model_id=args.model_id,
+        device=args.device,
+        compute_dtype=args.compute_dtype,
+        store_dtype=args.store_dtype,
+        limit=args.limit,
+        responses_dir=args.responses_dir,
+        templates_dir=args.templates_dir,
+        activations_dir=args.activations_dir,
+    )
+
+
+if __name__ == "__main__":
+    main()
