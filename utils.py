@@ -58,3 +58,36 @@ def format_user_prompt(template, *, technique_name, definition, example,
         base_prompt=base_prompt,
         original_query=original_query,
     )
+
+
+def find_token_boundaries(tokenizer, user_content, assistant_content):
+    """Locate the last prompt token and the assistant content span.
+
+    Returns ``(full_ids, last_prompt_idx, assistant_start, assistant_end)``.
+    The assistant span has the trailing ``<end_of_turn>`` and any trailing
+    whitespace-only tokens trimmed.
+    """
+    user_msg = {"role": "user", "content": user_content}
+    assistant_msg = {"role": "assistant", "content": assistant_content}
+
+    prompt_ids = list(tokenizer.apply_chat_template(
+        [user_msg], add_generation_prompt=True, tokenize=True))
+    full_ids = list(tokenizer.apply_chat_template(
+        [user_msg, assistant_msg], add_generation_prompt=False, tokenize=True))
+
+    if full_ids[:len(prompt_ids)] != prompt_ids:
+        raise ValueError("Prompt is not a prefix of the full tokenized sequence")
+
+    last_prompt_idx = len(prompt_ids) - 1
+    assistant_start = len(prompt_ids)
+
+    eot_id = tokenizer.convert_tokens_to_ids("<end_of_turn>")
+    assistant_end = len(full_ids)
+    while assistant_end > assistant_start:
+        tok = full_ids[assistant_end - 1]
+        if tok == eot_id or tokenizer.decode([tok]).strip() == "":
+            assistant_end -= 1
+        else:
+            break
+
+    return full_ids, last_prompt_idx, assistant_start, assistant_end

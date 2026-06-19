@@ -90,3 +90,27 @@ def test_format_user_prompt_fills_placeholders():
     )
     assert out == ("T=Logical Appeal D=use logic E=ex text "
                    "B=do the thing O=Quit smoking.")
+
+
+def test_find_token_boundaries(fake_tokenizer):
+    from utils import find_token_boundaries
+
+    user = "hello there friend"
+    assistant = "this is the reply"
+    full_ids, last_idx, a_start, a_end = find_token_boundaries(
+        fake_tokenizer, user, assistant)
+
+    # prompt-only (with generation prompt) must be a prefix of full_ids
+    prompt_ids = fake_tokenizer.apply_chat_template(
+        [{"role": "user", "content": user}], add_generation_prompt=True)
+    assert full_ids[:len(prompt_ids)] == prompt_ids
+    assert last_idx == len(prompt_ids) - 1
+    # last prompt token is the structural newline after <start_of_turn>model
+    assert full_ids[last_idx] == fake_tokenizer.NL
+
+    # assistant span covers exactly the 4 content words, no EOT/newline
+    assert a_start == len(prompt_ids)
+    assert a_end - a_start == 4
+    span = full_ids[a_start:a_end]
+    assert fake_tokenizer.EOT not in span
+    assert fake_tokenizer.NL not in span
