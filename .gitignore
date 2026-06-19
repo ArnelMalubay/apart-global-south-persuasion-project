@@ -13,6 +13,3 @@ persuasion_env/
 .venv/
 venv/
 env/
-
-# Activation outputs (binary, regenerable)
-data/activations/
