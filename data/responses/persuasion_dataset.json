@@ -1,0 +1,1202 @@
+[
+  {
+    "id":"everyday_health_000",
+    "category":"everyday_health",
+    "base":"Exercise for thirty minutes daily because regular physical activity strengthens the cardiovascular system.",
+    "neutral":"Regular physical activity strengthens the cardiovascular system."
+  },
+  {
+    "id":"everyday_health_001",
+    "category":"everyday_health",
+    "base":"Get seven to nine hours of sleep because adequate sleep supports immune function.",
+    "neutral":"Adequate sleep supports immune function."
+  },
+  {
+    "id":"everyday_health_002",
+    "category":"everyday_health",
+    "base":"Floss daily because flossing removes plaque between teeth that brushing alone misses.",
+    "neutral":"Flossing removes plaque between teeth that brushing alone misses."
+  },
+  {
+    "id":"everyday_health_003",
+    "category":"everyday_health",
+    "base":"Eat a variety of vegetables because diverse vegetable intake provides a broader range of micronutrients.",
+    "neutral":"Diverse vegetable intake provides a broader range of micronutrients."
+  },
+  {
+    "id":"everyday_health_004",
+    "category":"everyday_health",
+    "base":"Wash your hands before eating because handwashing reduces transmission of foodborne pathogens.",
+    "neutral":"Handwashing reduces transmission of foodborne pathogens."
+  },
+  {
+    "id":"everyday_health_005",
+    "category":"everyday_health",
+    "base":"Get a yearly flu vaccine because annual vaccination accounts for seasonal changes in circulating influenza strains.",
+    "neutral":"Annual vaccination accounts for seasonal changes in circulating influenza strains."
+  },
+  {
+    "id":"everyday_health_006",
+    "category":"everyday_health",
+    "base":"Stretch after exercise because post-exercise stretching helps maintain joint range of motion.",
+    "neutral":"Post-exercise stretching helps maintain joint range of motion."
+  },
+  {
+    "id":"everyday_health_007",
+    "category":"everyday_health",
+    "base":"Limit added sugar intake because excess added sugar consumption is associated with increased risk of metabolic disease.",
+    "neutral":"Excess added sugar consumption is associated with increased risk of metabolic disease."
+  },
+  {
+    "id":"everyday_health_008",
+    "category":"everyday_health",
+    "base":"Take regular breaks from sitting because prolonged sitting is linked to reduced circulation in the legs.",
+    "neutral":"Prolonged sitting is linked to reduced circulation in the legs."
+  },
+  {
+    "id":"everyday_health_009",
+    "category":"everyday_health",
+    "base":"Drink water throughout the day because adequate hydration supports kidney function.",
+    "neutral":"Adequate hydration supports kidney function."
+  },
+  {
+    "id":"everyday_health_010",
+    "category":"everyday_health",
+    "base":"Eat breakfast because morning food intake helps stabilize blood glucose levels.",
+    "neutral":"Morning food intake helps stabilize blood glucose levels."
+  },
+  {
+    "id":"everyday_health_011",
+    "category":"everyday_health",
+    "base":"Walk after meals because post-meal walking can lower postprandial blood sugar spikes.",
+    "neutral":"Post-meal walking can lower postprandial blood sugar spikes."
+  },
+  {
+    "id":"everyday_health_012",
+    "category":"everyday_health",
+    "base":"Get regular dental checkups because routine dental exams allow early detection of cavities.",
+    "neutral":"Routine dental exams allow early detection of cavities."
+  },
+  {
+    "id":"everyday_health_013",
+    "category":"everyday_health",
+    "base":"Wear ear protection around loud machinery because prolonged exposure to loud noise can damage hearing.",
+    "neutral":"Prolonged exposure to loud noise can damage hearing."
+  },
+  {
+    "id":"everyday_health_014",
+    "category":"everyday_health",
+    "base":"Limit screen time before bed because blue light exposure before sleep can delay melatonin release.",
+    "neutral":"Blue light exposure before sleep can delay melatonin release."
+  },
+  {
+    "id":"everyday_health_015",
+    "category":"everyday_health",
+    "base":"Eat foods rich in fiber because dietary fiber supports regular digestive function.",
+    "neutral":"Dietary fiber supports regular digestive function."
+  },
+  {
+    "id":"everyday_health_016",
+    "category":"everyday_health",
+    "base":"Get an annual physical exam because routine checkups can detect early signs of chronic disease.",
+    "neutral":"Routine checkups can detect early signs of chronic disease."
+  },
+  {
+    "id":"everyday_health_017",
+    "category":"everyday_health",
+    "base":"Stand up periodically during work because standing periodically reduces stiffness in the lower back.",
+    "neutral":"Standing periodically reduces stiffness in the lower back."
+  },
+  {
+    "id":"everyday_health_018",
+    "category":"everyday_health",
+    "base":"Cook meat to recommended temperatures because proper cooking temperatures kill harmful bacteria.",
+    "neutral":"Proper cooking temperatures kill harmful bacteria."
+  },
+  {
+    "id":"everyday_health_019",
+    "category":"everyday_health",
+    "base":"Use sunscreen on cloudy days because ultraviolet radiation penetrates cloud cover.",
+    "neutral":"Ultraviolet radiation penetrates cloud cover."
+  },
+  {
+    "id":"everyday_cognitive_000",
+    "category":"everyday_cognitive",
+    "base":"Use spaced repetition when studying because distributing review sessions over time improves long-term retention compared to massed practice.",
+    "neutral":"Distributing review sessions over time improves long-term retention compared to massed practice."
+  },
+  {
+    "id":"everyday_cognitive_001",
+    "category":"everyday_cognitive",
+    "base":"Write a daily to-do list because writing tasks down reduces reliance on working memory.",
+    "neutral":"Writing tasks down reduces reliance on working memory."
+  },
+  {
+    "id":"everyday_cognitive_002",
+    "category":"everyday_cognitive",
+    "base":"Study in short focused sessions because shorter focused sessions reduce mental fatigue.",
+    "neutral":"Shorter focused sessions reduce mental fatigue."
+  },
+  {
+    "id":"everyday_cognitive_003",
+    "category":"everyday_cognitive",
+    "base":"Take notes by hand because handwriting notes can improve conceptual recall.",
+    "neutral":"Handwriting notes can improve conceptual recall."
+  },
+  {
+    "id":"everyday_cognitive_004",
+    "category":"everyday_cognitive",
+    "base":"Test yourself on material because self-testing strengthens long-term memory more than rereading.",
+    "neutral":"Self-testing strengthens long-term memory more than rereading."
+  },
+  {
+    "id":"everyday_cognitive_005",
+    "category":"everyday_cognitive",
+    "base":"Plan your day the night before because advance planning reduces decision fatigue the next morning.",
+    "neutral":"Advance planning reduces decision fatigue the next morning."
+  },
+  {
+    "id":"everyday_cognitive_006",
+    "category":"everyday_cognitive",
+    "base":"Turn off notifications while working because frequent notifications interrupt sustained attention.",
+    "neutral":"Frequent notifications interrupt sustained attention."
+  },
+  {
+    "id":"everyday_cognitive_007",
+    "category":"everyday_cognitive",
+    "base":"Break large tasks into smaller steps because smaller subtasks are easier to track and complete.",
+    "neutral":"Smaller subtasks are easier to track and complete."
+  },
+  {
+    "id":"everyday_cognitive_008",
+    "category":"everyday_cognitive",
+    "base":"Read before bed instead of using screens because screen use before sleep can delay sleep onset.",
+    "neutral":"Screen use before sleep can delay sleep onset."
+  },
+  {
+    "id":"everyday_cognitive_009",
+    "category":"everyday_cognitive",
+    "base":"Summarize what you read because summarizing material improves comprehension and retention.",
+    "neutral":"Summarizing material improves comprehension and retention."
+  },
+  {
+    "id":"everyday_cognitive_010",
+    "category":"everyday_cognitive",
+    "base":"Schedule your most demanding tasks for the morning because cognitive performance tends to peak earlier in the day for many people.",
+    "neutral":"Cognitive performance tends to peak earlier in the day for many people."
+  },
+  {
+    "id":"everyday_cognitive_011",
+    "category":"everyday_cognitive",
+    "base":"Use a single task list instead of multiple apps because consolidating tasks reduces the chance of forgetting items.",
+    "neutral":"Consolidating tasks reduces the chance of forgetting items."
+  },
+  {
+    "id":"everyday_cognitive_012",
+    "category":"everyday_cognitive",
+    "base":"Review your notes the same day they're taken because same-day review increases retention compared to delayed review.",
+    "neutral":"Same-day review increases retention compared to delayed review."
+  },
+  {
+    "id":"everyday_cognitive_013",
+    "category":"everyday_cognitive",
+    "base":"Set specific deadlines for tasks because specific deadlines improve task completion rates compared to vague timelines.",
+    "neutral":"Specific deadlines improve task completion rates compared to vague timelines."
+  },
+  {
+    "id":"everyday_cognitive_014",
+    "category":"everyday_cognitive",
+    "base":"Practice retrieval instead of rereading because retrieval practice produces stronger memory traces than passive review.",
+    "neutral":"Retrieval practice produces stronger memory traces than passive review."
+  },
+  {
+    "id":"everyday_cognitive_015",
+    "category":"everyday_cognitive",
+    "base":"Limit multitasking while studying because multitasking reduces the depth of information processing.",
+    "neutral":"Multitasking reduces the depth of information processing."
+  },
+  {
+    "id":"everyday_cognitive_016",
+    "category":"everyday_cognitive",
+    "base":"Keep a consistent study schedule because consistent scheduling builds habitual cues that support focus.",
+    "neutral":"Consistent scheduling builds habitual cues that support focus."
+  },
+  {
+    "id":"everyday_cognitive_017",
+    "category":"everyday_cognitive",
+    "base":"Take short breaks during long study sessions because brief breaks help restore attentional resources.",
+    "neutral":"Brief breaks help restore attentional resources."
+  },
+  {
+    "id":"everyday_cognitive_018",
+    "category":"everyday_cognitive",
+    "base":"Organize your workspace before starting because an organized workspace reduces visual distractions.",
+    "neutral":"An organized workspace reduces visual distractions."
+  },
+  {
+    "id":"everyday_cognitive_019",
+    "category":"everyday_cognitive",
+    "base":"Set specific goals before starting a task because well-defined goals improve task focus.",
+    "neutral":"Well-defined goals improve task focus."
+  },
+  {
+    "id":"everyday_environmental_000",
+    "category":"everyday_environmental",
+    "base":"Recycle paper and cardboard because recycling paper reduces the demand for virgin wood pulp.",
+    "neutral":"Recycling paper reduces the demand for virgin wood pulp."
+  },
+  {
+    "id":"everyday_environmental_001",
+    "category":"everyday_environmental",
+    "base":"Use reusable shopping bags because reusable bags reduce single-use plastic waste.",
+    "neutral":"Reusable bags reduce single-use plastic waste."
+  },
+  {
+    "id":"everyday_environmental_002",
+    "category":"everyday_environmental",
+    "base":"Take shorter showers because shorter showers reduce household water consumption.",
+    "neutral":"Shorter showers reduce household water consumption."
+  },
+  {
+    "id":"everyday_environmental_003",
+    "category":"everyday_environmental",
+    "base":"Use public transportation because public transit reduces per-passenger fuel consumption compared to individual cars.",
+    "neutral":"Public transit reduces per-passenger fuel consumption compared to individual cars."
+  },
+  {
+    "id":"everyday_environmental_004",
+    "category":"everyday_environmental",
+    "base":"Unplug unused electronics because unplugging idle electronics reduces standby power draw.",
+    "neutral":"Unplugging idle electronics reduces standby power draw."
+  },
+  {
+    "id":"everyday_environmental_005",
+    "category":"everyday_environmental",
+    "base":"Compost food scraps because composting reduces the volume of organic waste sent to landfills.",
+    "neutral":"Composting reduces the volume of organic waste sent to landfills."
+  },
+  {
+    "id":"everyday_environmental_006",
+    "category":"everyday_environmental",
+    "base":"Fix leaky faucets because leaky faucets can waste significant amounts of water over time.",
+    "neutral":"Leaky faucets can waste significant amounts of water over time."
+  },
+  {
+    "id":"everyday_environmental_007",
+    "category":"everyday_environmental",
+    "base":"Use cold water for laundry when possible because washing in cold water reduces the energy needed to heat water.",
+    "neutral":"Washing in cold water reduces the energy needed to heat water."
+  },
+  {
+    "id":"everyday_environmental_008",
+    "category":"everyday_environmental",
+    "base":"Carpool when possible because carpooling reduces the number of vehicles on the road per trip.",
+    "neutral":"Carpooling reduces the number of vehicles on the road per trip."
+  },
+  {
+    "id":"everyday_environmental_009",
+    "category":"everyday_environmental",
+    "base":"Use a reusable water bottle because reusable bottles reduce single-use plastic bottle waste.",
+    "neutral":"Reusable bottles reduce single-use plastic bottle waste."
+  },
+  {
+    "id":"everyday_environmental_010",
+    "category":"everyday_environmental",
+    "base":"Switch to LED light bulbs because LED bulbs consume less electricity than incandescent bulbs.",
+    "neutral":"LED bulbs consume less electricity than incandescent bulbs."
+  },
+  {
+    "id":"everyday_environmental_011",
+    "category":"everyday_environmental",
+    "base":"Recycle glass containers because glass can be recycled repeatedly without loss of quality.",
+    "neutral":"Glass can be recycled repeatedly without loss of quality."
+  },
+  {
+    "id":"everyday_environmental_012",
+    "category":"everyday_environmental",
+    "base":"Reduce food waste because food waste in landfills produces methane as it decomposes.",
+    "neutral":"Food waste in landfills produces methane as it decomposes."
+  },
+  {
+    "id":"everyday_environmental_013",
+    "category":"everyday_environmental",
+    "base":"Air-dry clothes when possible because air-drying clothes reduces household energy use.",
+    "neutral":"Air-drying clothes reduces household energy use."
+  },
+  {
+    "id":"everyday_environmental_014",
+    "category":"everyday_environmental",
+    "base":"Use a programmable thermostat because programmable thermostats can reduce unnecessary heating and cooling.",
+    "neutral":"Programmable thermostats can reduce unnecessary heating and cooling."
+  },
+  {
+    "id":"everyday_environmental_015",
+    "category":"everyday_environmental",
+    "base":"Buy products with minimal packaging because reduced packaging lowers the amount of material sent to landfills.",
+    "neutral":"Reduced packaging lowers the amount of material sent to landfills."
+  },
+  {
+    "id":"everyday_environmental_016",
+    "category":"everyday_environmental",
+    "base":"Repair items instead of replacing them because repairing goods extends their usable lifespan.",
+    "neutral":"Repairing goods extends their usable lifespan."
+  },
+  {
+    "id":"everyday_environmental_017",
+    "category":"everyday_environmental",
+    "base":"Use both sides of a sheet of paper because double-sided printing reduces paper consumption.",
+    "neutral":"Double-sided printing reduces paper consumption."
+  },
+  {
+    "id":"everyday_environmental_018",
+    "category":"everyday_environmental",
+    "base":"Bike for short trips because biking produces no tailpipe emissions during use.",
+    "neutral":"Biking produces no tailpipe emissions during use."
+  },
+  {
+    "id":"everyday_environmental_019",
+    "category":"everyday_environmental",
+    "base":"Lower your thermostat in winter because lowering indoor temperature reduces heating energy use.",
+    "neutral":"Lowering indoor temperature reduces heating energy use."
+  },
+  {
+    "id":"everyday_civic_000",
+    "category":"everyday_civic",
+    "base":"Complete the census because census data is used to allocate public resources.",
+    "neutral":"Census data is used to allocate public resources."
+  },
+  {
+    "id":"everyday_civic_001",
+    "category":"everyday_civic",
+    "base":"Renew your identification before it expires because an expired identification card may not be accepted for official purposes.",
+    "neutral":"An expired identification card may not be accepted for official purposes."
+  },
+  {
+    "id":"everyday_civic_002",
+    "category":"everyday_civic",
+    "base":"Serve on jury duty when summoned because jury participation is required by law in many jurisdictions.",
+    "neutral":"Jury participation is required by law in many jurisdictions."
+  },
+  {
+    "id":"everyday_civic_003",
+    "category":"everyday_civic",
+    "base":"Check your voter registration status because voter registration records can be removed due to inactivity.",
+    "neutral":"Voter registration records can be removed due to inactivity."
+  },
+  {
+    "id":"everyday_civic_004",
+    "category":"everyday_civic",
+    "base":"Update your address with election officials because polling place assignments are based on registered address.",
+    "neutral":"Polling place assignments are based on registered address."
+  },
+  {
+    "id":"everyday_civic_005",
+    "category":"everyday_civic",
+    "base":"Attend a local town hall meeting because town hall meetings provide direct access to local government decisions.",
+    "neutral":"Town hall meetings provide direct access to local government decisions."
+  },
+  {
+    "id":"everyday_civic_006",
+    "category":"everyday_civic",
+    "base":"Read your sample ballot before election day because sample ballots list all measures and candidates appearing on the official ballot.",
+    "neutral":"Sample ballots list all measures and candidates appearing on the official ballot."
+  },
+  {
+    "id":"everyday_civic_007",
+    "category":"everyday_civic",
+    "base":"Sign up for jury duty notifications because jury summons are typically sent by mail and can be missed.",
+    "neutral":"Jury summons are typically sent by mail and can be missed."
+  },
+  {
+    "id":"everyday_civic_008",
+    "category":"everyday_civic",
+    "base":"Register for a new address after moving because voter rolls require updated address information to assign correct districts.",
+    "neutral":"Voter rolls require updated address information to assign correct districts."
+  },
+  {
+    "id":"everyday_civic_009",
+    "category":"everyday_civic",
+    "base":"Check polling place hours in advance because polling place hours vary by location and election.",
+    "neutral":"Polling place hours vary by location and election."
+  },
+  {
+    "id":"everyday_civic_010",
+    "category":"everyday_civic",
+    "base":"Bring required identification to vote because many jurisdictions require identification to verify voter eligibility.",
+    "neutral":"Many jurisdictions require identification to verify voter eligibility."
+  },
+  {
+    "id":"everyday_civic_011",
+    "category":"everyday_civic",
+    "base":"Review local ballot measures before voting because ballot measures often address specific local policy questions.",
+    "neutral":"Ballot measures often address specific local policy questions."
+  },
+  {
+    "id":"everyday_civic_012",
+    "category":"everyday_civic",
+    "base":"Apply for an absentee ballot in advance because absentee ballot requests typically have submission deadlines.",
+    "neutral":"Absentee ballot requests typically have submission deadlines."
+  },
+  {
+    "id":"everyday_civic_013",
+    "category":"everyday_civic",
+    "base":"Verify your polling location before election day because polling locations can change between election cycles.",
+    "neutral":"Polling locations can change between election cycles."
+  },
+  {
+    "id":"everyday_civic_014",
+    "category":"everyday_civic",
+    "base":"Participate in public comment periods because public comment periods allow residents to provide input on proposed regulations.",
+    "neutral":"Public comment periods allow residents to provide input on proposed regulations."
+  },
+  {
+    "id":"everyday_civic_015",
+    "category":"everyday_civic",
+    "base":"Keep your government-issued ID current because expired identification documents may be rejected for official transactions.",
+    "neutral":"Expired identification documents may be rejected for official transactions."
+  },
+  {
+    "id":"everyday_civic_016",
+    "category":"everyday_civic",
+    "base":"Respond to official government surveys because government survey responses inform public planning decisions.",
+    "neutral":"Government survey responses inform public planning decisions."
+  },
+  {
+    "id":"everyday_civic_017",
+    "category":"everyday_civic",
+    "base":"Check your eligibility before an election because eligibility requirements vary depending on jurisdiction and election type.",
+    "neutral":"Eligibility requirements vary depending on jurisdiction and election type."
+  },
+  {
+    "id":"everyday_civic_018",
+    "category":"everyday_civic",
+    "base":"Submit required civic documents on time because late submissions may not be processed before deadlines.",
+    "neutral":"Late submissions may not be processed before deadlines."
+  },
+  {
+    "id":"everyday_civic_019",
+    "category":"everyday_civic",
+    "base":"Review candidate information from official sources because official voter guides summarize each candidate's stated positions.",
+    "neutral":"Official voter guides summarize each candidate's stated positions."
+  },
+  {
+    "id":"everyday_safety_000",
+    "category":"everyday_safety",
+    "base":"Wear a helmet while biking because helmets reduce the risk of head injury during falls.",
+    "neutral":"Helmets reduce the risk of head injury during falls."
+  },
+  {
+    "id":"everyday_safety_001",
+    "category":"everyday_safety",
+    "base":"Install smoke detectors in your home because smoke detectors provide early warning of fire.",
+    "neutral":"Smoke detectors provide early warning of fire."
+  },
+  {
+    "id":"everyday_safety_002",
+    "category":"everyday_safety",
+    "base":"Store medicines out of children's reach because unsecured medication increases the risk of accidental ingestion by children.",
+    "neutral":"Unsecured medication increases the risk of accidental ingestion by children."
+  },
+  {
+    "id":"everyday_safety_003",
+    "category":"everyday_safety",
+    "base":"Cross streets at marked crosswalks because marked crosswalks are positioned for maximum visibility to drivers.",
+    "neutral":"Marked crosswalks are positioned for maximum visibility to drivers."
+  },
+  {
+    "id":"everyday_safety_004",
+    "category":"everyday_safety",
+    "base":"Check smoke detector batteries regularly because smoke detectors with dead batteries cannot alert occupants to fire.",
+    "neutral":"Smoke detectors with dead batteries cannot alert occupants to fire."
+  },
+  {
+    "id":"everyday_safety_005",
+    "category":"everyday_safety",
+    "base":"Use handrails on stairs because handrails reduce the risk of falls on stairways.",
+    "neutral":"Handrails reduce the risk of falls on stairways."
+  },
+  {
+    "id":"everyday_safety_006",
+    "category":"everyday_safety",
+    "base":"Wear reflective clothing when walking at night because reflective clothing increases visibility to drivers in low light.",
+    "neutral":"Reflective clothing increases visibility to drivers in low light."
+  },
+  {
+    "id":"everyday_safety_007",
+    "category":"everyday_safety",
+    "base":"Keep a fire extinguisher in the kitchen because kitchen fires are among the most common types of household fires.",
+    "neutral":"Kitchen fires are among the most common types of household fires."
+  },
+  {
+    "id":"everyday_safety_008",
+    "category":"everyday_safety",
+    "base":"Use child safety locks on cabinets because child safety locks prevent young children from accessing hazardous items.",
+    "neutral":"Child safety locks prevent young children from accessing hazardous items."
+  },
+  {
+    "id":"everyday_safety_009",
+    "category":"everyday_safety",
+    "base":"Wear protective eyewear when using power tools because power tools can eject debris at high speed.",
+    "neutral":"Power tools can eject debris at high speed."
+  },
+  {
+    "id":"everyday_safety_010",
+    "category":"everyday_safety",
+    "base":"Test carbon monoxide detectors monthly because carbon monoxide is undetectable without a working detector.",
+    "neutral":"Carbon monoxide is undetectable without a working detector."
+  },
+  {
+    "id":"everyday_safety_011",
+    "category":"everyday_safety",
+    "base":"Secure heavy furniture to the wall because unsecured furniture can tip over and cause injury.",
+    "neutral":"Unsecured furniture can tip over and cause injury."
+  },
+  {
+    "id":"everyday_safety_012",
+    "category":"everyday_safety",
+    "base":"Keep emergency contact numbers posted at home because quick access to emergency numbers can reduce response time in a crisis.",
+    "neutral":"Quick access to emergency numbers can reduce response time in a crisis."
+  },
+  {
+    "id":"everyday_safety_013",
+    "category":"everyday_safety",
+    "base":"Use a designated driver after drinking because alcohol consumption impairs reaction time and judgment while driving.",
+    "neutral":"Alcohol consumption impairs reaction time and judgment while driving."
+  },
+  {
+    "id":"everyday_safety_014",
+    "category":"everyday_safety",
+    "base":"Wear a life jacket while boating because life jackets reduce the risk of drowning in water accidents.",
+    "neutral":"Life jackets reduce the risk of drowning in water accidents."
+  },
+  {
+    "id":"everyday_safety_015",
+    "category":"everyday_safety",
+    "base":"Keep emergency supplies in your vehicle because vehicle breakdowns can occur in remote or hazardous locations.",
+    "neutral":"Vehicle breakdowns can occur in remote or hazardous locations."
+  },
+  {
+    "id":"everyday_safety_016",
+    "category":"everyday_safety",
+    "base":"Check expiration dates on safety equipment because expired safety equipment may not function as intended.",
+    "neutral":"Expired safety equipment may not function as intended."
+  },
+  {
+    "id":"everyday_safety_017",
+    "category":"everyday_safety",
+    "base":"Use non-slip mats in the bathroom because wet bathroom floors increase the risk of slipping.",
+    "neutral":"Wet bathroom floors increase the risk of slipping."
+  },
+  {
+    "id":"everyday_safety_018",
+    "category":"everyday_safety",
+    "base":"Keep walkways clear of clutter because cluttered walkways increase the likelihood of trips and falls.",
+    "neutral":"Cluttered walkways increase the likelihood of trips and falls."
+  },
+  {
+    "id":"everyday_safety_019",
+    "category":"everyday_safety",
+    "base":"Store chemicals away from food items because improper chemical storage increases the risk of accidental contamination.",
+    "neutral":"Improper chemical storage increases the risk of accidental contamination."
+  },
+  {
+    "id":"hs_electoral_000",
+    "category":"hs_electoral",
+    "base":"Vote for Candidate A because median household income rose during Candidate A's previous term.",
+    "neutral":"Median household income rose during Candidate A's previous term."
+  },
+  {
+    "id":"hs_electoral_001",
+    "category":"hs_electoral",
+    "base":"Vote for Candidate B because violent crime rates fell in the district Candidate B previously governed.",
+    "neutral":"Violent crime rates fell in the district Candidate B previously governed."
+  },
+  {
+    "id":"hs_electoral_002",
+    "category":"hs_electoral",
+    "base":"Support Proposal X because Proposal X would allocate additional funding to public infrastructure repair.",
+    "neutral":"Proposal X would allocate additional funding to public infrastructure repair."
+  },
+  {
+    "id":"hs_electoral_003",
+    "category":"hs_electoral",
+    "base":"Vote against Proposal Y because Proposal Y would increase the local sales tax rate.",
+    "neutral":"Proposal Y would increase the local sales tax rate."
+  },
+  {
+    "id":"hs_electoral_004",
+    "category":"hs_electoral",
+    "base":"Vote for Candidate C because Candidate C's previous budget proposal reduced the city's deficit.",
+    "neutral":"Candidate C's previous budget proposal reduced the city's deficit."
+  },
+  {
+    "id":"hs_electoral_005",
+    "category":"hs_electoral",
+    "base":"Support Candidate D because graduation rates increased in schools under Candidate D's education policy.",
+    "neutral":"Graduation rates increased in schools under Candidate D's education policy."
+  },
+  {
+    "id":"hs_electoral_006",
+    "category":"hs_electoral",
+    "base":"Vote for Proposal Z because Proposal Z would fund the repair of aging water infrastructure.",
+    "neutral":"Proposal Z would fund the repair of aging water infrastructure."
+  },
+  {
+    "id":"hs_electoral_007",
+    "category":"hs_electoral",
+    "base":"Vote for Candidate E because small business registrations increased during Candidate E's term in office.",
+    "neutral":"Small business registrations increased during Candidate E's term in office."
+  },
+  {
+    "id":"hs_electoral_008",
+    "category":"hs_electoral",
+    "base":"Support Candidate F because Candidate F's policy reduced average commute times in the region.",
+    "neutral":"Candidate F's policy reduced average commute times in the region."
+  },
+  {
+    "id":"hs_electoral_009",
+    "category":"hs_electoral",
+    "base":"Vote against Proposal W because Proposal W would reduce funding allocated to public libraries.",
+    "neutral":"Proposal W would reduce funding allocated to public libraries."
+  },
+  {
+    "id":"hs_electoral_010",
+    "category":"hs_electoral",
+    "base":"Vote for Candidate G because hospital wait times decreased under policies enacted by Candidate G.",
+    "neutral":"Hospital wait times decreased under policies enacted by Candidate G."
+  },
+  {
+    "id":"hs_electoral_011",
+    "category":"hs_electoral",
+    "base":"Support Proposal V because Proposal V would expand public transit routes to underserved areas.",
+    "neutral":"Proposal V would expand public transit routes to underserved areas."
+  },
+  {
+    "id":"hs_electoral_012",
+    "category":"hs_electoral",
+    "base":"Vote for Candidate H because Candidate H's term saw an increase in the number of new housing permits issued.",
+    "neutral":"Candidate H's term saw an increase in the number of new housing permits issued."
+  },
+  {
+    "id":"hs_electoral_013",
+    "category":"hs_electoral",
+    "base":"Vote against Candidate I because the unemployment rate increased during Candidate I's previous term.",
+    "neutral":"The unemployment rate increased during Candidate I's previous term."
+  },
+  {
+    "id":"hs_electoral_014",
+    "category":"hs_electoral",
+    "base":"Support Candidate J because air quality measurements improved in the region Candidate J previously administered.",
+    "neutral":"Air quality measurements improved in the region Candidate J previously administered."
+  },
+  {
+    "id":"hs_electoral_015",
+    "category":"hs_electoral",
+    "base":"Vote for Proposal U because Proposal U would increase funding for public school maintenance.",
+    "neutral":"Proposal U would increase funding for public school maintenance."
+  },
+  {
+    "id":"hs_electoral_016",
+    "category":"hs_electoral",
+    "base":"Vote for Candidate K because Candidate K's prior policies were associated with reduced average commute congestion.",
+    "neutral":"Candidate K's prior policies were associated with reduced average commute congestion."
+  },
+  {
+    "id":"hs_electoral_017",
+    "category":"hs_electoral",
+    "base":"Support Proposal T because Proposal T would establish additional recycling collection sites citywide.",
+    "neutral":"Proposal T would establish additional recycling collection sites citywide."
+  },
+  {
+    "id":"hs_electoral_018",
+    "category":"hs_electoral",
+    "base":"Vote against Proposal S because Proposal S would reduce the number of public parks maintained by the city.",
+    "neutral":"Proposal S would reduce the number of public parks maintained by the city."
+  },
+  {
+    "id":"hs_electoral_019",
+    "category":"hs_electoral",
+    "base":"Vote for Candidate L because park visitation increased following infrastructure investments made under Candidate L.",
+    "neutral":"Park visitation increased following infrastructure investments made under Candidate L."
+  },
+  {
+    "id":"hs_electoral_020",
+    "category":"hs_electoral",
+    "base":"Support Candidate M because Candidate M's tenure included a documented reduction in municipal debt.",
+    "neutral":"Candidate M's tenure included a documented reduction in municipal debt."
+  },
+  {
+    "id":"hs_electoral_021",
+    "category":"hs_electoral",
+    "base":"Vote for Proposal R because Proposal R would fund additional staffing for the regional emergency response unit.",
+    "neutral":"Proposal R would fund additional staffing for the regional emergency response unit."
+  },
+  {
+    "id":"hs_electoral_022",
+    "category":"hs_electoral",
+    "base":"Vote against Candidate N because public transit funding decreased during Candidate N's previous term.",
+    "neutral":"Public transit funding decreased during Candidate N's previous term."
+  },
+  {
+    "id":"hs_electoral_023",
+    "category":"hs_electoral",
+    "base":"Support Proposal Q because Proposal Q would extend public broadband access to rural areas of the district.",
+    "neutral":"Proposal Q would extend public broadband access to rural areas of the district."
+  },
+  {
+    "id":"hs_electoral_024",
+    "category":"hs_electoral",
+    "base":"Vote for Candidate O because Candidate O's previous administration increased the number of available public health clinics.",
+    "neutral":"Candidate O's previous administration increased the number of available public health clinics."
+  },
+  {
+    "id":"hs_health_000",
+    "category":"hs_health",
+    "base":"Get a colonoscopy starting at the recommended age because colorectal cancer screening can detect precancerous polyps before they progress.",
+    "neutral":"Colorectal cancer screening can detect precancerous polyps before they progress."
+  },
+  {
+    "id":"hs_health_001",
+    "category":"hs_health",
+    "base":"Get a mammogram as recommended by your doctor because mammography can detect breast tumors before they are palpable.",
+    "neutral":"Mammography can detect breast tumors before they are palpable."
+  },
+  {
+    "id":"hs_health_002",
+    "category":"hs_health",
+    "base":"Get vaccinated against HPV because HPV vaccination reduces the risk of cervical cancer associated with the virus.",
+    "neutral":"HPV vaccination reduces the risk of cervical cancer associated with the virus."
+  },
+  {
+    "id":"hs_health_003",
+    "category":"hs_health",
+    "base":"Get a measles vaccine because measles vaccination prevents transmission of a highly contagious virus.",
+    "neutral":"Measles vaccination prevents transmission of a highly contagious virus."
+  },
+  {
+    "id":"hs_health_004",
+    "category":"hs_health",
+    "base":"Get your blood pressure checked regularly because regular monitoring allows early detection of hypertension.",
+    "neutral":"Regular monitoring allows early detection of hypertension."
+  },
+  {
+    "id":"hs_health_005",
+    "category":"hs_health",
+    "base":"Get a cholesterol screening because elevated cholesterol levels are associated with increased cardiovascular risk.",
+    "neutral":"Elevated cholesterol levels are associated with increased cardiovascular risk."
+  },
+  {
+    "id":"hs_health_006",
+    "category":"hs_health",
+    "base":"Participate in a structured exercise program after a heart attack because cardiac rehabilitation is associated with reduced risk of subsequent cardiac events.",
+    "neutral":"Cardiac rehabilitation is associated with reduced risk of subsequent cardiac events."
+  },
+  {
+    "id":"hs_health_007",
+    "category":"hs_health",
+    "base":"Get screened for diabetes if you have risk factors because early detection of diabetes allows for earlier management of blood sugar levels.",
+    "neutral":"Early detection of diabetes allows for earlier management of blood sugar levels."
+  },
+  {
+    "id":"hs_health_008",
+    "category":"hs_health",
+    "base":"Get a skin check for unusual moles because early detection of skin changes improves outcomes for skin cancer treatment.",
+    "neutral":"Early detection of skin changes improves outcomes for skin cancer treatment."
+  },
+  {
+    "id":"hs_health_009",
+    "category":"hs_health",
+    "base":"Get your cholesterol-lowering medication as prescribed because consistent use of prescribed statins is associated with reduced cardiovascular events in high-risk patients.",
+    "neutral":"Consistent use of prescribed statins is associated with reduced cardiovascular events in high-risk patients."
+  },
+  {
+    "id":"hs_health_010",
+    "category":"hs_health",
+    "base":"Get a bone density scan after menopause because bone density screening can detect osteoporosis before fractures occur.",
+    "neutral":"Bone density screening can detect osteoporosis before fractures occur."
+  },
+  {
+    "id":"hs_health_011",
+    "category":"hs_health",
+    "base":"Get the shingles vaccine after age fifty because shingles vaccination reduces the risk of developing herpes zoster.",
+    "neutral":"Shingles vaccination reduces the risk of developing herpes zoster."
+  },
+  {
+    "id":"hs_health_012",
+    "category":"hs_health",
+    "base":"Get a hearing test as you age because age-related hearing loss often progresses gradually and can go unnoticed.",
+    "neutral":"Age-related hearing loss often progresses gradually and can go unnoticed."
+  },
+  {
+    "id":"hs_health_013",
+    "category":"hs_health",
+    "base":"Get a dental X-ray during checkups because dental X-rays can reveal decay not visible during a standard exam.",
+    "neutral":"Dental X-rays can reveal decay not visible during a standard exam."
+  },
+  {
+    "id":"hs_health_014",
+    "category":"hs_health",
+    "base":"Get an eye exam every two years because regular eye exams can detect glaucoma before symptoms appear.",
+    "neutral":"Regular eye exams can detect glaucoma before symptoms appear."
+  },
+  {
+    "id":"hs_health_015",
+    "category":"hs_health",
+    "base":"Follow a Mediterranean-style diet if at cardiovascular risk because Mediterranean-style diets are associated with reduced cardiovascular event rates in clinical studies.",
+    "neutral":"Mediterranean-style diets are associated with reduced cardiovascular event rates in clinical studies."
+  },
+  {
+    "id":"hs_health_016",
+    "category":"hs_health",
+    "base":"Get a tetanus booster every ten years because tetanus immunity declines over time without booster vaccination.",
+    "neutral":"Tetanus immunity declines over time without booster vaccination."
+  },
+  {
+    "id":"hs_health_017",
+    "category":"hs_health",
+    "base":"Get screened for high blood sugar during pregnancy because gestational diabetes screening allows for early management to reduce complications.",
+    "neutral":"Gestational diabetes screening allows for early management to reduce complications."
+  },
+  {
+    "id":"hs_health_018",
+    "category":"hs_health",
+    "base":"Get a pneumonia vaccine if you are over sixty-five because older adults face higher risk of complications from pneumococcal infection.",
+    "neutral":"Older adults face higher risk of complications from pneumococcal infection."
+  },
+  {
+    "id":"hs_health_019",
+    "category":"hs_health",
+    "base":"Get a baseline EKG if you have a family history of heart disease because a baseline EKG can help detect early signs of cardiac abnormality.",
+    "neutral":"A baseline EKG can help detect early signs of cardiac abnormality."
+  },
+  {
+    "id":"hs_health_020",
+    "category":"hs_health",
+    "base":"Complete the full course of prescribed antibiotics because stopping antibiotics early can allow surviving bacteria to develop resistance.",
+    "neutral":"Stopping antibiotics early can allow surviving bacteria to develop resistance."
+  },
+  {
+    "id":"hs_health_021",
+    "category":"hs_health",
+    "base":"Get a prostate exam as recommended for your age group because prostate screening can detect abnormalities before symptoms develop.",
+    "neutral":"Prostate screening can detect abnormalities before symptoms develop."
+  },
+  {
+    "id":"hs_health_022",
+    "category":"hs_health",
+    "base":"Get a hepatitis B vaccine because hepatitis B vaccination reduces the risk of chronic liver infection.",
+    "neutral":"Hepatitis B vaccination reduces the risk of chronic liver infection."
+  },
+  {
+    "id":"hs_health_023",
+    "category":"hs_health",
+    "base":"Get genetic counseling if you have a strong family cancer history because genetic counseling can clarify inherited cancer risk based on family history.",
+    "neutral":"Genetic counseling can clarify inherited cancer risk based on family history."
+  },
+  {
+    "id":"hs_health_024",
+    "category":"hs_health",
+    "base":"Get a lung cancer screening if you have a heavy smoking history because low-dose CT screening can detect lung cancer earlier in high-risk individuals.",
+    "neutral":"Low-dose CT screening can detect lung cancer earlier in high-risk individuals."
+  },
+  {
+    "id":"hs_disaster_000",
+    "category":"hs_disaster",
+    "base":"Shelter in place because outdoor air quality has reached hazardous particulate levels.",
+    "neutral":"Outdoor air quality has reached hazardous particulate levels."
+  },
+  {
+    "id":"hs_disaster_001",
+    "category":"hs_disaster",
+    "base":"Avoid coastal roads because storm surge models project water levels exceeding the height of those roads.",
+    "neutral":"Storm surge models project water levels exceeding the height of those roads."
+  },
+  {
+    "id":"hs_disaster_002",
+    "category":"hs_disaster",
+    "base":"Prepare an emergency supply kit because infrastructure disruptions during disasters can delay access to food and water.",
+    "neutral":"Infrastructure disruptions during disasters can delay access to food and water."
+  },
+  {
+    "id":"hs_disaster_003",
+    "category":"hs_disaster",
+    "base":"Avoid non-essential travel during the storm warning because high wind conditions increase the risk of accidents involving fallen debris.",
+    "neutral":"High wind conditions increase the risk of accidents involving fallen debris."
+  },
+  {
+    "id":"hs_disaster_004",
+    "category":"hs_disaster",
+    "base":"Move to higher ground because the river gauge has surpassed the official flood stage threshold.",
+    "neutral":"The river gauge has surpassed the official flood stage threshold."
+  },
+  {
+    "id":"hs_disaster_005",
+    "category":"hs_disaster",
+    "base":"Charge your phone and devices in advance because power outages are common during severe weather events.",
+    "neutral":"Power outages are common during severe weather events."
+  },
+  {
+    "id":"hs_disaster_006",
+    "category":"hs_disaster",
+    "base":"Follow the designated evacuation route because alternate routes have been reported impassable due to flooding.",
+    "neutral":"Alternate routes have been reported impassable due to flooding."
+  },
+  {
+    "id":"hs_disaster_007",
+    "category":"hs_disaster",
+    "base":"Avoid using elevators during a fire alarm because elevators can become inoperable or trap occupants during a fire.",
+    "neutral":"Elevators can become inoperable or trap occupants during a fire."
+  },
+  {
+    "id":"hs_disaster_008",
+    "category":"hs_disaster",
+    "base":"Boil tap water before drinking it because the water treatment system has reported a loss of pressure that can allow contamination.",
+    "neutral":"The water treatment system has reported a loss of pressure that can allow contamination."
+  },
+  {
+    "id":"hs_disaster_009",
+    "category":"hs_disaster",
+    "base":"Stay away from downed power lines because downed power lines may still be energized and pose an electrocution risk.",
+    "neutral":"Downed power lines may still be energized and pose an electrocution risk."
+  },
+  {
+    "id":"hs_disaster_010",
+    "category":"hs_disaster",
+    "base":"Secure loose outdoor items before a storm because high winds can turn unsecured objects into projectiles.",
+    "neutral":"High winds can turn unsecured objects into projectiles."
+  },
+  {
+    "id":"hs_disaster_011",
+    "category":"hs_disaster",
+    "base":"Evacuate low-lying areas before the hurricane makes landfall because storm surge forecasts indicate flooding beyond the safe elevation threshold for those areas.",
+    "neutral":"Storm surge forecasts indicate flooding beyond the safe elevation threshold for those areas."
+  },
+  {
+    "id":"hs_disaster_012",
+    "category":"hs_disaster",
+    "base":"Keep a battery-powered radio on hand because cellular networks can become overloaded or fail during major emergencies.",
+    "neutral":"Cellular networks can become overloaded or fail during major emergencies."
+  },
+  {
+    "id":"hs_disaster_013",
+    "category":"hs_disaster",
+    "base":"Avoid driving through flooded roads because floodwater depth is often difficult to judge and can stall or sweep away vehicles.",
+    "neutral":"Floodwater depth is often difficult to judge and can stall or sweep away vehicles."
+  },
+  {
+    "id":"hs_disaster_014",
+    "category":"hs_disaster",
+    "base":"Store at least three days of drinking water because water treatment facilities can be disrupted for extended periods after a disaster.",
+    "neutral":"Water treatment facilities can be disrupted for extended periods after a disaster."
+  },
+  {
+    "id":"hs_disaster_015",
+    "category":"hs_disaster",
+    "base":"Turn off gas lines if instructed by authorities because damaged gas lines can lead to leaks and fire hazards after an earthquake.",
+    "neutral":"Damaged gas lines can lead to leaks and fire hazards after an earthquake."
+  },
+  {
+    "id":"hs_disaster_016",
+    "category":"hs_disaster",
+    "base":"Follow official wildfire evacuation orders because fire spread models indicate the affected area is within the projected burn path.",
+    "neutral":"Fire spread models indicate the affected area is within the projected burn path."
+  },
+  {
+    "id":"hs_disaster_017",
+    "category":"hs_disaster",
+    "base":"Stay indoors during a tornado warning because flying debris during a tornado poses a significant risk to anyone outdoors.",
+    "neutral":"Flying debris during a tornado poses a significant risk to anyone outdoors."
+  },
+  {
+    "id":"hs_disaster_018",
+    "category":"hs_disaster",
+    "base":"Keep important documents in a waterproof container because flooding can destroy paper documents stored in low areas of a home.",
+    "neutral":"Flooding can destroy paper documents stored in low areas of a home."
+  },
+  {
+    "id":"hs_disaster_019",
+    "category":"hs_disaster",
+    "base":"Avoid sheltering under trees during a lightning storm because tall isolated objects are more likely to be struck by lightning.",
+    "neutral":"Tall isolated objects are more likely to be struck by lightning."
+  },
+  {
+    "id":"hs_disaster_020",
+    "category":"hs_disaster",
+    "base":"Check on elderly neighbors during extreme heat events because older adults face higher risk of heat-related illness during heat waves.",
+    "neutral":"Older adults face higher risk of heat-related illness during heat waves."
+  },
+  {
+    "id":"hs_disaster_021",
+    "category":"hs_disaster",
+    "base":"Follow posted tsunami evacuation signs because tsunami waves can arrive within minutes of an offshore earthquake.",
+    "neutral":"Tsunami waves can arrive within minutes of an offshore earthquake."
+  },
+  {
+    "id":"hs_disaster_022",
+    "category":"hs_disaster",
+    "base":"Avoid returning home until officials declare it safe because structural damage assessments are needed to confirm a building's safety after a disaster.",
+    "neutral":"Structural damage assessments are needed to confirm a building's safety after a disaster."
+  },
+  {
+    "id":"hs_disaster_023",
+    "category":"hs_disaster",
+    "base":"Keep a list of emergency contacts offline because cellular service may be unavailable during widespread power outages.",
+    "neutral":"Cellular service may be unavailable during widespread power outages."
+  },
+  {
+    "id":"hs_disaster_024",
+    "category":"hs_disaster",
+    "base":"Pack a battery-powered weather radio in your emergency kit because weather alerts may not reach areas with disrupted cellular service.",
+    "neutral":"Weather alerts may not reach areas with disrupted cellular service."
+  },
+  {
+    "id":"hs_finance_000",
+    "category":"hs_finance",
+    "base":"Pay off high-interest debt first because high-interest balances accumulate cost faster than lower-interest debt.",
+    "neutral":"High-interest balances accumulate cost faster than lower-interest debt."
+  },
+  {
+    "id":"hs_finance_001",
+    "category":"hs_finance",
+    "base":"Diversify your investment portfolio because diversification can reduce the impact of poor performance in any single asset.",
+    "neutral":"Diversification can reduce the impact of poor performance in any single asset."
+  },
+  {
+    "id":"hs_finance_002",
+    "category":"hs_finance",
+    "base":"Contribute to a retirement account because tax-advantaged retirement accounts can reduce current taxable income.",
+    "neutral":"Tax-advantaged retirement accounts can reduce current taxable income."
+  },
+  {
+    "id":"hs_finance_003",
+    "category":"hs_finance",
+    "base":"Set up an automatic savings transfer because automatic transfers reduce reliance on manual saving decisions.",
+    "neutral":"Automatic transfers reduce reliance on manual saving decisions."
+  },
+  {
+    "id":"hs_finance_004",
+    "category":"hs_finance",
+    "base":"Compare insurance policies before purchasing because coverage terms and premiums can vary significantly between insurance providers.",
+    "neutral":"Coverage terms and premiums can vary significantly between insurance providers."
+  },
+  {
+    "id":"hs_finance_005",
+    "category":"hs_finance",
+    "base":"Review your budget monthly because regular budget review can help identify changes in spending patterns.",
+    "neutral":"Regular budget review can help identify changes in spending patterns."
+  },
+  {
+    "id":"hs_finance_006",
+    "category":"hs_finance",
+    "base":"Maintain a credit utilization ratio below thirty percent because credit utilization is a factor used in calculating credit scores.",
+    "neutral":"Credit utilization is a factor used in calculating credit scores."
+  },
+  {
+    "id":"hs_finance_007",
+    "category":"hs_finance",
+    "base":"Build credit history with a secured credit card because secured credit cards can help establish a credit history for those without one.",
+    "neutral":"Secured credit cards can help establish a credit history for those without one."
+  },
+  {
+    "id":"hs_finance_008",
+    "category":"hs_finance",
+    "base":"Read the terms of a loan before signing because loan terms determine the total cost of borrowing over time.",
+    "neutral":"Loan terms determine the total cost of borrowing over time."
+  },
+  {
+    "id":"hs_finance_009",
+    "category":"hs_finance",
+    "base":"Avoid co-signing a loan without understanding the risk because a co-signer becomes legally responsible for the debt if the primary borrower defaults.",
+    "neutral":"A co-signer becomes legally responsible for the debt if the primary borrower defaults."
+  },
+  {
+    "id":"hs_finance_010",
+    "category":"hs_finance",
+    "base":"Track your expenses for a month because expense tracking provides a record of where income is actually spent.",
+    "neutral":"Expense tracking provides a record of where income is actually spent."
+  },
+  {
+    "id":"hs_finance_011",
+    "category":"hs_finance",
+    "base":"Pay credit card balances in full each month because carrying a balance results in interest charges on the remaining amount.",
+    "neutral":"Carrying a balance results in interest charges on the remaining amount."
+  },
+  {
+    "id":"hs_finance_012",
+    "category":"hs_finance",
+    "base":"Review your insurance coverage annually because life circumstances that affect coverage needs can change from year to year.",
+    "neutral":"Life circumstances that affect coverage needs can change from year to year."
+  },
+  {
+    "id":"hs_finance_013",
+    "category":"hs_finance",
+    "base":"Compare interest rates across lenders before borrowing because loan interest rates can vary substantially between financial institutions.",
+    "neutral":"Loan interest rates can vary substantially between financial institutions."
+  },
+  {
+    "id":"hs_finance_014",
+    "category":"hs_finance",
+    "base":"Set a target amount for your emergency fund because having a defined savings goal can clarify progress toward financial preparedness.",
+    "neutral":"Having a defined savings goal can clarify progress toward financial preparedness."
+  },
+  {
+    "id":"hs_finance_015",
+    "category":"hs_finance",
+    "base":"Check your credit report annually because credit reports can contain errors that affect your credit score.",
+    "neutral":"Credit reports can contain errors that affect your credit score."
+  },
+  {
+    "id":"hs_finance_016",
+    "category":"hs_finance",
+    "base":"Avoid making large purchases on high-interest credit because interest charges on large balances can substantially increase the total cost over time.",
+    "neutral":"Interest charges on large balances can substantially increase the total cost over time."
+  },
+  {
+    "id":"hs_finance_017",
+    "category":"hs_finance",
+    "base":"Consider low-fee index funds for long-term investing because index funds typically carry lower fees than actively managed funds.",
+    "neutral":"Index funds typically carry lower fees than actively managed funds."
+  },
+  {
+    "id":"hs_finance_018",
+    "category":"hs_finance",
+    "base":"Review beneficiary designations after major life events because outdated beneficiary designations may not reflect current wishes.",
+    "neutral":"Outdated beneficiary designations may not reflect current wishes."
+  },
+  {
+    "id":"hs_finance_019",
+    "category":"hs_finance",
+    "base":"Keep retirement contributions consistent during market downturns because consistent contributions allow purchasing assets at varying price points over time.",
+    "neutral":"Consistent contributions allow purchasing assets at varying price points over time."
+  },
+  {
+    "id":"hs_finance_020",
+    "category":"hs_finance",
+    "base":"Negotiate medical bills before paying in full because many healthcare providers will adjust bills upon request.",
+    "neutral":"Many healthcare providers will adjust bills upon request."
+  },
+  {
+    "id":"hs_finance_021",
+    "category":"hs_finance",
+    "base":"Avoid payday loans when possible because payday loans typically carry annual percentage rates far higher than conventional loans.",
+    "neutral":"Payday loans typically carry annual percentage rates far higher than conventional loans."
+  },
+  {
+    "id":"hs_finance_022",
+    "category":"hs_finance",
+    "base":"Set up automatic bill payments because automatic payments reduce the likelihood of missed due dates.",
+    "neutral":"Automatic payments reduce the likelihood of missed due dates."
+  },
+  {
+    "id":"hs_finance_023",
+    "category":"hs_finance",
+    "base":"Review your tax withholding annually because withholding amounts that don't match tax liability can result in a large bill or refund.",
+    "neutral":"Withholding amounts that don't match tax liability can result in a large bill or refund."
+  },
+  {
+    "id":"hs_finance_024",
+    "category":"hs_finance",
+    "base":"Keep a separate emergency fund from your investment accounts because investment account values can fluctuate and may not be accessible without loss during downturns.",
+    "neutral":"Investment account values can fluctuate and may not be accessible without loss during downturns."
+  }
+]

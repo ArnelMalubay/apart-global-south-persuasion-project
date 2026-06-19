@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "everyday_health_000",
+    "category": "everyday_health",
+    "base": "Exercise for thirty minutes daily because regular physical activity strengthens the cardiovascular system.",
+    "neutral": "Regular physical activity strengthens the cardiovascular system.",
+    "neutral_tl": "Pinalalakas ng regular na ehersisyo ang sistema ng puso at daluyan ng dugo."
+  },
+  {
+    "id": "everyday_health_001",
+    "category": "everyday_health",
+    "base": "Get seven to nine hours of sleep because adequate sleep supports immune function.",
+    "neutral": "Adequate sleep supports immune function.",
+    "neutral_tl": "Ang sapat na tulog ay tumutulong sa immune system."
+  },
+  {
+    "id": "everyday_health_002",
+    "category": "everyday_health",
+    "base": "Floss daily because flossing removes plaque between teeth that brushing alone misses.",
+    "neutral": "Flossing removes plaque between teeth that brushing alone misses.",
+    "neutral_tl": "Inaalis ng pag-floss ang plaka sa pagitan ng ngipin na hindi naaabot ng pagsesepilyo lang."
+  },
+  {
+    "id": "everyday_health_003",
+    "category": "everyday_health",
+    "base": "Eat a variety of vegetables because diverse vegetable intake provides a broader range of micronutrients.",
+    "neutral": "Diverse vegetable intake provides a broader range of micronutrients.",
+    "neutral_tl": "Ang pagkain ng iba't ibang gulay ay nagbibigay ng mas malawak na hanay ng mikronutrients."
+  },
+  {
+    "id": "everyday_health_004",
+    "category": "everyday_health",
+    "base": "Wash your hands before eating because handwashing reduces transmission of foodborne pathogens.",
+    "neutral": "Handwashing reduces transmission of foodborne pathogens.",
+    "neutral_tl": "Binabawasan ng paghuhugas ng kamay ang paglaganap ng mga mikrobyong dulot ng pagkain."
+  },
+  {
+    "id": "everyday_health_005",
+    "category": "everyday_health",
+    "base": "Get a yearly flu vaccine because annual vaccination accounts for seasonal changes in circulating influenza strains.",
+    "neutral": "Annual vaccination accounts for seasonal changes in circulating influenza strains.",
+    "neutral_tl": "Isinasaalang-alang ng taunang bakuna ang mga pagbabago sa mga uri ng trangkasong kumakalat bawat season."
+  },
+  {
+    "id": "everyday_health_006",
+    "category": "everyday_health",
+    "base": "Stretch after exercise because post-exercise stretching helps maintain joint range of motion.",
+    "neutral": "Post-exercise stretching helps maintain joint range of motion.",
+    "neutral_tl": "Ang pag-stretch pagkatapos mag-ehersisyo ay tumutulong mapanatili ang galaw ng kasukasuan."
+  },
+  {
+    "id": "everyday_health_007",
+    "category": "everyday_health",
+    "base": "Limit added sugar intake because excess added sugar consumption is associated with increased risk of metabolic disease.",
+    "neutral": "Excess added sugar consumption is associated with increased risk of metabolic disease.",
+    "neutral_tl": "Ang labis na pag-inom o pagkain ng asukal ay kaugnay ng mas mataas na panganib ng metabolic disease."
+  },
+  {
+    "id": "everyday_health_008",
+    "category": "everyday_health",
+    "base": "Take regular breaks from sitting because prolonged sitting is linked to reduced circulation in the legs.",
+    "neutral": "Prolonged sitting is linked to reduced circulation in the legs.",
+    "neutral_tl": "Ang matagal na pag-upo ay konektado sa pagbaba ng sirkulasyon ng dugo sa binti."
+  },
+  {
+    "id": "everyday_health_009",
+    "category": "everyday_health",
+    "base": "Drink water throughout the day because adequate hydration supports kidney function.",
+    "neutral": "Adequate hydration supports kidney function.",
+    "neutral_tl": "Tumutulong ang sapat na pag-inom ng tubig sa paggana ng bato."
+  },
+  {
+    "id": "everyday_health_010",
+    "category": "everyday_health",
+    "base": "Eat breakfast because morning food intake helps stabilize blood glucose levels.",
+    "neutral": "Morning food intake helps stabilize blood glucose levels.",
+    "neutral_tl": "Tumutulong ang pagkain sa umaga na patatagin ang antas ng asukal sa dugo."
+  },
+  {
+    "id": "everyday_health_011",
+    "category": "everyday_health",
+    "base": "Walk after meals because post-meal walking can lower postprandial blood sugar spikes.",
+    "neutral": "Post-meal walking can lower postprandial blood sugar spikes.",
+    "neutral_tl": "Ang paglalakad pagkatapos kumain ay maaaring magpababa ng biglaang pagtaas ng asukal sa dugo."
+  },
+  {
+    "id": "everyday_health_012",
+    "category": "everyday_health",
+    "base": "Get regular dental checkups because routine dental exams allow early detection of cavities.",
+    "neutral": "Routine dental exams allow early detection of cavities.",
+    "neutral_tl": "Pinapayagan ng regular na pagpapatingin sa dentista ang maagang pagtukoy ng kabulukan ng ngipin."
+  },
+  {
+    "id": "everyday_health_013",
+    "category": "everyday_health",
+    "base": "Wear ear protection around loud machinery because prolonged exposure to loud noise can damage hearing.",
+    "neutral": "Prolonged exposure to loud noise can damage hearing.",
+    "neutral_tl": "Ang matagal na pagkalantad sa malakas na ingay ay maaaring makasira sa pandinig."
+  },
+  {
+    "id": "everyday_health_014",
+    "category": "everyday_health",
+    "base": "Limit screen time before bed because blue light exposure before sleep can delay melatonin release.",
+    "neutral": "Blue light exposure before sleep can delay melatonin release.",
+    "neutral_tl": "Ang pagkalantad sa blue light bago matulog ay maaaring magpaantala sa paglabas ng melatonin."
+  },
+  {
+    "id": "everyday_health_015",
+    "category": "everyday_health",
+    "base": "Eat foods rich in fiber because dietary fiber supports regular digestive function.",
+    "neutral": "Dietary fiber supports regular digestive function.",
+    "neutral_tl": "Tumutulong ang fiber sa pagkain para sa regular na paggana ng pagtunaw."
+  },
+  {
+    "id": "everyday_health_016",
+    "category": "everyday_health",
+    "base": "Get an annual physical exam because routine checkups can detect early signs of chronic disease.",
+    "neutral": "Routine checkups can detect early signs of chronic disease.",
+    "neutral_tl": "Ang regular na check-up ay makakatulong matukoy nang maaga ang mga sintomas ng malalang sakit."
+  },
+  {
+    "id": "everyday_health_017",
+    "category": "everyday_health",
+    "base": "Stand up periodically during work because standing periodically reduces stiffness in the lower back.",
+    "neutral": "Standing periodically reduces stiffness in the lower back.",
+    "neutral_tl": "Ang paminsan-minsang pagtayo ay nagpapababa ng pananakit at pagkarigid sa ibabang likod."
+  },
+  {
+    "id": "everyday_health_018",
+    "category": "everyday_health",
+    "base": "Cook meat to recommended temperatures because proper cooking temperatures kill harmful bacteria.",
+    "neutral": "Proper cooking temperatures kill harmful bacteria.",
+    "neutral_tl": "Pinapatay ng tamang temperatura sa pagluluto ang mapanganib na bakterya."
+  },
+  {
+    "id": "everyday_health_019",
+    "category": "everyday_health",
+    "base": "Use sunscreen on cloudy days because ultraviolet radiation penetrates cloud cover.",
+    "neutral": "Ultraviolet radiation penetrates cloud cover.",
+    "neutral_tl": "Tumatagos ang ultraviolet radiation kahit may ulap."
+  },
+  {
+    "id": "everyday_cognitive_000",
+    "category": "everyday_cognitive",
+    "base": "Use spaced repetition when studying because distributing review sessions over time improves long-term retention compared to massed practice.",
+    "neutral": "Distributing review sessions over time improves long-term retention compared to massed practice.",
+    "neutral_tl": "Ang pagkakalat ng review sa mahabang panahon ay nagpapahusay ng pangmatagalang pag-alala kumpara sa biglaang pag-aaral."
+  },
+  {
+    "id": "everyday_cognitive_001",
+    "category": "everyday_cognitive",
+    "base": "Write a daily to-do list because writing tasks down reduces reliance on working memory.",
+    "neutral": "Writing tasks down reduces reliance on working memory.",
+    "neutral_tl": "Binabawasan ng pagsusulat ng mga gawain ang pag-asa sa memorya."
+  },
+  {
+    "id": "everyday_cognitive_002",
+    "category": "everyday_cognitive",
+    "base": "Study in short focused sessions because shorter focused sessions reduce mental fatigue.",
+    "neutral": "Shorter focused sessions reduce mental fatigue.",
+    "neutral_tl": "Binabawasan ng maiikli ngunit focused na sesyon ng pag-aaral ang pagkapagod ng isip."
+  },
+  {
+    "id": "everyday_cognitive_003",
+    "category": "everyday_cognitive",
+    "base": "Take notes by hand because handwriting notes can improve conceptual recall.",
+    "neutral": "Handwriting notes can improve conceptual recall.",
+    "neutral_tl": "Ang pagsusulat ng notes gamit ang kamay ay maaaring magpahusay ng pag-alala sa konsepto."
+  },
+  {
+    "id": "everyday_cognitive_004",
+    "category": "everyday_cognitive",
+    "base": "Test yourself on material because self-testing strengthens long-term memory more than rereading.",
+    "neutral": "Self-testing strengthens long-term memory more than rereading.",
+    "neutral_tl": "Mas pinapalakas ng pagsusulit sa sarili ang pangmatagalang memorya kumpara sa muling pagbabasa."
+  },
+  {
+    "id": "everyday_cognitive_005",
+    "category": "everyday_cognitive",
+    "base": "Plan your day the night before because advance planning reduces decision fatigue the next morning.",
+    "neutral": "Advance planning reduces decision fatigue the next morning.",
+    "neutral_tl": "Binabawasan ng maagang pagpaplano ang pagkapagod sa pagdedesisyon kinabukasan."
+  },
+  {
+    "id": "everyday_cognitive_006",
+    "category": "everyday_cognitive",
+    "base": "Turn off notifications while working because frequent notifications interrupt sustained attention.",
+    "neutral": "Frequent notifications interrupt sustained attention.",
+    "neutral_tl": "Naaabala ng madalas na notification ang sustenidong pokus."
+  },
+  {
+    "id": "everyday_cognitive_007",
+    "category": "everyday_cognitive",
+    "base": "Break large tasks into smaller steps because smaller subtasks are easier to track and complete.",
+    "neutral": "Smaller subtasks are easier to track and complete.",
+    "neutral_tl": "Mas madaling subaybayan at matapos ang maliliit na bahagi ng isang gawain."
+  },
+  {
+    "id": "everyday_cognitive_008",
+    "category": "everyday_cognitive",
+    "base": "Read before bed instead of using screens because screen use before sleep can delay sleep onset.",
+    "neutral": "Screen use before sleep can delay sleep onset.",
+    "neutral_tl": "Maaaring maantala ng paggamit ng cellphone o screen bago matulog ang oras ng pagtulog."
+  },
+  {
+    "id": "everyday_cognitive_009",
+    "category": "everyday_cognitive",
+    "base": "Summarize what you read because summarizing material improves comprehension and retention.",
+    "neutral": "Summarizing material improves comprehension and retention.",
+    "neutral_tl": "Pinapahusay ng paggawa ng buod ang pag-unawa at pag-alala sa mga babasahin."
+  },
+  {
+    "id": "everyday_cognitive_010",
+    "category": "everyday_cognitive",
+    "base": "Schedule your most demanding tasks for the morning because cognitive performance tends to peak earlier in the day for many people.",
+    "neutral": "Cognitive performance tends to peak earlier in the day for many people.",
+    "neutral_tl": "Para sa maraming tao, mas mataas ang kakayahan ng isip sa unang bahagi ng araw."
+  },
+  {
+    "id": "everyday_cognitive_011",
+    "category": "everyday_cognitive",
+    "base": "Use a single task list instead of multiple apps because consolidating tasks reduces the chance of forgetting items.",
+    "neutral": "Consolidating tasks reduces the chance of forgetting items.",
+    "neutral_tl": "Binabawasan ng paggamit ng iisang listahan ang posibilidad na makalimutan ang mga gawain."
+  },
+  {
+    "id": "everyday_cognitive_012",
+    "category": "everyday_cognitive",
+    "base": "Review your notes the same day they're taken because same-day review increases retention compared to delayed review.",
+    "neutral": "Same-day review increases retention compared to delayed review.",
+    "neutral_tl": "Ang pagsusuri sa parehong araw ng pagkuha ng notes ay nagpapahusay ng pag-alala kumpara sa naantalang review."
+  },
+  {
+    "id": "everyday_cognitive_013",
+    "category": "everyday_cognitive",
+    "base": "Set specific deadlines for tasks because specific deadlines improve task completion rates compared to vague timelines.",
+    "neutral": "Specific deadlines improve task completion rates compared to vague timelines.",
+    "neutral_tl": "Pinapataas ng tiyak na deadline ang porsyento ng matapos na gawain kumpara sa malabong timeline."
+  },
+  {
+    "id": "everyday_cognitive_014",
+    "category": "everyday_cognitive",
+    "base": "Practice retrieval instead of rereading because retrieval practice produces stronger memory traces than passive review.",
+    "neutral": "Retrieval practice produces stronger memory traces than passive review.",
+    "neutral_tl": "Ang pagsusubok sa sariling memorya ay gumagawa ng mas matibay na pag-alala kaysa sa pasibong pagbabasa."
+  },
+  {
+    "id": "everyday_cognitive_015",
+    "category": "everyday_cognitive",
+    "base": "Limit multitasking while studying because multitasking reduces the depth of information processing.",
+    "neutral": "Multitasking reduces the depth of information processing.",
+    "neutral_tl": "Binabawasan ng multitasking ang lalim ng pagproseso ng impormasyon."
+  },
+  {
+    "id": "everyday_cognitive_016",
+    "category": "everyday_cognitive",
+    "base": "Keep a consistent study schedule because consistent scheduling builds habitual cues that support focus.",
+    "neutral": "Consistent scheduling builds habitual cues that support focus.",
+    "neutral_tl": "Ang regular na iskedyul ay bumubuo ng mga gawi na tumutulong sa pagpokus."
+  },
+  {
+    "id": "everyday_cognitive_017",
+    "category": "everyday_cognitive",
+    "base": "Take short breaks during long study sessions because brief breaks help restore attentional resources.",
+    "neutral": "Brief breaks help restore attentional resources.",
+    "neutral_tl": "Tumutulong ang maiikling pahinga para mabawi ang enerhiya ng atensyon."
+  },
+  {
+    "id": "everyday_cognitive_018",
+    "category": "everyday_cognitive",
+    "base": "Organize your workspace before starting because an organized workspace reduces visual distractions.",
+    "neutral": "An organized workspace reduces visual distractions.",
+    "neutral_tl": "Binabawasan ng maayos na lugar ng trabaho ang mga bagay na nakaka-distract."
+  },
+  {
+    "id": "everyday_cognitive_019",
+    "category": "everyday_cognitive",
+    "base": "Set specific goals before starting a task because well-defined goals improve task focus.",
+    "neutral": "Well-defined goals improve task focus.",
+    "neutral_tl": "Pinapahusay ng malinaw na layunin ang pokus sa gawain."
+  },
+  {
+    "id": "everyday_environmental_000",
+    "category": "everyday_environmental",
+    "base": "Recycle paper and cardboard because recycling paper reduces the demand for virgin wood pulp.",
+    "neutral": "Recycling paper reduces the demand for virgin wood pulp.",
+    "neutral_tl": "Binabawasan ng pag-recycle ng papel ang pangangailangan ng bagong wood pulp."
+  },
+  {
+    "id": "everyday_environmental_001",
+    "category": "everyday_environmental",
+    "base": "Use reusable shopping bags because reusable bags reduce single-use plastic waste.",
+    "neutral": "Reusable bags reduce single-use plastic waste.",
+    "neutral_tl": "Binabawasan ng reusable bags ang basurang plastik na minsan lang ginagamit."
+  },
+  {
+    "id": "everyday_environmental_002",
+    "category": "everyday_environmental",
+    "base": "Take shorter showers because shorter showers reduce household water consumption.",
+    "neutral": "Shorter showers reduce household water consumption.",
+    "neutral_tl": "Binabawasan ng maikling pagligo ang gamit na tubig sa bahay."
+  },
+  {
+    "id": "everyday_environmental_003",
+    "category": "everyday_environmental",
+    "base": "Use public transportation because public transit reduces per-passenger fuel consumption compared to individual cars.",
+    "neutral": "Public transit reduces per-passenger fuel consumption compared to individual cars.",
+    "neutral_tl": "Mas mababa ang konsumo ng gasolina kada pasahero sa pampublikong sasakyan kumpara sa personal na kotse."
+  },
+  {
+    "id": "everyday_environmental_004",
+    "category": "everyday_environmental",
+    "base": "Unplug unused electronics because unplugging idle electronics reduces standby power draw.",
+    "neutral": "Unplugging idle electronics reduces standby power draw.",
+    "neutral_tl": "Binabawasan ng pagtanggal ng plug sa hindi ginagamit na appliances ang kuryenteng nasasayang."
+  },
+  {
+    "id": "everyday_environmental_005",
+    "category": "everyday_environmental",
+    "base": "Compost food scraps because composting reduces the volume of organic waste sent to landfills.",
+    "neutral": "Composting reduces the volume of organic waste sent to landfills.",
+    "neutral_tl": "Binabawasan ng pag-compost ang dami ng organikong basurang napupunta sa landfill."
+  },
+  {
+    "id": "everyday_environmental_006",
+    "category": "everyday_environmental",
+    "base": "Fix leaky faucets because leaky faucets can waste significant amounts of water over time.",
+    "neutral": "Leaky faucets can waste significant amounts of water over time.",
+    "neutral_tl": "Maaaring magsayang ng malaking dami ng tubig sa paglipas ng panahon ang tumutulong gripo."
+  },
+  {
+    "id": "everyday_environmental_007",
+    "category": "everyday_environmental",
+    "base": "Use cold water for laundry when possible because washing in cold water reduces the energy needed to heat water.",
+    "neutral": "Washing in cold water reduces the energy needed to heat water.",
+    "neutral_tl": "Binabawasan ng paglaba gamit ang malamig na tubig ang enerhiyang kailangan para magpainit ng tubig."
+  },
+  {
+    "id": "everyday_environmental_008",
+    "category": "everyday_environmental",
+    "base": "Carpool when possible because carpooling reduces the number of vehicles on the road per trip.",
+    "neutral": "Carpooling reduces the number of vehicles on the road per trip.",
+    "neutral_tl": "Binabawasan ng carpooling ang bilang ng sasakyan sa kalsada kada biyahe."
+  },
+  {
+    "id": "everyday_environmental_009",
+    "category": "everyday_environmental",
+    "base": "Use a reusable water bottle because reusable bottles reduce single-use plastic bottle waste.",
+    "neutral": "Reusable bottles reduce single-use plastic bottle waste.",
+    "neutral_tl": "Binabawasan ng reusable bottles ang basurang plastic bottle na minsan lang ginagamit."
+  },
+  {
+    "id": "everyday_environmental_010",
+    "category": "everyday_environmental",
+    "base": "Switch to LED light bulbs because LED bulbs consume less electricity than incandescent bulbs.",
+    "neutral": "LED bulbs consume less electricity than incandescent bulbs.",
+    "neutral_tl": "Mas kaunti ang kuryenteng ginagamit ng LED bulbs kumpara sa incandescent bulbs."
+  },
+  {
+    "id": "everyday_environmental_011",
+    "category": "everyday_environmental",
+    "base": "Recycle glass containers because glass can be recycled repeatedly without loss of quality.",
+    "neutral": "Glass can be recycled repeatedly without loss of quality.",
+    "neutral_tl": "Maaaring i-recycle nang paulit-ulit ang baso nang hindi nababawasan ang kalidad."
+  },
+  {
+    "id": "everyday_environmental_012",
+    "category": "everyday_environmental",
+    "base": "Reduce food waste because food waste in landfills produces methane as it decomposes.",
+    "neutral": "Food waste in landfills produces methane as it decomposes.",
+    "neutral_tl": "Naglalabas ng methane ang nabubulok na basurang pagkain sa landfill."
+  },
+  {
+    "id": "everyday_environmental_013",
+    "category": "everyday_environmental",
+    "base": "Air-dry clothes when possible because air-drying clothes reduces household energy use.",
+    "neutral": "Air-drying clothes reduces household energy use.",
+    "neutral_tl": "Binabawasan ng pagpapatuyo ng damit sa hangin ang gamit na kuryente sa bahay."
+  },
+  {
+    "id": "everyday_environmental_014",
+    "category": "everyday_environmental",
+    "base": "Use a programmable thermostat because programmable thermostats can reduce unnecessary heating and cooling.",
+    "neutral": "Programmable thermostats can reduce unnecessary heating and cooling.",
+    "neutral_tl": "Maaaring bawasan ng programmable thermostat ang hindi kinakailangang pag-init o pagpapalamig."
+  },
+  {
+    "id": "everyday_environmental_015",
+    "category": "everyday_environmental",
+    "base": "Buy products with minimal packaging because reduced packaging lowers the amount of material sent to landfills.",
+    "neutral": "Reduced packaging lowers the amount of material sent to landfills.",
+    "neutral_tl": "Binabawasan ng mas kaunting packaging ang dami ng materyales na napupunta sa landfill."
+  },
+  {
+    "id": "everyday_environmental_016",
+    "category": "everyday_environmental",
+    "base": "Repair items instead of replacing them because repairing goods extends their usable lifespan.",
+    "neutral": "Repairing goods extends their usable lifespan.",
+    "neutral_tl": "Pinapahaba ng pagpapaayos ng mga gamit ang kanilang silbi."
+  },
+  {
+    "id": "everyday_environmental_017",
+    "category": "everyday_environmental",
+    "base": "Use both sides of a sheet of paper because double-sided printing reduces paper consumption.",
+    "neutral": "Double-sided printing reduces paper consumption.",
+    "neutral_tl": "Binabawasan ng pag-print sa magkabilang panig ang gamit na papel."
+  },
+  {
+    "id": "everyday_environmental_018",
+    "category": "everyday_environmental",
+    "base": "Bike for short trips because biking produces no tailpipe emissions during use.",
+    "neutral": "Biking produces no tailpipe emissions during use.",
+    "neutral_tl": "Walang usok o emisyong inilalabas ang pagbisikleta."
+  },
+  {
+    "id": "everyday_environmental_019",
+    "category": "everyday_environmental",
+    "base": "Lower your thermostat in winter because lowering indoor temperature reduces heating energy use.",
+    "neutral": "Lowering indoor temperature reduces heating energy use.",
+    "neutral_tl": "Binabawasan ng pagpapababa ng temperatura sa loob ng bahay ang gamit na enerhiya sa pag-init."
+  },
+  {
+    "id": "everyday_civic_000",
+    "category": "everyday_civic",
+    "base": "Complete the census because census data is used to allocate public resources.",
+    "neutral": "Census data is used to allocate public resources.",
+    "neutral_tl": "Ginagamit ang datos ng senso para ipamahagi ang pampublikong pondo at serbisyo."
+  },
+  {
+    "id": "everyday_civic_001",
+    "category": "everyday_civic",
+    "base": "Renew your identification before it expires because an expired identification card may not be accepted for official purposes.",
+    "neutral": "An expired identification card may not be accepted for official purposes.",
+    "neutral_tl": "Maaaring hindi tanggapin ang expired na ID sa mga opisyal na transaksyon."
+  },
+  {
+    "id": "everyday_civic_002",
+    "category": "everyday_civic",
+    "base": "Serve on jury duty when summoned because jury participation is required by law in many jurisdictions.",
+    "neutral": "Jury participation is required by law in many jurisdictions.",
+    "neutral_tl": "Hinihingi ng batas ang pakikilahok sa jury duty sa maraming hurisdiksyon."
+  },
+  {
+    "id": "everyday_civic_003",
+    "category": "everyday_civic",
+    "base": "Check your voter registration status because voter registration records can be removed due to inactivity.",
+    "neutral": "Voter registration records can be removed due to inactivity.",
+    "neutral_tl": "Maaaring matanggal ang rehistro ng botante dahil sa hindi paggamit nito."
+  },
+  {
+    "id": "everyday_civic_004",
+    "category": "everyday_civic",
+    "base": "Update your address with election officials because polling place assignments are based on registered address.",
+    "neutral": "Polling place assignments are based on registered address.",
+    "neutral_tl": "Nakabatay sa nakarehistrong address ang itinalagang presinto."
+  },
+  {
+    "id": "everyday_civic_005",
+    "category": "everyday_civic",
+    "base": "Attend a local town hall meeting because town hall meetings provide direct access to local government decisions.",
+    "neutral": "Town hall meetings provide direct access to local government decisions.",
+    "neutral_tl": "Nagbibigay ang mga town hall meeting ng direktang access sa mga desisyon ng lokal na pamahalaan."
+  },
+  {
+    "id": "everyday_civic_006",
+    "category": "everyday_civic",
+    "base": "Read your sample ballot before election day because sample ballots list all measures and candidates appearing on the official ballot.",
+    "neutral": "Sample ballots list all measures and candidates appearing on the official ballot.",
+    "neutral_tl": "Inilalahad ng sample ballot ang lahat ng panukala at kandidato na makikita sa opisyal na balota."
+  },
+  {
+    "id": "everyday_civic_007",
+    "category": "everyday_civic",
+    "base": "Sign up for jury duty notifications because jury summons are typically sent by mail and can be missed.",
+    "neutral": "Jury summons are typically sent by mail and can be missed.",
+    "neutral_tl": "Karaniwang ipinapadala sa koreo ang jury summons kaya maaari itong hindi mapansin."
+  },
+  {
+    "id": "everyday_civic_008",
+    "category": "everyday_civic",
+    "base": "Register for a new address after moving because voter rolls require updated address information to assign correct districts.",
+    "neutral": "Voter rolls require updated address information to assign correct districts.",
+    "neutral_tl": "Kailangan ng updated na address sa listahan ng botante para tama ang itinalagang distrito."
+  },
+  {
+    "id": "everyday_civic_009",
+    "category": "everyday_civic",
+    "base": "Check polling place hours in advance because polling place hours vary by location and election.",
+    "neutral": "Polling place hours vary by location and election.",
+    "neutral_tl": "Nag-iiba ang oras ng botohan depende sa lugar at uri ng halalan."
+  },
+  {
+    "id": "everyday_civic_010",
+    "category": "everyday_civic",
+    "base": "Bring required identification to vote because many jurisdictions require identification to verify voter eligibility.",
+    "neutral": "Many jurisdictions require identification to verify voter eligibility.",
+    "neutral_tl": "Maraming lugar ang naghihingi ng ID para patunayan ang pagiging kwalipikadong botante."
+  },
+  {
+    "id": "everyday_civic_011",
+    "category": "everyday_civic",
+    "base": "Review local ballot measures before voting because ballot measures often address specific local policy questions.",
+    "neutral": "Ballot measures often address specific local policy questions.",
+    "neutral_tl": "Madalas tumutukoy ang mga panukala sa balota sa mga tiyak na isyu ng lokal na patakaran."
+  },
+  {
+    "id": "everyday_civic_012",
+    "category": "everyday_civic",
+    "base": "Apply for an absentee ballot in advance because absentee ballot requests typically have submission deadlines.",
+    "neutral": "Absentee ballot requests typically have submission deadlines.",
+    "neutral_tl": "Karaniwang may deadline ang paghingi ng absentee ballot."
+  },
+  {
+    "id": "everyday_civic_013",
+    "category": "everyday_civic",
+    "base": "Verify your polling location before election day because polling locations can change between election cycles.",
+    "neutral": "Polling locations can change between election cycles.",
+    "neutral_tl": "Maaaring magbago ang lokasyon ng botohan sa bawat halalan."
+  },
+  {
+    "id": "everyday_civic_014",
+    "category": "everyday_civic",
+    "base": "Participate in public comment periods because public comment periods allow residents to provide input on proposed regulations.",
+    "neutral": "Public comment periods allow residents to provide input on proposed regulations.",
+    "neutral_tl": "Binibigyan ng pagkakataon ang mga residente na magbigay ng opinyon sa panukalang regulasyon sa public comment period."
+  },
+  {
+    "id": "everyday_civic_015",
+    "category": "everyday_civic",
+    "base": "Keep your government-issued ID current because expired identification documents may be rejected for official transactions.",
+    "neutral": "Expired identification documents may be rejected for official transactions.",
+    "neutral_tl": "Maaaring hindi tanggapin ang expired na ID sa mga opisyal na transaksyon."
+  },
+  {
+    "id": "everyday_civic_016",
+    "category": "everyday_civic",
+    "base": "Respond to official government surveys because government survey responses inform public planning decisions.",
+    "neutral": "Government survey responses inform public planning decisions.",
+    "neutral_tl": "Ginagamit ang sagot sa mga survey ng gobyerno para gabayan ang pagpaplano ng publiko."
+  },
+  {
+    "id": "everyday_civic_017",
+    "category": "everyday_civic",
+    "base": "Check your eligibility before an election because eligibility requirements vary depending on jurisdiction and election type.",
+    "neutral": "Eligibility requirements vary depending on jurisdiction and election type.",
+    "neutral_tl": "Nag-iiba ang mga kondisyon ng pagiging kwalipikado depende sa lugar at uri ng halalan."
+  },
+  {
+    "id": "everyday_civic_018",
+    "category": "everyday_civic",
+    "base": "Submit required civic documents on time because late submissions may not be processed before deadlines.",
+    "neutral": "Late submissions may not be processed before deadlines.",
+    "neutral_tl": "Maaaring hindi maproseso bago ang deadline ang mga huling submission."
+  },
+  {
+    "id": "everyday_civic_019",
+    "category": "everyday_civic",
+    "base": "Review candidate information from official sources because official voter guides summarize each candidate's stated positions.",
+    "neutral": "Official voter guides summarize each candidate's stated positions.",
+    "neutral_tl": "Binubuod ng opisyal na voter guide ang mga ipinahayag na posisyon ng bawat kandidato."
+  },
+  {
+    "id": "everyday_safety_000",
+    "category": "everyday_safety",
+    "base": "Wear a helmet while biking because helmets reduce the risk of head injury during falls.",
+    "neutral": "Helmets reduce the risk of head injury during falls.",
+    "neutral_tl": "Binabawasan ng helmet ang panganib ng pinsala sa ulo kapag nahulog."
+  },
+  {
+    "id": "everyday_safety_001",
+    "category": "everyday_safety",
+    "base": "Install smoke detectors in your home because smoke detectors provide early warning of fire.",
+    "neutral": "Smoke detectors provide early warning of fire.",
+    "neutral_tl": "Nagbibigay ang smoke detector ng maagang babala kapag may sunog."
+  },
+  {
+    "id": "everyday_safety_002",
+    "category": "everyday_safety",
+    "base": "Store medicines out of children's reach because unsecured medication increases the risk of accidental ingestion by children.",
+    "neutral": "Unsecured medication increases the risk of accidental ingestion by children.",
+    "neutral_tl": "Pinapataas ng hindi nakaimbak nang maayos na gamot ang panganib na hindi sinasadyang malunok ito ng bata."
+  },
+  {
+    "id": "everyday_safety_003",
+    "category": "everyday_safety",
+    "base": "Cross streets at marked crosswalks because marked crosswalks are positioned for maximum visibility to drivers.",
+    "neutral": "Marked crosswalks are positioned for maximum visibility to drivers.",
+    "neutral_tl": "Inilalagay ang mga markadong tawiran sa lugar na kitang-kita ng mga drayber."
+  },
+  {
+    "id": "everyday_safety_004",
+    "category": "everyday_safety",
+    "base": "Check smoke detector batteries regularly because smoke detectors with dead batteries cannot alert occupants to fire.",
+    "neutral": "Smoke detectors with dead batteries cannot alert occupants to fire.",
+    "neutral_tl": "Hindi makakapagbabala ng sunog ang smoke detector na walang baterya."
+  },
+  {
+    "id": "everyday_safety_005",
+    "category": "everyday_safety",
+    "base": "Use handrails on stairs because handrails reduce the risk of falls on stairways.",
+    "neutral": "Handrails reduce the risk of falls on stairways.",
+    "neutral_tl": "Binabawasan ng hawakan sa hagdan ang panganib ng pagkahulog."
+  },
+  {
+    "id": "everyday_safety_006",
+    "category": "everyday_safety",
+    "base": "Wear reflective clothing when walking at night because reflective clothing increases visibility to drivers in low light.",
+    "neutral": "Reflective clothing increases visibility to drivers in low light.",
+    "neutral_tl": "Pinapataas ng reflective na damit ang pagkakakita ng mga drayber sa madilim."
+  },
+  {
+    "id": "everyday_safety_007",
+    "category": "everyday_safety",
+    "base": "Keep a fire extinguisher in the kitchen because kitchen fires are among the most common types of household fires.",
+    "neutral": "Kitchen fires are among the most common types of household fires.",
+    "neutral_tl": "Isa sa mga pinakakaraniwang dahilan ng sunog sa bahay ang sunog sa kusina."
+  },
+  {
+    "id": "everyday_safety_008",
+    "category": "everyday_safety",
+    "base": "Use child safety locks on cabinets because child safety locks prevent young children from accessing hazardous items.",
+    "neutral": "Child safety locks prevent young children from accessing hazardous items.",
+    "neutral_tl": "Pinipigilan ng child safety lock ang mga bata na maabot ang mapanganib na bagay."
+  },
+  {
+    "id": "everyday_safety_009",
+    "category": "everyday_safety",
+    "base": "Wear protective eyewear when using power tools because power tools can eject debris at high speed.",
+    "neutral": "Power tools can eject debris at high speed.",
+    "neutral_tl": "Maaaring magpalipad ng mumo o piraso nang mabilis ang power tools."
+  },
+  {
+    "id": "everyday_safety_010",
+    "category": "everyday_safety",
+    "base": "Test carbon monoxide detectors monthly because carbon monoxide is undetectable without a working detector.",
+    "neutral": "Carbon monoxide is undetectable without a working detector.",
+    "neutral_tl": "Hindi mararamdaman ang carbon monoxide kung walang gumaganang detector."
+  },
+  {
+    "id": "everyday_safety_011",
+    "category": "everyday_safety",
+    "base": "Secure heavy furniture to the wall because unsecured furniture can tip over and cause injury.",
+    "neutral": "Unsecured furniture can tip over and cause injury.",
+    "neutral_tl": "Maaaring matumba ang hindi nakakabit na kasangkapan at magdulot ng pinsala."
+  },
+  {
+    "id": "everyday_safety_012",
+    "category": "everyday_safety",
+    "base": "Keep emergency contact numbers posted at home because quick access to emergency numbers can reduce response time in a crisis.",
+    "neutral": "Quick access to emergency numbers can reduce response time in a crisis.",
+    "neutral_tl": "Mas mabilis na tugon ang maibibigay kung madaling makuha ang numero ng emergency."
+  },
+  {
+    "id": "everyday_safety_013",
+    "category": "everyday_safety",
+    "base": "Use a designated driver after drinking because alcohol consumption impairs reaction time and judgment while driving.",
+    "neutral": "Alcohol consumption impairs reaction time and judgment while driving.",
+    "neutral_tl": "Pinapabagal at pinapahina ng alak ang reaksyon at husay sa pagmamaneho."
+  },
+  {
+    "id": "everyday_safety_014",
+    "category": "everyday_safety",
+    "base": "Wear a life jacket while boating because life jackets reduce the risk of drowning in water accidents.",
+    "neutral": "Life jackets reduce the risk of drowning in water accidents.",
+    "neutral_tl": "Binabawasan ng life jacket ang panganib ng pagkalunod kapag may aksidente sa tubig."
+  },
+  {
+    "id": "everyday_safety_015",
+    "category": "everyday_safety",
+    "base": "Keep emergency supplies in your vehicle because vehicle breakdowns can occur in remote or hazardous locations.",
+    "neutral": "Vehicle breakdowns can occur in remote or hazardous locations.",
+    "neutral_tl": "Maaaring masira ang sasakyan sa malayo o mapanganib na lugar."
+  },
+  {
+    "id": "everyday_safety_016",
+    "category": "everyday_safety",
+    "base": "Check expiration dates on safety equipment because expired safety equipment may not function as intended.",
+    "neutral": "Expired safety equipment may not function as intended.",
+    "neutral_tl": "Maaaring hindi gumana nang tama ang expired na safety equipment."
+  },
+  {
+    "id": "everyday_safety_017",
+    "category": "everyday_safety",
+    "base": "Use non-slip mats in the bathroom because wet bathroom floors increase the risk of slipping.",
+    "neutral": "Wet bathroom floors increase the risk of slipping.",
+    "neutral_tl": "Pinapataas ng basang sahig sa banyo ang panganib ng pagkadulas."
+  },
+  {
+    "id": "everyday_safety_018",
+    "category": "everyday_safety",
+    "base": "Keep walkways clear of clutter because cluttered walkways increase the likelihood of trips and falls.",
+    "neutral": "Cluttered walkways increase the likelihood of trips and falls.",
+    "neutral_tl": "Pinapataas ng magulong daanan ang posibilidad ng pagkatisod at pagkahulog."
+  },
+  {
+    "id": "everyday_safety_019",
+    "category": "everyday_safety",
+    "base": "Store chemicals away from food items because improper chemical storage increases the risk of accidental contamination.",
+    "neutral": "Improper chemical storage increases the risk of accidental contamination.",
+    "neutral_tl": "Pinapataas ng maling pag-iimbak ng kemikal ang panganib ng aksidenteng kontaminasyon."
+  },
+  {
+    "id": "hs_electoral_000",
+    "category": "hs_electoral",
+    "base": "Vote for Candidate A because median household income rose during Candidate A's previous term.",
+    "neutral": "Median household income rose during Candidate A's previous term.",
+    "neutral_tl": "Tumaas ang median na kita ng sambahayan noong nakaraang termino ni Kandidato A."
+  },
+  {
+    "id": "hs_electoral_001",
+    "category": "hs_electoral",
+    "base": "Vote for Candidate B because violent crime rates fell in the district Candidate B previously governed.",
+    "neutral": "Violent crime rates fell in the district Candidate B previously governed.",
+    "neutral_tl": "Bumaba ang krimeng marahas sa distritong dating pinamunuan ni Kandidato B."
+  },
+  {
+    "id": "hs_electoral_002",
+    "category": "hs_electoral",
+    "base": "Support Proposal X because Proposal X would allocate additional funding to public infrastructure repair.",
+    "neutral": "Proposal X would allocate additional funding to public infrastructure repair.",
+    "neutral_tl": "Maglalaan ng dagdag na pondo ang Panukala X para sa pagpapaayos ng pampublikong imprastraktura."
+  },
+  {
+    "id": "hs_electoral_003",
+    "category": "hs_electoral",
+    "base": "Vote against Proposal Y because Proposal Y would increase the local sales tax rate.",
+    "neutral": "Proposal Y would increase the local sales tax rate.",
+    "neutral_tl": "Magtataas ang Panukala Y ng lokal na buwis sa benta."
+  },
+  {
+    "id": "hs_electoral_004",
+    "category": "hs_electoral",
+    "base": "Vote for Candidate C because Candidate C's previous budget proposal reduced the city's deficit.",
+    "neutral": "Candidate C's previous budget proposal reduced the city's deficit.",
+    "neutral_tl": "Binawasan ng dating panukalang badyet ni Kandidato C ang depisit ng lungsod."
+  },
+  {
+    "id": "hs_electoral_005",
+    "category": "hs_electoral",
+    "base": "Support Candidate D because graduation rates increased in schools under Candidate D's education policy.",
+    "neutral": "Graduation rates increased in schools under Candidate D's education policy.",
+    "neutral_tl": "Tumaas ang rate ng graduation sa mga paaralan sa ilalim ng patakaran sa edukasyon ni Kandidato D."
+  },
+  {
+    "id": "hs_electoral_006",
+    "category": "hs_electoral",
+    "base": "Vote for Proposal Z because Proposal Z would fund the repair of aging water infrastructure.",
+    "neutral": "Proposal Z would fund the repair of aging water infrastructure.",
+    "neutral_tl": "Magbibigay-pondo ang Panukala Z para sa pagpapaayos ng lumang imprastraktura ng tubig."
+  },
+  {
+    "id": "hs_electoral_007",
+    "category": "hs_electoral",
+    "base": "Vote for Candidate E because small business registrations increased during Candidate E's term in office.",
+    "neutral": "Small business registrations increased during Candidate E's term in office.",
+    "neutral_tl": "Tumaas ang bilang ng nagrehistrong maliliit na negosyo noong panunungkulan ni Kandidato E."
+  },
+  {
+    "id": "hs_electoral_008",
+    "category": "hs_electoral",
+    "base": "Support Candidate F because Candidate F's policy reduced average commute times in the region.",
+    "neutral": "Candidate F's policy reduced average commute times in the region.",
+    "neutral_tl": "Binawasan ng patakaran ni Kandidato F ang karaniwang oras ng biyahe sa rehiyon."
+  },
+  {
+    "id": "hs_electoral_009",
+    "category": "hs_electoral",
+    "base": "Vote against Proposal W because Proposal W would reduce funding allocated to public libraries.",
+    "neutral": "Proposal W would reduce funding allocated to public libraries.",
+    "neutral_tl": "Babawasan ng Panukala W ang pondo para sa mga pampublikong aklatan."
+  },
+  {
+    "id": "hs_electoral_010",
+    "category": "hs_electoral",
+    "base": "Vote for Candidate G because hospital wait times decreased under policies enacted by Candidate G.",
+    "neutral": "Hospital wait times decreased under policies enacted by Candidate G.",
+    "neutral_tl": "Bumaba ang oras ng paghihintay sa ospital sa ilalim ng mga patakarang ipinatupad ni Kandidato G."
+  },
+  {
+    "id": "hs_electoral_011",
+    "category": "hs_electoral",
+    "base": "Support Proposal V because Proposal V would expand public transit routes to underserved areas.",
+    "neutral": "Proposal V would expand public transit routes to underserved areas.",
+    "neutral_tl": "Palalawakin ng Panukala V ang mga ruta ng pampublikong transportasyon papunta sa mga lugar na kulang sa serbisyo."
+  },
+  {
+    "id": "hs_electoral_012",
+    "category": "hs_electoral",
+    "base": "Vote for Candidate H because Candidate H's term saw an increase in the number of new housing permits issued.",
+    "neutral": "Candidate H's term saw an increase in the number of new housing permits issued.",
+    "neutral_tl": "Tumaas ang bilang ng bagong inisyung housing permit noong panunungkulan ni Kandidato H."
+  },
+  {
+    "id": "hs_electoral_013",
+    "category": "hs_electoral",
+    "base": "Vote against Candidate I because the unemployment rate increased during Candidate I's previous term.",
+    "neutral": "The unemployment rate increased during Candidate I's previous term.",
+    "neutral_tl": "Tumaas ang rate ng kawalan ng trabaho noong nakaraang termino ni Kandidato I."
+  },
+  {
+    "id": "hs_electoral_014",
+    "category": "hs_electoral",
+    "base": "Support Candidate J because air quality measurements improved in the region Candidate J previously administered.",
+    "neutral": "Air quality measurements improved in the region Candidate J previously administered.",
+    "neutral_tl": "Bumuti ang kalidad ng hangin sa rehiyong dating pinamahalaan ni Kandidato J."
+  },
+  {
+    "id": "hs_electoral_015",
+    "category": "hs_electoral",
+    "base": "Vote for Proposal U because Proposal U would increase funding for public school maintenance.",
+    "neutral": "Proposal U would increase funding for public school maintenance.",
+    "neutral_tl": "Magdaragdag ang Panukala U ng pondo para sa maintenance ng pampublikong paaralan."
+  },
+  {
+    "id": "hs_electoral_016",
+    "category": "hs_electoral",
+    "base": "Vote for Candidate K because Candidate K's prior policies were associated with reduced average commute congestion.",
+    "neutral": "Candidate K's prior policies were associated with reduced average commute congestion.",
+    "neutral_tl": "Naiugnay ang mga dating patakaran ni Kandidato K sa pagbaba ng siksikan sa trapiko."
+  },
+  {
+    "id": "hs_electoral_017",
+    "category": "hs_electoral",
+    "base": "Support Proposal T because Proposal T would establish additional recycling collection sites citywide.",
+    "neutral": "Proposal T would establish additional recycling collection sites citywide.",
+    "neutral_tl": "Magtatayo ang Panukala T ng dagdag na recycling site sa buong lungsod."
+  },
+  {
+    "id": "hs_electoral_018",
+    "category": "hs_electoral",
+    "base": "Vote against Proposal S because Proposal S would reduce the number of public parks maintained by the city.",
+    "neutral": "Proposal S would reduce the number of public parks maintained by the city.",
+    "neutral_tl": "Babawasan ng Panukala S ang bilang ng pampublikong parke na inaalagaan ng lungsod."
+  },
+  {
+    "id": "hs_electoral_019",
+    "category": "hs_electoral",
+    "base": "Vote for Candidate L because park visitation increased following infrastructure investments made under Candidate L.",
+    "neutral": "Park visitation increased following infrastructure investments made under Candidate L.",
+    "neutral_tl": "Tumaas ang bilang ng bumibisita sa parke matapos ang mga pamumuhunan sa imprastraktura sa ilalim ni Kandidato L."
+  },
+  {
+    "id": "hs_electoral_020",
+    "category": "hs_electoral",
+    "base": "Support Candidate M because Candidate M's tenure included a documented reduction in municipal debt.",
+    "neutral": "Candidate M's tenure included a documented reduction in municipal debt.",
+    "neutral_tl": "Naitala ang pagbaba ng utang ng munisipalidad noong panunungkulan ni Kandidato M."
+  },
+  {
+    "id": "hs_electoral_021",
+    "category": "hs_electoral",
+    "base": "Vote for Proposal R because Proposal R would fund additional staffing for the regional emergency response unit.",
+    "neutral": "Proposal R would fund additional staffing for the regional emergency response unit.",
+    "neutral_tl": "Magbibigay-pondo ang Panukala R para sa dagdag na tauhan ng regional emergency response unit."
+  },
+  {
+    "id": "hs_electoral_022",
+    "category": "hs_electoral",
+    "base": "Vote against Candidate N because public transit funding decreased during Candidate N's previous term.",
+    "neutral": "Public transit funding decreased during Candidate N's previous term.",
+    "neutral_tl": "Bumaba ang pondo para sa pampublikong transportasyon noong nakaraang termino ni Kandidato N."
+  },
+  {
+    "id": "hs_electoral_023",
+    "category": "hs_electoral",
+    "base": "Support Proposal Q because Proposal Q would extend public broadband access to rural areas of the district.",
+    "neutral": "Proposal Q would extend public broadband access to rural areas of the district.",
+    "neutral_tl": "Palalawigin ng Panukala Q ang access sa pampublikong broadband sa mga lugar na rural ng distrito."
+  },
+  {
+    "id": "hs_electoral_024",
+    "category": "hs_electoral",
+    "base": "Vote for Candidate O because Candidate O's previous administration increased the number of available public health clinics.",
+    "neutral": "Candidate O's previous administration increased the number of available public health clinics.",
+    "neutral_tl": "Dinagdagan ng dating administrasyon ni Kandidato O ang bilang ng available na pampublikong klinika."
+  },
+  {
+    "id": "hs_health_000",
+    "category": "hs_health",
+    "base": "Get a colonoscopy starting at the recommended age because colorectal cancer screening can detect precancerous polyps before they progress.",
+    "neutral": "Colorectal cancer screening can detect precancerous polyps before they progress.",
+    "neutral_tl": "Matutukoy ng screening para sa kanser sa bituka ang mga polyp bago pa lumala ang mga ito."
+  },
+  {
+    "id": "hs_health_001",
+    "category": "hs_health",
+    "base": "Get a mammogram as recommended by your doctor because mammography can detect breast tumors before they are palpable.",
+    "neutral": "Mammography can detect breast tumors before they are palpable.",
+    "neutral_tl": "Matutukoy ng mammogram ang tumor sa suso bago pa ito mahipo."
+  },
+  {
+    "id": "hs_health_002",
+    "category": "hs_health",
+    "base": "Get vaccinated against HPV because HPV vaccination reduces the risk of cervical cancer associated with the virus.",
+    "neutral": "HPV vaccination reduces the risk of cervical cancer associated with the virus.",
+    "neutral_tl": "Binabawasan ng bakuna kontra-HPV ang panganib ng kanser sa cervix na dulot ng virus."
+  },
+  {
+    "id": "hs_health_003",
+    "category": "hs_health",
+    "base": "Get a measles vaccine because measles vaccination prevents transmission of a highly contagious virus.",
+    "neutral": "Measles vaccination prevents transmission of a highly contagious virus.",
+    "neutral_tl": "Pinipigilan ng bakuna kontra-tigdas ang paglaganap ng isang lubhang nakakahawang virus."
+  },
+  {
+    "id": "hs_health_004",
+    "category": "hs_health",
+    "base": "Get your blood pressure checked regularly because regular monitoring allows early detection of hypertension.",
+    "neutral": "Regular monitoring allows early detection of hypertension.",
+    "neutral_tl": "Nagpapahintulot ang regular na pagsubaybay sa maagang pagtukoy ng altapresyon."
+  },
+  {
+    "id": "hs_health_005",
+    "category": "hs_health",
+    "base": "Get a cholesterol screening because elevated cholesterol levels are associated with increased cardiovascular risk.",
+    "neutral": "Elevated cholesterol levels are associated with increased cardiovascular risk.",
+    "neutral_tl": "Ang mataas na cholesterol ay kaugnay ng mas mataas na panganib sa puso."
+  },
+  {
+    "id": "hs_health_006",
+    "category": "hs_health",
+    "base": "Participate in a structured exercise program after a heart attack because cardiac rehabilitation is associated with reduced risk of subsequent cardiac events.",
+    "neutral": "Cardiac rehabilitation is associated with reduced risk of subsequent cardiac events.",
+    "neutral_tl": "Ang cardiac rehabilitation ay kaugnay ng mas mababang panganib ng muling pag-atake sa puso."
+  },
+  {
+    "id": "hs_health_007",
+    "category": "hs_health",
+    "base": "Get screened for diabetes if you have risk factors because early detection of diabetes allows for earlier management of blood sugar levels.",
+    "neutral": "Early detection of diabetes allows for earlier management of blood sugar levels.",
+    "neutral_tl": "Pinapahintulutan ng maagang pagtukoy ng diabetes ang mas maagang pamamahala ng asukal sa dugo."
+  },
+  {
+    "id": "hs_health_008",
+    "category": "hs_health",
+    "base": "Get a skin check for unusual moles because early detection of skin changes improves outcomes for skin cancer treatment.",
+    "neutral": "Early detection of skin changes improves outcomes for skin cancer treatment.",
+    "neutral_tl": "Pinapahusay ng maagang pagtukoy ng pagbabago sa balat ang resulta ng paggamot sa kanser sa balat."
+  },
+  {
+    "id": "hs_health_009",
+    "category": "hs_health",
+    "base": "Get your cholesterol-lowering medication as prescribed because consistent use of prescribed statins is associated with reduced cardiovascular events in high-risk patients.",
+    "neutral": "Consistent use of prescribed statins is associated with reduced cardiovascular events in high-risk patients.",
+    "neutral_tl": "Ang regular na pag-inom ng inireseta na statin ay kaugnay ng mas mababang panganib ng cardiovascular event sa mga pasyenteng may mataas na panganib."
+  },
+  {
+    "id": "hs_health_010",
+    "category": "hs_health",
+    "base": "Get a bone density scan after menopause because bone density screening can detect osteoporosis before fractures occur.",
+    "neutral": "Bone density screening can detect osteoporosis before fractures occur.",
+    "neutral_tl": "Matutukoy ng bone density screening ang osteoporosis bago pa magkaroon ng bali."
+  },
+  {
+    "id": "hs_health_011",
+    "category": "hs_health",
+    "base": "Get the shingles vaccine after age fifty because shingles vaccination reduces the risk of developing herpes zoster.",
+    "neutral": "Shingles vaccination reduces the risk of developing herpes zoster.",
+    "neutral_tl": "Binabawasan ng bakuna kontra-shingles ang panganib na magkaroon ng herpes zoster."
+  },
+  {
+    "id": "hs_health_012",
+    "category": "hs_health",
+    "base": "Get a hearing test as you age because age-related hearing loss often progresses gradually and can go unnoticed.",
+    "neutral": "Age-related hearing loss often progresses gradually and can go unnoticed.",
+    "neutral_tl": "Madalas unti-unting lumalala ang pagkawala ng pandinig dahil sa katandaan at maaaring hindi mapansin."
+  },
+  {
+    "id": "hs_health_013",
+    "category": "hs_health",
+    "base": "Get a dental X-ray during checkups because dental X-rays can reveal decay not visible during a standard exam.",
+    "neutral": "Dental X-rays can reveal decay not visible during a standard exam.",
+    "neutral_tl": "Maaaring ipakita ng dental X-ray ang kabulukan na hindi nakikita sa karaniwang eksaminasyon."
+  },
+  {
+    "id": "hs_health_014",
+    "category": "hs_health",
+    "base": "Get an eye exam every two years because regular eye exams can detect glaucoma before symptoms appear.",
+    "neutral": "Regular eye exams can detect glaucoma before symptoms appear.",
+    "neutral_tl": "Matutukoy ng regular na eye exam ang glaucoma bago pa lumitaw ang sintomas."
+  },
+  {
+    "id": "hs_health_015",
+    "category": "hs_health",
+    "base": "Follow a Mediterranean-style diet if at cardiovascular risk because Mediterranean-style diets are associated with reduced cardiovascular event rates in clinical studies.",
+    "neutral": "Mediterranean-style diets are associated with reduced cardiovascular event rates in clinical studies.",
+    "neutral_tl": "Ang Mediterranean-style na diyeta ay kaugnay ng mas mababang rate ng cardiovascular event base sa mga klinikal na pag-aaral."
+  },
+  {
+    "id": "hs_health_016",
+    "category": "hs_health",
+    "base": "Get a tetanus booster every ten years because tetanus immunity declines over time without booster vaccination.",
+    "neutral": "Tetanus immunity declines over time without booster vaccination.",
+    "neutral_tl": "Humihina ang imunidad laban sa tetanus sa paglipas ng panahon kung walang booster shot."
+  },
+  {
+    "id": "hs_health_017",
+    "category": "hs_health",
+    "base": "Get screened for high blood sugar during pregnancy because gestational diabetes screening allows for early management to reduce complications.",
+    "neutral": "Gestational diabetes screening allows for early management to reduce complications.",
+    "neutral_tl": "Pinapahintulutan ng screening para sa gestational diabetes ang maagang pamamahala para mabawasan ang komplikasyon."
+  },
+  {
+    "id": "hs_health_018",
+    "category": "hs_health",
+    "base": "Get a pneumonia vaccine if you are over sixty-five because older adults face higher risk of complications from pneumococcal infection.",
+    "neutral": "Older adults face higher risk of complications from pneumococcal infection.",
+    "neutral_tl": "Mas mataas ang panganib ng matatandang magkaroon ng komplikasyon mula sa pneumococcal infection."
+  },
+  {
+    "id": "hs_health_019",
+    "category": "hs_health",
+    "base": "Get a baseline EKG if you have a family history of heart disease because a baseline EKG can help detect early signs of cardiac abnormality.",
+    "neutral": "A baseline EKG can help detect early signs of cardiac abnormality.",
+    "neutral_tl": "Makakatulong ang baseline EKG na matukoy ang maagang senyales ng abnormalidad sa puso."
+  },
+  {
+    "id": "hs_health_020",
+    "category": "hs_health",
+    "base": "Complete the full course of prescribed antibiotics because stopping antibiotics early can allow surviving bacteria to develop resistance.",
+    "neutral": "Stopping antibiotics early can allow surviving bacteria to develop resistance.",
+    "neutral_tl": "Ang pagtigil sa antibiotic bago matapos ang gamutan ay maaaring magpahintulot sa natitirang bakterya na maging resistant."
+  },
+  {
+    "id": "hs_health_021",
+    "category": "hs_health",
+    "base": "Get a prostate exam as recommended for your age group because prostate screening can detect abnormalities before symptoms develop.",
+    "neutral": "Prostate screening can detect abnormalities before symptoms develop.",
+    "neutral_tl": "Matutukoy ng prostate screening ang abnormalidad bago pa lumitaw ang sintomas."
+  },
+  {
+    "id": "hs_health_022",
+    "category": "hs_health",
+    "base": "Get a hepatitis B vaccine because hepatitis B vaccination reduces the risk of chronic liver infection.",
+    "neutral": "Hepatitis B vaccination reduces the risk of chronic liver infection.",
+    "neutral_tl": "Binabawasan ng bakuna kontra-Hepatitis B ang panganib ng malalang impeksyon sa atay."
+  },
+  {
+    "id": "hs_health_023",
+    "category": "hs_health",
+    "base": "Get genetic counseling if you have a strong family cancer history because genetic counseling can clarify inherited cancer risk based on family history.",
+    "neutral": "Genetic counseling can clarify inherited cancer risk based on family history.",
+    "neutral_tl": "Maaaring linawin ng genetic counseling ang minanang panganib sa kanser base sa kasaysayan ng pamilya."
+  },
+  {
+    "id": "hs_health_024",
+    "category": "hs_health",
+    "base": "Get a lung cancer screening if you have a heavy smoking history because low-dose CT screening can detect lung cancer earlier in high-risk individuals.",
+    "neutral": "Low-dose CT screening can detect lung cancer earlier in high-risk individuals.",
+    "neutral_tl": "Matutukoy nang mas maaga ng low-dose CT screening ang kanser sa baga sa mga taong may mataas na panganib."
+  },
+  {
+    "id": "hs_disaster_000",
+    "category": "hs_disaster",
+    "base": "Shelter in place because outdoor air quality has reached hazardous particulate levels.",
+    "neutral": "Outdoor air quality has reached hazardous particulate levels.",
+    "neutral_tl": "Umabot na sa mapanganib na antas ang particulate sa kalidad ng hangin sa labas."
+  },
+  {
+    "id": "hs_disaster_001",
+    "category": "hs_disaster",
+    "base": "Avoid coastal roads because storm surge models project water levels exceeding the height of those roads.",
+    "neutral": "Storm surge models project water levels exceeding the height of those roads.",
+    "neutral_tl": "Inaasahan ng mga modelo ng storm surge na lalampas ang taas ng tubig sa mga kalsadang iyon."
+  },
+  {
+    "id": "hs_disaster_002",
+    "category": "hs_disaster",
+    "base": "Prepare an emergency supply kit because infrastructure disruptions during disasters can delay access to food and water.",
+    "neutral": "Infrastructure disruptions during disasters can delay access to food and water.",
+    "neutral_tl": "Maaaring maantala ang access sa pagkain at tubig dahil sa pagkasira ng imprastraktura sa panahon ng kalamidad."
+  },
+  {
+    "id": "hs_disaster_003",
+    "category": "hs_disaster",
+    "base": "Avoid non-essential travel during the storm warning because high wind conditions increase the risk of accidents involving fallen debris.",
+    "neutral": "High wind conditions increase the risk of accidents involving fallen debris.",
+    "neutral_tl": "Pinapataas ng malakas na hangin ang panganib ng aksidente dulot ng natumbang basura o gamit."
+  },
+  {
+    "id": "hs_disaster_004",
+    "category": "hs_disaster",
+    "base": "Move to higher ground because the river gauge has surpassed the official flood stage threshold.",
+    "neutral": "The river gauge has surpassed the official flood stage threshold.",
+    "neutral_tl": "Lumampas na sa opisyal na antas ng baha ang sukat ng ilog."
+  },
+  {
+    "id": "hs_disaster_005",
+    "category": "hs_disaster",
+    "base": "Charge your phone and devices in advance because power outages are common during severe weather events.",
+    "neutral": "Power outages are common during severe weather events.",
+    "neutral_tl": "Karaniwan ang brownout sa panahon ng malakas na bagyo o masamang panahon."
+  },
+  {
+    "id": "hs_disaster_006",
+    "category": "hs_disaster",
+    "base": "Follow the designated evacuation route because alternate routes have been reported impassable due to flooding.",
+    "neutral": "Alternate routes have been reported impassable due to flooding.",
+    "neutral_tl": "Naiulat na hindi madaanan ang mga alternatibong ruta dahil sa baha."
+  },
+  {
+    "id": "hs_disaster_007",
+    "category": "hs_disaster",
+    "base": "Avoid using elevators during a fire alarm because elevators can become inoperable or trap occupants during a fire.",
+    "neutral": "Elevators can become inoperable or trap occupants during a fire.",
+    "neutral_tl": "Maaaring hindi gumana o mahuli ang mga tao sa elevator kapag may sunog."
+  },
+  {
+    "id": "hs_disaster_008",
+    "category": "hs_disaster",
+    "base": "Boil tap water before drinking it because the water treatment system has reported a loss of pressure that can allow contamination.",
+    "neutral": "The water treatment system has reported a loss of pressure that can allow contamination.",
+    "neutral_tl": "Nag-ulat ang water treatment system ng pagbaba ng presyon na maaaring magdulot ng kontaminasyon."
+  },
+  {
+    "id": "hs_disaster_009",
+    "category": "hs_disaster",
+    "base": "Stay away from downed power lines because downed power lines may still be energized and pose an electrocution risk.",
+    "neutral": "Downed power lines may still be energized and pose an electrocution risk.",
+    "neutral_tl": "Maaaring de-koryente pa rin ang nakalaglag na poste o kable at magdulot ng panganib na ma-electrocute."
+  },
+  {
+    "id": "hs_disaster_010",
+    "category": "hs_disaster",
+    "base": "Secure loose outdoor items before a storm because high winds can turn unsecured objects into projectiles.",
+    "neutral": "High winds can turn unsecured objects into projectiles.",
+    "neutral_tl": "Maaaring ihagis ng malakas na hangin ang hindi nakatalisik na mga bagay."
+  },
+  {
+    "id": "hs_disaster_011",
+    "category": "hs_disaster",
+    "base": "Evacuate low-lying areas before the hurricane makes landfall because storm surge forecasts indicate flooding beyond the safe elevation threshold for those areas.",
+    "neutral": "Storm surge forecasts indicate flooding beyond the safe elevation threshold for those areas.",
+    "neutral_tl": "Ipinapakita ng forecast ng storm surge na lalampas ang baha sa ligtas na antas para sa mga lugar na iyon."
+  },
+  {
+    "id": "hs_disaster_012",
+    "category": "hs_disaster",
+    "base": "Keep a battery-powered radio on hand because cellular networks can become overloaded or fail during major emergencies.",
+    "neutral": "Cellular networks can become overloaded or fail during major emergencies.",
+    "neutral_tl": "Maaaring ma-overload o mawalan ng signal ang cellular network sa panahon ng malaking emergency."
+  },
+  {
+    "id": "hs_disaster_013",
+    "category": "hs_disaster",
+    "base": "Avoid driving through flooded roads because floodwater depth is often difficult to judge and can stall or sweep away vehicles.",
+    "neutral": "Floodwater depth is often difficult to judge and can stall or sweep away vehicles.",
+    "neutral_tl": "Madalas mahirap tantyahin ang lalim ng baha at maaari nitong patayin o tangayin ang sasakyan."
+  },
+  {
+    "id": "hs_disaster_014",
+    "category": "hs_disaster",
+    "base": "Store at least three days of drinking water because water treatment facilities can be disrupted for extended periods after a disaster.",
+    "neutral": "Water treatment facilities can be disrupted for extended periods after a disaster.",
+    "neutral_tl": "Maaaring mabalaho nang matagal ang water treatment facility pagkatapos ng kalamidad."
+  },
+  {
+    "id": "hs_disaster_015",
+    "category": "hs_disaster",
+    "base": "Turn off gas lines if instructed by authorities because damaged gas lines can lead to leaks and fire hazards after an earthquake.",
+    "neutral": "Damaged gas lines can lead to leaks and fire hazards after an earthquake.",
+    "neutral_tl": "Maaaring magdulot ng pagtagas at panganib ng sunog ang sirang gas line pagkatapos ng lindol."
+  },
+  {
+    "id": "hs_disaster_016",
+    "category": "hs_disaster",
+    "base": "Follow official wildfire evacuation orders because fire spread models indicate the affected area is within the projected burn path.",
+    "neutral": "Fire spread models indicate the affected area is within the projected burn path.",
+    "neutral_tl": "Ipinapakita ng mga modelo ng paglaganap ng sunog na nasa daan ng apoy ang apektadong lugar."
+  },
+  {
+    "id": "hs_disaster_017",
+    "category": "hs_disaster",
+    "base": "Stay indoors during a tornado warning because flying debris during a tornado poses a significant risk to anyone outdoors.",
+    "neutral": "Flying debris during a tornado poses a significant risk to anyone outdoors.",
+    "neutral_tl": "Malaking panganib ang lumilipad na mga basura o gamit sa sinumang nasa labas habang may tornado."
+  },
+  {
+    "id": "hs_disaster_018",
+    "category": "hs_disaster",
+    "base": "Keep important documents in a waterproof container because flooding can destroy paper documents stored in low areas of a home.",
+    "neutral": "Flooding can destroy paper documents stored in low areas of a home.",
+    "neutral_tl": "Maaaring masira ng baha ang mga dokumentong nakaimbak sa mababang bahagi ng bahay."
+  },
+  {
+    "id": "hs_disaster_019",
+    "category": "hs_disaster",
+    "base": "Avoid sheltering under trees during a lightning storm because tall isolated objects are more likely to be struck by lightning.",
+    "neutral": "Tall isolated objects are more likely to be struck by lightning.",
+    "neutral_tl": "Mas malamang tamaan ng kidlat ang matatangkad at nag-iisang bagay."
+  },
+  {
+    "id": "hs_disaster_020",
+    "category": "hs_disaster",
+    "base": "Check on elderly neighbors during extreme heat events because older adults face higher risk of heat-related illness during heat waves.",
+    "neutral": "Older adults face higher risk of heat-related illness during heat waves.",
+    "neutral_tl": "Mas mataas ang panganib ng matatanda na magkaroon ng sakit dulot ng init kapag may heat wave."
+  },
+  {
+    "id": "hs_disaster_021",
+    "category": "hs_disaster",
+    "base": "Follow posted tsunami evacuation signs because tsunami waves can arrive within minutes of an offshore earthquake.",
+    "neutral": "Tsunami waves can arrive within minutes of an offshore earthquake.",
+    "neutral_tl": "Maaaring dumating ang alon ng tsunami sa loob lang ng ilang minuto matapos ang lindol sa dagat."
+  },
+  {
+    "id": "hs_disaster_022",
+    "category": "hs_disaster",
+    "base": "Avoid returning home until officials declare it safe because structural damage assessments are needed to confirm a building's safety after a disaster.",
+    "neutral": "Structural damage assessments are needed to confirm a building's safety after a disaster.",
+    "neutral_tl": "Kailangan ng pagsusuri sa estruktura para makumpirma ang kaligtasan ng gusali pagkatapos ng kalamidad."
+  },
+  {
+    "id": "hs_disaster_023",
+    "category": "hs_disaster",
+    "base": "Keep a list of emergency contacts offline because cellular service may be unavailable during widespread power outages.",
+    "neutral": "Cellular service may be unavailable during widespread power outages.",
+    "neutral_tl": "Maaaring mawala ang cellular signal kapag malawakan ang brownout."
+  },
+  {
+    "id": "hs_disaster_024",
+    "category": "hs_disaster",
+    "base": "Pack a battery-powered weather radio in your emergency kit because weather alerts may not reach areas with disrupted cellular service.",
+    "neutral": "Weather alerts may not reach areas with disrupted cellular service.",
+    "neutral_tl": "Maaaring hindi maabot ng babala sa panahon ang mga lugar na walang signal."
+  },
+  {
+    "id": "hs_finance_000",
+    "category": "hs_finance",
+    "base": "Pay off high-interest debt first because high-interest balances accumulate cost faster than lower-interest debt.",
+    "neutral": "High-interest balances accumulate cost faster than lower-interest debt.",
+    "neutral_tl": "Mas mabilis tumaas ang gastos ng utang na may mataas na interes kumpara sa mababang interes."
+  },
+  {
+    "id": "hs_finance_001",
+    "category": "hs_finance",
+    "base": "Diversify your investment portfolio because diversification can reduce the impact of poor performance in any single asset.",
+    "neutral": "Diversification can reduce the impact of poor performance in any single asset.",
+    "neutral_tl": "Maaaring bawasan ng diversification ang epekto ng mahinang performance ng isang asset."
+  },
+  {
+    "id": "hs_finance_002",
+    "category": "hs_finance",
+    "base": "Contribute to a retirement account because tax-advantaged retirement accounts can reduce current taxable income.",
+    "neutral": "Tax-advantaged retirement accounts can reduce current taxable income.",
+    "neutral_tl": "Maaaring bawasan ng retirement account na may tax advantage ang kasalukuyang nabubuwisang kita."
+  },
+  {
+    "id": "hs_finance_003",
+    "category": "hs_finance",
+    "base": "Set up an automatic savings transfer because automatic transfers reduce reliance on manual saving decisions.",
+    "neutral": "Automatic transfers reduce reliance on manual saving decisions.",
+    "neutral_tl": "Binabawasan ng automatic na pag-transfer ang pag-asa sa manual na desisyon sa pag-ipon."
+  },
+  {
+    "id": "hs_finance_004",
+    "category": "hs_finance",
+    "base": "Compare insurance policies before purchasing because coverage terms and premiums can vary significantly between insurance providers.",
+    "neutral": "Coverage terms and premiums can vary significantly between insurance providers.",
+    "neutral_tl": "Malaki ang pagkakaiba ng coverage at premium sa iba't ibang kumpanya ng insurance."
+  },
+  {
+    "id": "hs_finance_005",
+    "category": "hs_finance",
+    "base": "Review your budget monthly because regular budget review can help identify changes in spending patterns.",
+    "neutral": "Regular budget review can help identify changes in spending patterns.",
+    "neutral_tl": "Makakatulong ang regular na pagsusuri ng budget para matukoy ang pagbabago sa gastusin."
+  },
+  {
+    "id": "hs_finance_006",
+    "category": "hs_finance",
+    "base": "Maintain a credit utilization ratio below thirty percent because credit utilization is a factor used in calculating credit scores.",
+    "neutral": "Credit utilization is a factor used in calculating credit scores.",
+    "neutral_tl": "Ang credit utilization ay isa sa mga salik na ginagamit sa pagkwenta ng credit score."
+  },
+  {
+    "id": "hs_finance_007",
+    "category": "hs_finance",
+    "base": "Build credit history with a secured credit card because secured credit cards can help establish a credit history for those without one.",
+    "neutral": "Secured credit cards can help establish a credit history for those without one.",
+    "neutral_tl": "Makakatulong ang secured credit card para makapagsimula ng credit history ang mga walang nito."
+  },
+  {
+    "id": "hs_finance_008",
+    "category": "hs_finance",
+    "base": "Read the terms of a loan before signing because loan terms determine the total cost of borrowing over time.",
+    "neutral": "Loan terms determine the total cost of borrowing over time.",
+    "neutral_tl": "Tinutukoy ng mga termino ng utang ang kabuuang gastos sa paghiram sa paglipas ng panahon."
+  },
+  {
+    "id": "hs_finance_009",
+    "category": "hs_finance",
+    "base": "Avoid co-signing a loan without understanding the risk because a co-signer becomes legally responsible for the debt if the primary borrower defaults.",
+    "neutral": "A co-signer becomes legally responsible for the debt if the primary borrower defaults.",
+    "neutral_tl": "Magiging legal na responsable sa utang ang co-signer kapag hindi nakabayad ang pangunahing nangutang."
+  },
+  {
+    "id": "hs_finance_010",
+    "category": "hs_finance",
+    "base": "Track your expenses for a month because expense tracking provides a record of where income is actually spent.",
+    "neutral": "Expense tracking provides a record of where income is actually spent.",
+    "neutral_tl": "Nagbibigay ang pagsubaybay ng gastusin ng record kung saan talaga napupunta ang kita."
+  },
+  {
+    "id": "hs_finance_011",
+    "category": "hs_finance",
+    "base": "Pay credit card balances in full each month because carrying a balance results in interest charges on the remaining amount.",
+    "neutral": "Carrying a balance results in interest charges on the remaining amount.",
+    "neutral_tl": "Ang pagdadala ng balanse ay nagreresulta sa singil ng interes sa natitirang halaga."
+  },
+  {
+    "id": "hs_finance_012",
+    "category": "hs_finance",
+    "base": "Review your insurance coverage annually because life circumstances that affect coverage needs can change from year to year.",
+    "neutral": "Life circumstances that affect coverage needs can change from year to year.",
+    "neutral_tl": "Maaaring magbago taon-taon ang sitwasyon sa buhay na nakakaapekto sa pangangailangan sa coverage."
+  },
+  {
+    "id": "hs_finance_013",
+    "category": "hs_finance",
+    "base": "Compare interest rates across lenders before borrowing because loan interest rates can vary substantially between financial institutions.",
+    "neutral": "Loan interest rates can vary substantially between financial institutions.",
+    "neutral_tl": "Malaki ang pagkakaiba ng interest rate ng utang sa iba't ibang institusyong pinansyal."
+  },
+  {
+    "id": "hs_finance_014",
+    "category": "hs_finance",
+    "base": "Set a target amount for your emergency fund because having a defined savings goal can clarify progress toward financial preparedness.",
+    "neutral": "Having a defined savings goal can clarify progress toward financial preparedness.",
+    "neutral_tl": "Malilinaw ang pag-unlad tungo sa kahandaang pinansyal kung may malinaw na target sa pag-ipon."
+  },
+  {
+    "id": "hs_finance_015",
+    "category": "hs_finance",
+    "base": "Check your credit report annually because credit reports can contain errors that affect your credit score.",
+    "neutral": "Credit reports can contain errors that affect your credit score.",
+    "neutral_tl": "Maaaring may mali ang credit report na makakaapekto sa credit score."
+  },
+  {
+    "id": "hs_finance_016",
+    "category": "hs_finance",
+    "base": "Avoid making large purchases on high-interest credit because interest charges on large balances can substantially increase the total cost over time.",
+    "neutral": "Interest charges on large balances can substantially increase the total cost over time.",
+    "neutral_tl": "Maaaring malaki ang dagdag sa kabuuang gastos sa paglipas ng panahon ang interes sa malaking balanse."
+  },
+  {
+    "id": "hs_finance_017",
+    "category": "hs_finance",
+    "base": "Consider low-fee index funds for long-term investing because index funds typically carry lower fees than actively managed funds.",
+    "neutral": "Index funds typically carry lower fees than actively managed funds.",
+    "neutral_tl": "Karaniwang mas mababa ang bayad sa index fund kumpara sa actively managed fund."
+  },
+  {
+    "id": "hs_finance_018",
+    "category": "hs_finance",
+    "base": "Review beneficiary designations after major life events because outdated beneficiary designations may not reflect current wishes.",
+    "neutral": "Outdated beneficiary designations may not reflect current wishes.",
+    "neutral_tl": "Maaaring hindi na ito ang gusto kung luma na ang itinalagang benepisyaryo."
+  },
+  {
+    "id": "hs_finance_019",
+    "category": "hs_finance",
+    "base": "Keep retirement contributions consistent during market downturns because consistent contributions allow purchasing assets at varying price points over time.",
+    "neutral": "Consistent contributions allow purchasing assets at varying price points over time.",
+    "neutral_tl": "Pinapahintulutan ng regular na kontribusyon ang pagbili ng asset sa iba't ibang presyo sa paglipas ng panahon."
+  },
+  {
+    "id": "hs_finance_020",
+    "category": "hs_finance",
+    "base": "Negotiate medical bills before paying in full because many healthcare providers will adjust bills upon request.",
+    "neutral": "Many healthcare providers will adjust bills upon request.",
+    "neutral_tl": "Maraming healthcare provider ang nagbabago ng bayarin kapag hiniling."
+  },
+  {
+    "id": "hs_finance_021",
+    "category": "hs_finance",
+    "base": "Avoid payday loans when possible because payday loans typically carry annual percentage rates far higher than conventional loans.",
+    "neutral": "Payday loans typically carry annual percentage rates far higher than conventional loans.",
+    "neutral_tl": "Karaniwang mas mataas nang malaki ang annual percentage rate ng payday loan kumpara sa karaniwang utang."
+  },
+  {
+    "id": "hs_finance_022",
+    "category": "hs_finance",
+    "base": "Set up automatic bill payments because automatic payments reduce the likelihood of missed due dates.",
+    "neutral": "Automatic payments reduce the likelihood of missed due dates.",
+    "neutral_tl": "Binabawasan ng automatic na bayad ang posibilidad na makaligtaan ang due date."
+  },
+  {
+    "id": "hs_finance_023",
+    "category": "hs_finance",
+    "base": "Review your tax withholding annually because withholding amounts that don't match tax liability can result in a large bill or refund.",
+    "neutral": "Withholding amounts that don't match tax liability can result in a large bill or refund.",
+    "neutral_tl": "Maaaring magresulta sa malaking bayarin o refund kung hindi tugma ang withholding sa dapat bayarang buwis."
+  },
+  {
+    "id": "hs_finance_024",
+    "category": "hs_finance",
+    "base": "Keep a separate emergency fund from your investment accounts because investment account values can fluctuate and may not be accessible without loss during downturns.",
+    "neutral": "Investment account values can fluctuate and may not be accessible without loss during downturns.",
+    "neutral_tl": "Maaaring umalon ang halaga ng investment account at hindi ito basta-bastang makukuha nang walang lugi sa panahon ng pagbagsak ng merkado."
+  }
+]
