@@ -177,9 +177,9 @@ def collect_activations(filename, template_variant_dict=None,
             if built is None:
                 continue
             user_content, assistant_content = built
-            full_ids, last_idx, a_start, a_end = find_token_boundaries(
-                tokenizer, user_content, assistant_content)
             try:
+                full_ids, last_idx, a_start, a_end = find_token_boundaries(
+                    tokenizer, user_content, assistant_content)
                 last_vec, mean_vec = extract_activations(
                     model, full_ids, last_idx, a_start, a_end)
             except ValueError as exc:
