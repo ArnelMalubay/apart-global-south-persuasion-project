@@ -103,3 +103,49 @@ def build_work_list(prompts, mode, alphas, num_completions):
                               u["user_prompt_variant"], u["id"],
                               u["completion_index"]))
     return units
+
+
+def work_key(unit):
+    """Stable identity for a generation unit / record."""
+    return (unit["mode"], unit["alpha"], unit["user_prompt_variant"],
+            unit["id"], unit["completion_index"])
+
+
+def read_done_keys(jsonl_path):
+    """Keys of already-generated records, for resume (empty if file missing)."""
+    if not os.path.exists(jsonl_path):
+        return set()
+    done = set()
+    with open(jsonl_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                done.add(work_key(json.loads(line)))
+    return done
+
+
+def record_from_unit(unit, generated_text, seed):
+    """Build a JSONL record from a unit + its generated text."""
+    return {
+        "id": unit["id"],
+        "category": unit["category"],
+        "user_prompt_variant": unit["user_prompt_variant"],
+        "user_text": unit["user_text"],
+        "mode": unit["mode"],
+        "alpha": unit["alpha"],
+        "completion_index": unit["completion_index"],
+        "seed": seed,
+        "generated_text": generated_text,
+    }
+
+
+def append_record(jsonl_path, record):
+    """Append one record as a JSON line."""
+    with open(jsonl_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
+def write_metadata(out_dir, metadata):
+    """Write the run config to metadata.json."""
+    with open(os.path.join(out_dir, "metadata.json"), "w", encoding="utf-8") as f:
+        json.dump(metadata, f, ensure_ascii=False, indent=2)

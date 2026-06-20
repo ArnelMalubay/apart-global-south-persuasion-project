@@ -141,3 +141,42 @@ def test_build_work_list_ablate_single_alpha_none():
     units = build_work_list(_PROMPTS, "ablate", [0, 5], num_completions=2)
     assert len(units) == 2 * 2                # alphas ignored
     assert all(u["alpha"] is None for u in units)
+
+
+from steer_and_ablate import (work_key, read_done_keys, record_from_unit,
+                              append_record, write_metadata)
+
+
+def test_record_and_roundtrip_resume(tmp_path):
+    jsonl = str(tmp_path / "responses.jsonl")
+    unit = {"id": "a", "category": "c", "user_prompt_variant": "user",
+            "user_text": "qa", "mode": "steer", "alpha": 5.0,
+            "completion_index": 1}
+    rec = record_from_unit(unit, "hello world", seed=1)
+    assert rec["generated_text"] == "hello world"
+    assert rec["seed"] == 1 and rec["alpha"] == 5.0
+    append_record(jsonl, rec)
+
+    done = read_done_keys(jsonl)
+    assert work_key(unit) in done
+    assert work_key(rec) == work_key(unit)          # unit and record share a key
+
+
+def test_read_done_keys_missing_file(tmp_path):
+    assert read_done_keys(str(tmp_path / "nope.jsonl")) == set()
+
+
+def test_ablate_record_alpha_null(tmp_path):
+    unit = {"id": "a", "category": "c", "user_prompt_variant": "user",
+            "user_text": "qa", "mode": "ablate", "alpha": None,
+            "completion_index": 0}
+    rec = record_from_unit(unit, "txt", seed=1)
+    assert rec["alpha"] is None
+
+
+def test_write_metadata(tmp_path):
+    out = str(tmp_path / "run")
+    os.makedirs(out, exist_ok=True)
+    write_metadata(out, {"mode": "steer", "alpha": [0, 5]})
+    meta = json.loads(open(os.path.join(out, "metadata.json"), encoding="utf-8").read())
+    assert meta["mode"] == "steer"
