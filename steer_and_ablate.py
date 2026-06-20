@@ -149,3 +149,40 @@ def write_metadata(out_dir, metadata):
     """Write the run config to metadata.json."""
     with open(os.path.join(out_dir, "metadata.json"), "w", encoding="utf-8") as f:
         json.dump(metadata, f, ensure_ascii=False, indent=2)
+
+
+class InterventionConfig:
+    """Mutable hook config; alpha is updated between alpha-groups."""
+
+    def __init__(self, mode, alpha, token_scope):
+        self.mode = mode
+        self.alpha = alpha
+        self.token_scope = token_scope
+
+
+def make_hook(u_layer, config):
+    """Build a forward hook that intervenes on a block's output hidden states."""
+
+    def hook(module, inputs, output):
+        is_tuple = isinstance(output, tuple)
+        h = output[0] if is_tuple else output
+        if should_apply(config.token_scope, h.shape[1]):
+            u = u_layer.to(dtype=h.dtype, device=h.device)
+            alpha = config.alpha if config.alpha is not None else 0.0
+            h = apply_intervention(h, u, config.mode, alpha)
+        if is_tuple:
+            return (h,) + tuple(output[1:])
+        return h
+
+    return hook
+
+
+def register_hooks(model, layers, direction_unit, config):
+    """Register intervention hooks on decoder blocks for the given layers."""
+    decoder_layers = model.model.layers
+    handles = []
+    for L in layers:
+        handle = decoder_layers[L - 1].register_forward_hook(
+            make_hook(direction_unit[L], config))
+        handles.append(handle)
+    return handles

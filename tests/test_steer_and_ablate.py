@@ -180,3 +180,55 @@ def test_write_metadata(tmp_path):
     write_metadata(out, {"mode": "steer", "alpha": [0, 5]})
     meta = json.loads(open(os.path.join(out, "metadata.json"), encoding="utf-8").read())
     assert meta["mode"] == "steer"
+
+
+from steer_and_ablate import InterventionConfig, make_hook, register_hooks
+
+
+class _Block(torch.nn.Module):
+    def forward(self, x):
+        return (x,)            # decoder blocks return a tuple
+
+
+class _Model(torch.nn.Module):
+    def __init__(self, n=3):
+        super().__init__()
+        inner = torch.nn.Module()
+        inner.layers = torch.nn.ModuleList([_Block() for _ in range(n)])
+        self.model = inner
+
+
+def test_make_hook_steers_decode_step_only_for_response_scope():
+    u = torch.tensor([1.0, 0.0])
+    cfg = InterventionConfig(mode="steer", alpha=5.0, token_scope="response")
+    hook = make_hook(u, cfg)
+    blk = _Block()
+    # decode step (seq_len == 1) -> steered
+    out1 = hook(blk, (torch.zeros(1, 1, 2),), (torch.zeros(1, 1, 2),))
+    assert torch.allclose(out1[0][..., 0], torch.full((1, 1), 5.0))
+    # prefill (seq_len == 4) -> untouched under 'response'
+    out4 = hook(blk, (torch.zeros(1, 4, 2),), (torch.zeros(1, 4, 2),))
+    assert torch.allclose(out4[0], torch.zeros(1, 4, 2))
+
+
+def test_make_hook_ablate_all_positions():
+    u = torch.nn.functional.normalize(torch.randn(4), dim=0)
+    cfg = InterventionConfig(mode="ablate", alpha=None, token_scope="all")
+    hook = make_hook(u, cfg)
+    h = torch.randn(2, 4, 4)
+    out = hook(_Block(), (h,), (h,))
+    assert torch.allclose(out[0] @ u, torch.zeros(2, 4), atol=1e-5)
+
+
+def test_register_hooks_targets_right_blocks():
+    m = _Model(n=3)
+    direction_unit = torch.zeros(4, 2)        # [num_layers+1, H], indices 0..3
+    direction_unit[2, 0] = 1.0                # layer 2 direction
+    cfg = InterventionConfig(mode="steer", alpha=2.0, token_scope="all")
+    handles = register_hooks(m, [2], direction_unit, cfg)
+    try:
+        out = m.model.layers[1](torch.zeros(1, 1, 2))   # block index 1 == layer L=2
+        assert torch.allclose(out[0][..., 0], torch.full((1, 1), 2.0))
+    finally:
+        for h in handles:
+            h.remove()
