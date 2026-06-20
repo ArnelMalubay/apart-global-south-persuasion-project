@@ -22,8 +22,8 @@ Output (data/directions/<direction_name>/):
         mean_baseline
   metadata.json           -> configs, mode, counts, selected ids, source, dims
 
-Sample run (single line; on PowerShell escape the inner quotes as shown):
-  python compute_directions.py --activations-folder run_1 --direction-name authority_vs_base --mode mean_assistant --positive-config "{\"variants\": [\"authority_endorsement_persuasion\"]}" --baseline-config "{\"variants\": [\"base\"]}"
+Sample run (single line; PowerShell-safe, no JSON quoting needed):
+  python compute_directions.py --activations-folder run_1 --direction-name authority_vs_base --mode mean_assistant --positive-variants authority_endorsement_persuasion --baseline-variants base
 """
 import argparse
 import json
@@ -192,21 +192,33 @@ def main(argv=None):
                         help="Output folder name under --directions-dir.")
     parser.add_argument("--mode", required=True, choices=list(MODE_FILES),
                         help="Which activation set to use.")
-    parser.add_argument("--positive-config", required=True,
-                        help='JSON, e.g. {"variants": ["base"], "categories": ["everyday_health"]}')
-    parser.add_argument("--baseline-config", required=True,
-                        help="JSON with the same shape as --positive-config.")
+    parser.add_argument("--positive-variants", nargs="+", default=None,
+                        help="Variant folders for the positive class (default: all).")
+    parser.add_argument("--positive-categories", nargs="+", default=None,
+                        help="Categories for the positive class (default: all).")
+    parser.add_argument("--baseline-variants", nargs="+", default=None,
+                        help="Variant folders for the baseline class (default: all).")
+    parser.add_argument("--baseline-categories", nargs="+", default=None,
+                        help="Categories for the baseline class (default: all).")
     parser.add_argument("--activations-dir", default="data/activations")
     parser.add_argument("--directions-dir", default="data/directions")
     parser.add_argument("--responses-dir", default="data/responses")
     args = parser.parse_args(argv)
 
+    def _config(variants, categories):
+        cfg = {}
+        if variants is not None:
+            cfg["variants"] = variants
+        if categories is not None:
+            cfg["categories"] = categories
+        return cfg
+
     compute_directions(
         activations_folder=args.activations_folder,
         direction_name=args.direction_name,
         mode=args.mode,
-        positive_config=json.loads(args.positive_config),
-        baseline_config=json.loads(args.baseline_config),
+        positive_config=_config(args.positive_variants, args.positive_categories),
+        baseline_config=_config(args.baseline_variants, args.baseline_categories),
         activations_dir=args.activations_dir,
         directions_dir=args.directions_dir,
         responses_dir=args.responses_dir,

@@ -115,7 +115,7 @@ def test_missing_variant_raises(tmp_path):
             activations_dir=act_dir, directions_dir=dir_dir, responses_dir=resp_dir)
 
 
-def test_main_parses_json_configs(monkeypatch):
+def test_main_builds_configs_from_flags(monkeypatch):
     captured = {}
     monkeypatch.setattr(cd, "compute_directions",
                         lambda **kw: captured.update(kw))
@@ -123,11 +123,13 @@ def test_main_parses_json_configs(monkeypatch):
         "--activations-folder", "run_1",
         "--direction-name", "authority_vs_base",
         "--mode", "mean_assistant",
-        "--positive-config", '{"variants": ["authority_endorsement_persuasion"], "categories": ["everyday_health"]}',
-        "--baseline-config", '{"variants": ["base"]}',
+        "--positive-variants", "authority_endorsement_persuasion",
+        "--positive-categories", "everyday_health", "hs_health",
+        "--baseline-variants", "base",
     ])
     assert captured["positive_config"] == {
         "variants": ["authority_endorsement_persuasion"],
-        "categories": ["everyday_health"]}
+        "categories": ["everyday_health", "hs_health"]}
+    # baseline has no categories flag -> no 'categories' key (defaults to all)
     assert captured["baseline_config"] == {"variants": ["base"]}
     assert captured["mode"] == "mean_assistant"
