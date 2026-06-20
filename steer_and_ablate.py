@@ -268,7 +268,7 @@ def steer_and_ablate(folder_name, mode, direction, responses_file, *,
     # Architecture sanity check before any generation.
     probe = tokenizer.apply_chat_template(
         [{"role": "user", "content": "hello"}], add_generation_prompt=True,
-        tokenize=True, return_tensors="pt").to(resolved_device)
+        tokenize=True, return_tensors="pt", return_dict=False).to(resolved_device)
     verify_hook_mapping(model, probe, layers)
 
     prompts = select_prompts(os.path.join(responses_dir, responses_file),
