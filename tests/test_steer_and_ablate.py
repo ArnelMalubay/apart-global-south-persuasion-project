@@ -3,6 +3,7 @@ import os
 import pytest
 import torch
 from safetensors.torch import save_file
+from types import SimpleNamespace
 
 from steer_and_ablate import apply_intervention
 
@@ -232,3 +233,42 @@ def test_register_hooks_targets_right_blocks():
     finally:
         for h in handles:
             h.remove()
+
+
+from steer_and_ablate import verify_hook_mapping
+
+
+class _VModel(torch.nn.Module):
+    """Identity blocks; hidden_states[L] == output of block L-1."""
+
+    def __init__(self, n=3, hidden=4, consistent=True):
+        super().__init__()
+        inner = torch.nn.Module()
+        inner.layers = torch.nn.ModuleList([_Block() for _ in range(n)])
+        self.model = inner
+        self._n = n
+        self._hidden = hidden
+        self._consistent = consistent
+
+    def __call__(self, input_ids=None, output_hidden_states=False, use_cache=False, **kw):
+        b, s = input_ids.shape
+        emb = torch.arange(s, dtype=torch.float32).reshape(1, s, 1).repeat(b, 1, self._hidden)
+        hs = [emb]
+        h = emb
+        for blk in self.model.layers:
+            h = blk(h)[0]
+            hs.append(h)
+        if not self._consistent:               # corrupt one reported hidden state
+            hs[2] = hs[2] + 1.0
+        return SimpleNamespace(hidden_states=tuple(hs))
+
+
+def test_verify_hook_mapping_passes_when_consistent():
+    m = _VModel(consistent=True)
+    verify_hook_mapping(m, torch.zeros(1, 5, dtype=torch.long), [1, 2, 3])  # no raise
+
+
+def test_verify_hook_mapping_raises_on_mismatch():
+    m = _VModel(consistent=False)
+    with pytest.raises(ValueError):
+        verify_hook_mapping(m, torch.zeros(1, 5, dtype=torch.long), [1, 2, 3])

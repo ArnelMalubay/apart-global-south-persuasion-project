@@ -186,3 +186,29 @@ def register_hooks(model, layers, direction_unit, config):
             make_hook(direction_unit[L], config))
         handles.append(handle)
     return handles
+
+
+def verify_hook_mapping(model, probe_input_ids, layers):
+    """Assert hooking block L-1 yields hidden_states[L] (architecture sanity)."""
+    captured = {}
+
+    def capture(L):
+        def hook(module, inputs, output):
+            captured[L] = (output[0] if isinstance(output, tuple) else output).detach()
+        return hook
+
+    handles = [model.model.layers[L - 1].register_forward_hook(capture(L))
+               for L in layers]
+    try:
+        with torch.no_grad():
+            out = model(probe_input_ids, output_hidden_states=True, use_cache=False)
+    finally:
+        for h in handles:
+            h.remove()
+
+    for L in layers:
+        if not torch.allclose(captured[L], out.hidden_states[L], atol=1e-4):
+            raise ValueError(
+                f"hook/hidden_states mismatch at layer {L}: block output does not "
+                f"equal hidden_states[{L}]. The block->hidden_states mapping is "
+                f"wrong for this architecture; aborting before generation.")
