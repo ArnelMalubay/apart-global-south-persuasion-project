@@ -1,5 +1,8 @@
 """Generate model responses while steering or ablating the residual stream."""
+import os
 import torch
+
+from safetensors import safe_open
 
 
 def apply_intervention(h, u, mode, alpha):
@@ -39,3 +42,14 @@ def should_apply(token_scope, seq_len):
     if token_scope == "response":
         return seq_len == 1
     return seq_len > 1  # "prompt"
+
+
+def load_direction(directions_dir, direction):
+    """Load the unit-normed direction tensor [num_layers+1, hidden_dim]."""
+    path = os.path.join(directions_dir, direction, "directions.safetensors")
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"direction file not found: {path}")
+    with safe_open(path, framework="pt") as f:
+        if "direction_normalized" not in f.keys():
+            raise KeyError(f"'direction_normalized' not in {path}")
+        return f.get_tensor("direction_normalized").float()
