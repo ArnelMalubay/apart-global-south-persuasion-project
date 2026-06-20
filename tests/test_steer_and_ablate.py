@@ -387,3 +387,26 @@ def test_main_layers_default_none(monkeypatch):
     sa.main(["--folder-name", "r", "--mode", "ablate", "--direction", "d",
              "--responses-file", "resp.json"])
     assert captured["layers"] is None and captured["token_scope"] is None
+
+
+# ---------------------------------------------------------------------------
+# Task 10 final-review: multimodal wrapper regression tests (C2 / I1)
+# ---------------------------------------------------------------------------
+
+from steer_and_ablate import get_decoder_layers
+
+
+def test_get_decoder_layers_handles_multimodal_wrapper():
+    lm = torch.nn.Module()
+    lm.layers = torch.nn.ModuleList([_Block() for _ in range(3)])
+    base = torch.nn.Module()
+    base.language_model = lm
+    wrapper = SimpleNamespace(model=base)
+    assert get_decoder_layers(wrapper) is lm.layers
+
+
+def test_get_decoder_layers_falls_back_to_text_only():
+    base = torch.nn.Module()
+    base.layers = torch.nn.ModuleList([_Block() for _ in range(2)])
+    wrapper = SimpleNamespace(model=base)
+    assert get_decoder_layers(wrapper) is base.layers

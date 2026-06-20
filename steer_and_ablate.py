@@ -189,9 +189,15 @@ def make_hook(u_layer, config):
     return hook
 
 
+def get_decoder_layers(model):
+    """Return the decoder block ModuleList (handles the multimodal wrapper)."""
+    base = model.model
+    return getattr(base, "language_model", base).layers
+
+
 def register_hooks(model, layers, direction_unit, config):
     """Register intervention hooks on decoder blocks for the given layers."""
-    decoder_layers = model.model.layers
+    decoder_layers = get_decoder_layers(model)
     handles = []
     for L in layers:
         handle = decoder_layers[L - 1].register_forward_hook(
@@ -209,7 +215,8 @@ def verify_hook_mapping(model, probe_input_ids, layers):
             captured[L] = (output[0] if isinstance(output, tuple) else output).detach()
         return hook
 
-    handles = [model.model.layers[L - 1].register_forward_hook(capture(L))
+    layers_list = get_decoder_layers(model)
+    handles = [layers_list[L - 1].register_forward_hook(capture(L))
                for L in layers]
     try:
         with torch.no_grad():
@@ -265,9 +272,12 @@ def steer_and_ablate(folder_name, mode, direction, responses_file, *,
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    num_layers = model.config.num_hidden_layers
+    text_config = getattr(model.config, "text_config", model.config)
+    num_layers = text_config.num_hidden_layers
     if layers is None:
-        layers = list(range(1, num_layers + 1))
+        # hidden_states[num_layers] is post-final-norm (not a pre-norm residual
+        # stream the hook can target), so the default excludes the final layer.
+        layers = list(range(1, num_layers))
     for L in layers:
         if not (1 <= L <= num_layers):
             raise ValueError(f"layer {L} out of range 1..{num_layers}")
