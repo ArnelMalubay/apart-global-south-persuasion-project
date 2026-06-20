@@ -117,3 +117,27 @@ def test_select_prompts_unknown_category_raises(tmp_path):
 def test_select_prompts_unknown_variant_raises(tmp_path):
     with pytest.raises(ValueError):
         select_prompts(_responses(tmp_path), None, ["not_a_field"])
+
+
+from steer_and_ablate import build_work_list
+
+_PROMPTS = [
+    {"id": "a", "category": "c", "user_prompt_variant": "user", "user_text": "qa"},
+    {"id": "b", "category": "c", "user_prompt_variant": "user", "user_text": "qb"},
+]
+
+
+def test_build_work_list_steer_expands_alpha_and_completions():
+    units = build_work_list(_PROMPTS, "steer", [0, 5], num_completions=3)
+    assert len(units) == 2 * 2 * 3            # prompts * alphas * completions
+    assert {u["alpha"] for u in units} == {0.0, 5.0}
+    assert {u["completion_index"] for u in units} == {0, 1, 2}
+    assert all(u["mode"] == "steer" for u in units)
+    # sorted: first by alpha then variant/id/completion
+    assert units[0]["alpha"] == 0.0
+
+
+def test_build_work_list_ablate_single_alpha_none():
+    units = build_work_list(_PROMPTS, "ablate", [0, 5], num_completions=2)
+    assert len(units) == 2 * 2                # alphas ignored
+    assert all(u["alpha"] is None for u in units)

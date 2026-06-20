@@ -88,3 +88,18 @@ def select_prompts(responses_path, categories, user_prompts):
                     "user_text": str(text),
                 })
     return prompts
+
+
+def build_work_list(prompts, mode, alphas, num_completions):
+    """Flatten prompts into ordered generation units."""
+    alpha_values = [float(a) for a in alphas] if mode == "steer" else [None]
+    units = []
+    for alpha in alpha_values:
+        for prompt in prompts:
+            for c in range(num_completions):
+                units.append({**prompt, "mode": mode, "alpha": alpha,
+                              "completion_index": c})
+    units.sort(key=lambda u: (u["alpha"] if u["alpha"] is not None else 0.0,
+                              u["user_prompt_variant"], u["id"],
+                              u["completion_index"]))
+    return units
