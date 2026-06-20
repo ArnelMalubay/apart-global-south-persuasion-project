@@ -351,3 +351,39 @@ def test_steer_and_ablate_end_to_end(tmp_path, monkeypatch):
         model_responses_dir=str(out_root))
     records2 = [json.loads(l) for l in jsonl.read_text(encoding="utf-8").splitlines()]
     assert len(records2) == 8
+
+
+def test_main_parses_args_and_calls(monkeypatch):
+    captured = {}
+    monkeypatch.setattr(sa, "steer_and_ablate",
+                        lambda folder_name, mode, direction, responses_file, **kw:
+                        captured.update({"folder_name": folder_name, "mode": mode,
+                                         "direction": direction,
+                                         "responses_file": responses_file, **kw}))
+    sa.main([
+        "--folder-name", "run1", "--mode", "steer", "--direction", "d",
+        "--responses-file", "resp.json",
+        "--alpha", "0", "5", "10",
+        "--layers", "5", "6",
+        "--token-scope", "all",
+        "--user-prompts", "user", "user_tl",
+        "--categories", "everyday_health",
+        "--num-completions", "4", "--batch-size", "8",
+        "--max-new-tokens", "150", "--seed", "7",
+    ])
+    assert captured["folder_name"] == "run1" and captured["mode"] == "steer"
+    assert captured["alpha"] == [0.0, 5.0, 10.0]
+    assert captured["layers"] == [5, 6]
+    assert captured["token_scope"] == "all"
+    assert captured["user_prompts"] == ["user", "user_tl"]
+    assert captured["num_completions"] == 4 and captured["max_new_tokens"] == 150
+
+
+def test_main_layers_default_none(monkeypatch):
+    captured = {}
+    monkeypatch.setattr(sa, "steer_and_ablate",
+                        lambda folder_name, mode, direction, responses_file, **kw:
+                        captured.update(kw))
+    sa.main(["--folder-name", "r", "--mode", "ablate", "--direction", "d",
+             "--responses-file", "resp.json"])
+    assert captured["layers"] is None and captured["token_scope"] is None

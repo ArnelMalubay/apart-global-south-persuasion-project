@@ -1,4 +1,13 @@
-"""Generate model responses while steering or ablating the residual stream."""
+r"""Generate model responses while steering or ablating the residual stream.
+
+steer: add alpha*unit_direction to the residual stream at the designated layers
+(response tokens by default). ablate: project the unit direction out of the
+residual stream at the designated layers (all tokens by default).
+
+Sample run (single line; PowerShell-safe):
+  python steer_and_ablate.py --folder-name authority_steer --mode steer --direction authority_vs_base --responses-file persuasion_dataset_with_user.json --alpha 0 5 10 15 --user-prompts user user_tl
+"""
+import argparse
 import json
 import os
 import torch
@@ -321,3 +330,50 @@ def steer_and_ablate(folder_name, mode, direction, responses_file, *,
         for h in handles:
             h.remove()
     print(f"[done] {folder_name}: {len(work)} new completions -> {jsonl_path}")
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(
+        description="Generate steered/ablated model responses.")
+    p.add_argument("--folder-name", required=True)
+    p.add_argument("--mode", required=True, choices=["steer", "ablate"])
+    p.add_argument("--direction", required=True)
+    p.add_argument("--responses-file", required=True)
+    p.add_argument("--alpha", nargs="+", type=float, default=[0.0])
+    p.add_argument("--layers", nargs="+", type=int, default=None)
+    p.add_argument("--token-scope", choices=["all", "response", "prompt"],
+                   default=None)
+    p.add_argument("--categories", nargs="+", default=None)
+    p.add_argument("--user-prompts", nargs="+", default=["user"])
+    p.add_argument("--num-completions", type=int, default=3)
+    p.add_argument("--batch-size", type=int, default=16)
+    p.add_argument("--temperature", type=float, default=1.0)
+    p.add_argument("--top-p", type=float, default=0.9)
+    p.add_argument("--max-new-tokens", type=int, default=200)
+    p.add_argument("--seed", type=int, default=1)
+    p.add_argument("--model-id",
+                   default="aisingapore/Gemma-SEA-LION-v4.5-E2B-IT")
+    p.add_argument("--device", default="auto", choices=["auto", "cuda", "cpu"])
+    p.add_argument("--compute-dtype", default="bfloat16",
+                   choices=["float32", "float16", "bfloat16"])
+    p.add_argument("--responses-dir", default="data/responses")
+    p.add_argument("--directions-dir", default="data/directions")
+    p.add_argument("--model-responses-dir", default="data/model_responses")
+    args = p.parse_args(argv)
+
+    steer_and_ablate(
+        folder_name=args.folder_name, mode=args.mode, direction=args.direction,
+        responses_file=args.responses_file, alpha=args.alpha, layers=args.layers,
+        token_scope=args.token_scope, categories=args.categories,
+        user_prompts=args.user_prompts, num_completions=args.num_completions,
+        batch_size=args.batch_size, temperature=args.temperature,
+        top_p=args.top_p, max_new_tokens=args.max_new_tokens, seed=args.seed,
+        model_id=args.model_id, device=args.device,
+        compute_dtype=args.compute_dtype, responses_dir=args.responses_dir,
+        directions_dir=args.directions_dir,
+        model_responses_dir=args.model_responses_dir,
+    )
+
+
+if __name__ == "__main__":
+    main()
