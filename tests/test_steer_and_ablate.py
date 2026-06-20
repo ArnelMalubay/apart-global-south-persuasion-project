@@ -80,3 +80,40 @@ def test_load_direction(tmp_path):
 def test_load_direction_missing_raises(tmp_path):
     with pytest.raises(FileNotFoundError):
         load_direction(str(tmp_path / "directions"), "nope")
+
+
+import json
+from steer_and_ablate import select_prompts
+
+
+def _responses(tmp_path):
+    p = tmp_path / "resp.json"
+    p.write_text(json.dumps([
+        {"id": "catx_0", "category": "catx", "user": "qx0", "user_tl": "tlx0"},
+        {"id": "catx_1", "category": "catx", "user": "qx1", "user_tl": "  "},
+        {"id": "caty_0", "category": "caty", "user": "qy0", "user_tl": "tly0"},
+    ]), encoding="utf-8")
+    return str(p)
+
+
+def test_select_prompts_category_and_variant(tmp_path):
+    out = select_prompts(_responses(tmp_path), ["catx"], ["user", "user_tl"])
+    keys = {(d["id"], d["user_prompt_variant"]) for d in out}
+    # catx rows only; catx_1 user_tl is whitespace -> skipped
+    assert keys == {("catx_0", "user"), ("catx_0", "user_tl"), ("catx_1", "user")}
+    assert all(d["category"] == "catx" for d in out)
+
+
+def test_select_prompts_defaults_all_categories(tmp_path):
+    out = select_prompts(_responses(tmp_path), None, ["user"])
+    assert {d["id"] for d in out} == {"catx_0", "catx_1", "caty_0"}
+
+
+def test_select_prompts_unknown_category_raises(tmp_path):
+    with pytest.raises(ValueError):
+        select_prompts(_responses(tmp_path), ["nope"], ["user"])
+
+
+def test_select_prompts_unknown_variant_raises(tmp_path):
+    with pytest.raises(ValueError):
+        select_prompts(_responses(tmp_path), None, ["not_a_field"])
