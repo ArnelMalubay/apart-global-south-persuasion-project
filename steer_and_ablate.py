@@ -14,6 +14,7 @@ import torch
 from datetime import datetime, timezone
 
 from safetensors import safe_open
+from tqdm import tqdm
 
 from utils import load_model_and_tokenizer, resolve_device
 
@@ -323,8 +324,10 @@ def steer_and_ablate(folder_name, mode, direction, responses_file, *,
         alpha_groups = {}
         for u in work:
             alpha_groups.setdefault(u["alpha"], []).append(u)
+        progress = tqdm(total=len(work), desc="generating", unit="compl")
         for alpha_value, group in alpha_groups.items():
             config.alpha = alpha_value
+            progress.set_postfix(alpha=alpha_value)
             for batch in _chunks(group, batch_size):
                 texts = [tokenizer.apply_chat_template(
                     [{"role": "user", "content": u["user_text"]}],
@@ -335,7 +338,8 @@ def steer_and_ablate(folder_name, mode, direction, responses_file, *,
                                       device=resolved_device)
                 for u, text in zip(batch, gens):
                     append_record(jsonl_path, record_from_unit(u, text, seed))
-            print(f"[done] alpha={alpha_value}: {len(group)} completions")
+                progress.update(len(batch))
+        progress.close()
     finally:
         for h in handles:
             h.remove()
