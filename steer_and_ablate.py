@@ -2,8 +2,11 @@
 import json
 import os
 import torch
+from datetime import datetime, timezone
 
 from safetensors import safe_open
+
+from utils import load_model_and_tokenizer, resolve_device
 
 
 def apply_intervention(h, u, mode, alpha):
@@ -212,3 +215,109 @@ def verify_hook_mapping(model, probe_input_ids, layers):
                 f"hook/hidden_states mismatch at layer {L}: block output does not "
                 f"equal hidden_states[{L}]. The block->hidden_states mapping is "
                 f"wrong for this architecture; aborting before generation.")
+
+
+def generate_batch(model, tokenizer, prompt_texts, *, max_new_tokens,
+                   temperature, top_p, device):
+    """Left-padded batch generation; returns decoded new tokens per sequence."""
+    enc = tokenizer(prompt_texts, return_tensors="pt", padding=True)
+    enc = {k: v.to(device) for k, v in enc.items()}
+    with torch.no_grad():
+        out = model.generate(
+            **enc, do_sample=True, temperature=temperature, top_p=top_p,
+            max_new_tokens=max_new_tokens, pad_token_id=tokenizer.pad_token_id)
+    new = out[:, enc["input_ids"].shape[1]:]
+    return [t.strip() for t in tokenizer.batch_decode(new, skip_special_tokens=True)]
+
+
+def _chunks(seq, n):
+    for i in range(0, len(seq), n):
+        yield seq[i:i + n]
+
+
+def steer_and_ablate(folder_name, mode, direction, responses_file, *,
+                     alpha=(0,), layers=None, token_scope=None, categories=None,
+                     user_prompts=("user",), num_completions=3, batch_size=16,
+                     temperature=1.0, top_p=0.9, max_new_tokens=200, seed=1,
+                     model_id="aisingapore/Gemma-SEA-LION-v4.5-E2B-IT",
+                     device="auto", compute_dtype="bfloat16",
+                     responses_dir="data/responses",
+                     directions_dir="data/directions",
+                     model_responses_dir="data/model_responses"):
+    """Generate steered/ablated completions and write them to JSONL."""
+    if mode not in ("steer", "ablate"):
+        raise ValueError(f"mode must be 'steer' or 'ablate', got {mode!r}")
+    token_scope_resolved = resolve_token_scope(mode, token_scope)
+    resolved_device = resolve_device(device)
+
+    print(f"Loading model {model_id} ...")
+    model, tokenizer = load_model_and_tokenizer(model_id, device, compute_dtype)
+    tokenizer.padding_side = "left"
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token = tokenizer.eos_token
+
+    num_layers = model.config.num_hidden_layers
+    if layers is None:
+        layers = list(range(1, num_layers + 1))
+    for L in layers:
+        if not (1 <= L <= num_layers):
+            raise ValueError(f"layer {L} out of range 1..{num_layers}")
+
+    unit = load_direction(directions_dir, direction)
+
+    # Architecture sanity check before any generation.
+    probe = tokenizer.apply_chat_template(
+        [{"role": "user", "content": "hello"}], add_generation_prompt=True,
+        tokenize=True, return_tensors="pt").to(resolved_device)
+    verify_hook_mapping(model, probe, layers)
+
+    prompts = select_prompts(os.path.join(responses_dir, responses_file),
+                             categories, list(user_prompts))
+    work = build_work_list(prompts, mode, alpha, num_completions)
+
+    out_dir = os.path.join(model_responses_dir, folder_name)
+    os.makedirs(out_dir, exist_ok=True)
+    jsonl_path = os.path.join(out_dir, "responses.jsonl")
+
+    done = read_done_keys(jsonl_path)
+    work = [u for u in work if work_key(u) not in done]
+
+    write_metadata(out_dir, {
+        "folder_name": folder_name, "mode": mode,
+        "alpha": list(alpha) if mode == "steer" else None,
+        "direction": direction, "layers": layers,
+        "token_scope": token_scope_resolved, "responses_file": responses_file,
+        "categories": list(categories) if categories else "all",
+        "user_prompts": list(user_prompts), "num_completions": num_completions,
+        "batch_size": batch_size, "temperature": temperature, "top_p": top_p,
+        "max_new_tokens": max_new_tokens, "seed": seed, "model_id": model_id,
+        "compute_dtype": compute_dtype, "num_units": len(work),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    })
+
+    config = InterventionConfig(mode=mode, alpha=None,
+                                token_scope=token_scope_resolved)
+    handles = register_hooks(model, layers, unit, config)
+    torch.manual_seed(seed)
+    try:
+        # group by alpha so each batch shares a single alpha for the hook
+        alpha_groups = {}
+        for u in work:
+            alpha_groups.setdefault(u["alpha"], []).append(u)
+        for alpha_value, group in alpha_groups.items():
+            config.alpha = alpha_value
+            for batch in _chunks(group, batch_size):
+                texts = [tokenizer.apply_chat_template(
+                    [{"role": "user", "content": u["user_text"]}],
+                    add_generation_prompt=True, tokenize=False) for u in batch]
+                gens = generate_batch(model, tokenizer, texts,
+                                      max_new_tokens=max_new_tokens,
+                                      temperature=temperature, top_p=top_p,
+                                      device=resolved_device)
+                for u, text in zip(batch, gens):
+                    append_record(jsonl_path, record_from_unit(u, text, seed))
+            print(f"[done] alpha={alpha_value}: {len(group)} completions")
+    finally:
+        for h in handles:
+            h.remove()
+    print(f"[done] {folder_name}: {len(work)} new completions -> {jsonl_path}")

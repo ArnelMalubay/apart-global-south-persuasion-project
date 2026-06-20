@@ -272,3 +272,82 @@ def test_verify_hook_mapping_raises_on_mismatch():
     m = _VModel(consistent=False)
     with pytest.raises(ValueError):
         verify_hook_mapping(m, torch.zeros(1, 5, dtype=torch.long), [1, 2, 3])
+
+
+# ---------------------------------------------------------------------------
+# Task 9: steer_and_ablate orchestration stubs and integration test
+# ---------------------------------------------------------------------------
+
+import steer_and_ablate as sa
+
+
+class _StubModel:
+    config = SimpleNamespace(num_hidden_layers=3)
+
+    def __init__(self):
+        inner = torch.nn.Module()
+        inner.layers = torch.nn.ModuleList([_Block() for _ in range(3)])
+        self.model = inner
+        self.device = "cpu"
+
+
+class _StubTokenizer:
+    pad_token_id = 0
+    padding_side = "right"
+    eos_token_id = 1
+
+    def apply_chat_template(self, messages, add_generation_prompt=True,
+                            tokenize=False, return_tensors=None):
+        text = messages[-1]["content"] if messages else ""
+        if tokenize:
+            import torch as _torch
+            return _torch.zeros(1, 3, dtype=_torch.long)
+        return f"<chat>{text}</chat>"
+
+
+def test_steer_and_ablate_end_to_end(tmp_path, monkeypatch):
+    # responses + direction fixtures
+    responses_dir = tmp_path / "responses"; responses_dir.mkdir()
+    (responses_dir / "resp.json").write_text(json.dumps([
+        {"id": "catx_0", "category": "catx", "user": "qa"},
+        {"id": "catx_1", "category": "catx", "user": "qb"},
+    ]), encoding="utf-8")
+    directions_dir = tmp_path / "directions"
+    _make_direction(str(directions_dir), "d",
+                    torch.nn.functional.normalize(torch.randn(4, 8), dim=1))
+    out_root = tmp_path / "model_responses"
+
+    # stub the model-dependent pieces (no real model)
+    monkeypatch.setattr(sa, "load_model_and_tokenizer",
+                        lambda *a, **k: (_StubModel(), _StubTokenizer()))
+    monkeypatch.setattr(sa, "verify_hook_mapping", lambda *a, **k: None)
+    monkeypatch.setattr(sa, "register_hooks", lambda *a, **k: [])
+    # deterministic generation: echo the prompt text + alpha
+    monkeypatch.setattr(sa, "generate_batch",
+                        lambda model, tok, texts, **k: [f"gen::{t}" for t in texts])
+
+    sa.steer_and_ablate(
+        "run1", "steer", "d", "resp.json",
+        alpha=[0, 5], layers=[1, 2, 3], num_completions=2,
+        responses_dir=str(responses_dir), directions_dir=str(directions_dir),
+        model_responses_dir=str(out_root))
+
+    jsonl = out_root / "run1" / "responses.jsonl"
+    records = [json.loads(l) for l in jsonl.read_text(encoding="utf-8").splitlines()]
+    # 2 prompts * 2 alphas * 2 completions = 8
+    assert len(records) == 8
+    assert {r["alpha"] for r in records} == {0.0, 5.0}
+    assert all(r["mode"] == "steer" for r in records)
+    assert all(r["generated_text"].startswith("gen::") for r in records)
+    meta = json.loads((out_root / "run1" / "metadata.json").read_text(encoding="utf-8"))
+    assert meta["mode"] == "steer" and meta["token_scope"] == "response"
+    assert meta["layers"] == [1, 2, 3]
+
+    # resume: re-running adds nothing
+    sa.steer_and_ablate(
+        "run1", "steer", "d", "resp.json",
+        alpha=[0, 5], layers=[1, 2, 3], num_completions=2,
+        responses_dir=str(responses_dir), directions_dir=str(directions_dir),
+        model_responses_dir=str(out_root))
+    records2 = [json.loads(l) for l in jsonl.read_text(encoding="utf-8").splitlines()]
+    assert len(records2) == 8
