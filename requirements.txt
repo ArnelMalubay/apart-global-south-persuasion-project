@@ -15,7 +15,12 @@ huggingface_hub>=0.23     # Hub auth (get_token/login) + model downloads
 safetensors>=0.4
 accelerate>=0.30
 tqdm>=4.66
+# LLM-judge pipeline (src/response_evals):
+openai>=1.50
+python-dotenv>=1.0
+pandas>=2.0
 # Dev/test:
 pytest>=8
+pytest-asyncio>=0.24
 # Optional 4-bit fallback for very low VRAM (not required for E2B on 8GB):
 # bitsandbytes>=0.43
